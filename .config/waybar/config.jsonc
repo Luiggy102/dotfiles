@@ -1,0 +1,129 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "modules-left": [
+        "hyprland/workspaces",
+        "wlr/taskbar"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "tray",
+        "custom/playerctl",
+        "network",
+        "battery",
+        "custom/weather",
+        "pulseaudio",
+        "clock#date",
+        "clock#time",
+        "custom/power"
+    ],
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 15,
+        "icon-theme": "Papirus",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "minimize-raise",
+        "ignore-list": [
+            "Alacritty"
+        ],
+        "app_ids-mapping": {}
+    },
+    "hyprland/workspaces": {
+        "sort-by-number": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "<span color=\"#EBDBB2\">1</span>",
+            "2": "<span color=\"#EBDBB2\">2</span>",
+            "3": "<span color=\"#EBDBB2\">3</span>",
+            "4": "<span color=\"#EBDBB2\">4</span>",
+            "5": "<span color=\"#EBDBB2\">5</span>",
+            "6": "<span color=\"#EBDBB2\">6</span>",
+            "7": "<span color=\"#EBDBB2\">7</span>",
+            "8": "<span color=\"#EBDBB2\">8</span>",
+            "9": "<span color=\"#EBDBB2\">󰣇</span>",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    },
+    "custom/playerctl": {
+        "format": "{icon}  <span>{}</span>",
+        "return-type": "json",
+        "max-length": 40,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click": "playerctl play-pause",
+        "format-icons": {
+            "Playing": "",
+            "Paused": ""
+        }
+    },
+    "network": {
+        "format": "Cargando...",
+        "format-wifi": "{essid}  ",
+        "format-ethernet": "{ipaddr}/{cidr}",
+        "format-disconnected": "Desconectado",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "tooltip-format-wifi": "{essid}({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Desconectado"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "clock#time": {
+        "interval": 1,
+        "format": "{:%H:%M} ",
+        "tooltip": false
+    },
+    "clock#date": {
+        "interval": 10,
+        "format": "{:%e %b %y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": " muteado",
+        "scroll-step": 5,
+        "on-click": "pactl set-sink-mute 0 toggle",
+        "format-icons": {
+            "headphone": "  ",
+            "hands-free": "  ",
+            "headset": "  ",
+            "phone": "  ",
+            "portable": "  ",
+            "car": "  ",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+    "custom/power": {
+        "format": " ⏻ ",
+        "on-click": "kitty"
+    }
+}
