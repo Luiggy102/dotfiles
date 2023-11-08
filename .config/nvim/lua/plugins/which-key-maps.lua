@@ -65,7 +65,7 @@ return {
                 n = { ":IconPickerNormal<cr>", "insertar en normal" },
                 y = { ":IconPickerYank<cr>", "copiar" },
             },
-            e = {
+            n = {
                 name = "ejecutar código",
                 n = { ":!node %<cr>", "NodeJS" },
                 t = { ":!ts-node %<cr>", "TypeScript" },

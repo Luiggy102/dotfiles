@@ -7,6 +7,7 @@ export WLR_NO_HARDWARE_CURSORS=1
 export ZSH=$HOME/.oh-my-zsh
 export FZF_DEFAULT_OPTS="--border --padding 2%"
 export PF_ASCII='tux'
+export BAT_THEME="Catppuccin-mocha"
 #export FZF_DEFAULT_COMMAND="fd --type f"
 #ZSH_THEME="fwalch"
 #ZSH_THEME="powerlevel10k/powerlevel10k"

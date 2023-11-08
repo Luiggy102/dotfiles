@@ -74,11 +74,11 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         opts = {
-            options = {
-                theme = 'gruvbox',
-                section_separators = { left = '', right = '' },
-                component_separators = { left = '', right = '' }
-            }
+            -- options = {
+            --     theme = 'gruvbox',
+            --     section_separators = { left = '', right = '' },
+            --     component_separators = { left = '', right = '' }
+            -- }
         }
     },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", },
@@ -141,7 +141,27 @@ return {
     'alexghergh/nvim-tmux-navigation',
 
     -- esquema de color
+
     'ellisonleao/gruvbox.nvim',
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        opts = {
+            integrations = {
+                cmp = true,
+                gitsigns = true,
+                nvimtree = true,
+                treesitter = true,
+                leap = true,
+                mason = true,
+                vimwiki = true,
+                which_key = true,
+            }
+        }
+    },
+    -- extras
+    'vimwiki/vimwiki',
     {
         'nvimdev/dashboard-nvim',
         event = 'VimEnter',
@@ -187,7 +207,7 @@ return {
                         action = 'Telescope find_files theme=ivy cwd='
                     },
                     mru = { limit = 5, label = 'Archivos recientes' },
-                    disable_move = true,
+                    disable_move = false,
                 }
             }
         end,
