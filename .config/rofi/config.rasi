@@ -17,7 +17,7 @@ configuration {
     display-drun: "Aplicación";
     display-window: "Ventana";
     display-run: "Ejecutar";
-    display-ssh: "Ssh";
+    display-ssh: "ssh";
 }
 
 @theme "/dev/null"

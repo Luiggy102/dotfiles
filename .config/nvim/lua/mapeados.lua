@@ -4,10 +4,9 @@ local mapeado = vim.keymap.set
 mapeado({"n", "v"}, ";", ":")
 mapeado("n", "<C-w>", vim.cmd.w)
 mapeado("n", "<C-q>", vim.cmd.q)
--- mapeado("n", "<leader>w", vim.cmd.w)
--- mapeado("n", "<leader>wq", ":wq<cr>")
--- mapeado("n", "<leader>q", vim.cmd.q)
 
+-- plugins
+-- NvimTree
 mapeado("n", "<C-n>", ':NvimTreeToggle<cr>')
 -- nvim bar
 local optsBar = { noremap = true, silent = true }

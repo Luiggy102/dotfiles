@@ -5,9 +5,6 @@ local global = vim.g
 
 vim.api.nvim_command('set fillchars=eob:\\ ')
 
--- esquema de color
-
-vim.cmd[[let g:gruvbox_sign_column = 'none']]
 -- Ajustes Globales
 global.mapleader = " "
 global.netrw_menu = 0

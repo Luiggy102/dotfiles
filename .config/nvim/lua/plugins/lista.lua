@@ -1,10 +1,7 @@
 return {
 
     -- lsp
-    {
-        'williamboman/mason.nvim',
-        dependencies = 'williamboman/mason-lspconfig.nvim'
-    },
+    { 'williamboman/mason.nvim', dependencies = 'williamboman/mason-lspconfig.nvim' },
     {
         'neovim/nvim-lspconfig',
         event = { 'BufReadPre', 'BufNewFile' },
@@ -31,7 +28,6 @@ return {
             'hrsh7th/cmp-path',           -- para rutas
             'hrsh7th/cmp-cmdline',        -- para los comandos
             'micangl/cmp-vimtex',         -- para latex
-            'hrsh7th/cmp-nvim-lua',       -- para lua
             'f3fora/cmp-spell',           -- para español
             'kdheepak/cmp-latex-symbols', -- symbolos latex
             {
@@ -45,8 +41,18 @@ return {
         },
     },
 
-    -- Ide
-    -- { 'akinsho/bufferline.nvim',     version = "*",                            dependencies = 'nvim-tree/nvim-web-devicons',                                                                                           opts = {} },
+    -- ide
+    'windwp/nvim-autopairs',
+    'folke/zen-mode.nvim',
+    'tpope/vim-fugitive',
+    { 'akinsho/toggleterm.nvim',     version = "*",                            config = true },
+    { 'vuki656/package-info.nvim', dependencies = { 'MunifTanjim/nui.nvim' }, opts = {} },
+    { 'numToStr/Comment.nvim',           lazy = false,        opts = {} },
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", },
+    { 'stevearc/dressing.nvim',          opts = {}, },
+    { 'lewis6991/gitsigns.nvim',         opts = {} },
+    { 'karb94/neoscroll.nvim',           opts = {} },
+    { 'nvim-lualine/lualine.nvim', opts = { } },
     {
         'romgrk/barbar.nvim',
         dependencies = {
@@ -63,39 +69,18 @@ return {
             exclude_name = {'index.wiki'},
         },
     },
-
-
-    { 'akinsho/toggleterm.nvim',     version = "*",                            config = true },
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = { exclude = { filetypes = { "dashboard", }, },
         },
     },
-    { 'numToStr/Comment.nvim',           lazy = false,        opts = {} },
-    {
-        'nvim-lualine/lualine.nvim',
-        opts = {
-            -- options = {
-            --     theme = 'gruvbox',
-            --     section_separators = { left = '', right = '' },
-            --     component_separators = { left = '', right = '' }
-            -- }
-        }
-    },
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", },
-    { 'stevearc/dressing.nvim',          opts = {}, },
-    { 'lewis6991/gitsigns.nvim',         opts = {} },
-    { 'tpope/vim-fugitive' },
-    { 'karb94/neoscroll.nvim',           opts = {} },
     {
         'norcalli/nvim-colorizer.lua',
         config = function()
             require("colorizer").setup()
         end,
     },
-    { 'niuiic/code-shot.nvim',     dependencies = { 'niuiic/core.nvim' },     opts = {} },
-    { 'vuki656/package-info.nvim', dependencies = { 'MunifTanjim/nui.nvim' }, opts = {} },
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -119,32 +104,27 @@ return {
             ignore_missing = true,
         },
     },
+
+    -- navegacion
+    'alexghergh/nvim-tmux-navigation',
+    { 'nvim-telescope/telescope.nvim', tag = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim', }, },
+    {
     {
         'ggandor/leap.nvim',
         dependencies = { 'tpope/vim-repeat' },
         config = function()
             require('leap').add_default_mappings()
         end,
-
         opts = {},
     },
-    'windwp/nvim-autopairs',
-    'folke/zen-mode.nvim',
-
-    -- navegacion
-    { 'nvim-telescope/telescope.nvim', tag = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim', }, },
-    {
         "nvim-tree/nvim-tree.lua",
         version = "*",
         lazy = false,
         dependencies = {
             "nvim-tree/nvim-web-devicons", },
     },
-    'alexghergh/nvim-tmux-navigation',
 
     -- esquema de color
-
-    'ellisonleao/gruvbox.nvim',
     {
         "catppuccin/nvim",
         name = "catppuccin",
@@ -162,6 +142,7 @@ return {
             }
         }
     },
+
     -- extras
     'vimwiki/vimwiki',
     {
@@ -174,7 +155,7 @@ return {
                 config = {
                     theme = 'hyper',
                     header = { " " },
-                    packages = { enable = false },
+                    packages = { enable = true },
                     footer = {},
                     shortcut = {
                         {

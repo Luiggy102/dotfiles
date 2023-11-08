@@ -21,7 +21,6 @@ return {
                 name = "código",
                 a = { vim.lsp.buf.code_action, "acción" },
                 r = { vim.lsp.buf.rename, "renombar" },
-                t = { ":lua require('code-shot').shot()<cr>", "tomar captura" },
                 d = {
                     name = "dependencias (node)",
                     d = { ":lua require('package-info').delete()<cr>", "eliminar dependencia" },

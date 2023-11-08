@@ -54,19 +54,18 @@ return {
         sources = cmp.config.sources({
             { name = 'nvim_lsp' },
             { name = 'luasnip' },
-            { name = 'nvim_lua' },
-            { name = 'npm' },
             { name = 'path' },
             { name = 'buffer',    keyword_lenght = 3 },
-            {
-                name = 'spell',
-                option = {
-                    keep_all_entries = false,
-                    enable_in_context = function()
-                        return true
-                    end,
-                },
-            },
+            { name = 'npm' },
+            -- {
+            --     name = 'spell',
+            --     option = {
+            --         keep_all_entries = false,
+            --         enable_in_context = function()
+            --             return true
+            --         end,
+            --     },
+            -- },
             -- { name = 'vimtex'},
             -- {
             --     name = "latex_symbols",
