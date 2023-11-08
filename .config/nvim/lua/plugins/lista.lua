@@ -59,6 +59,8 @@ return {
             sidebar_filetypes = {
                 NvimTree = true,
             },
+            exclude_ft = {'wiki'},
+            exclude_name = {'index.wiki'},
         },
     },
 
@@ -176,6 +178,14 @@ return {
                     footer = {},
                     shortcut = {
                         {
+                            icon = ' ',
+                            icon_hl = '@variable',
+                            desc = 'wiki',
+                            group = 'Ayuda',
+                            action = 'VimwikiIndex',
+                            key = 'w',
+                        },
+                        {
                             icon = ' ',
                             icon_hl = '@variable',
                             desc = 'Directorio actual',
@@ -184,20 +194,20 @@ return {
                             key = 'f',
                         },
                         {
-                            icon = ' ',
-                            icon_hl = '@variable',
-                            desc = 'manuales',
-                            group = 'Ayuda',
-                            action = 'Telescope man_pages theme=ivy',
-                            key = 'm',
-                        },
-                        {
                             icon = ' ',
                             icon_hl = '@variable',
                             desc = 'Recientes',
                             group = 'Busqueda',
                             action = 'Telescope oldfiles theme=ivy',
                             key = 'h',
+                        },
+                        {
+                            icon = ' ',
+                            icon_hl = '@variable',
+                            desc = 'Arbol de Archivos',
+                            group = 'Busqueda',
+                            action = 'NvimTreeOpen',
+                            key = 'n',
                         },
                     },
                     project = {

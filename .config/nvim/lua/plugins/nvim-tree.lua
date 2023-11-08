@@ -4,7 +4,7 @@ return {
             -- side = 'right'
         },
         filters = {
-            dotfiles = true,
+            dotfiles = false,
         },
         renderer = {
             indent_markers = { enable = false }
