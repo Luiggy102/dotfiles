@@ -5,9 +5,13 @@ mapeado({"n", "v"}, ";", ":")
 mapeado("n", "<C-w>", vim.cmd.w)
 mapeado("n", "<C-q>", vim.cmd.q)
 
+mapeado("i", "LL", "<Right>")
+
 -- plugins
 -- NvimTree
 mapeado("n", "<C-n>", ':NvimTreeToggle<cr>')
+-- IconPicker
+--mapeado("i", "<C-i>", '<CMD>IconPickerInsert emoji nerd_font<cr>')
 -- nvim bar
 local optsBar = { noremap = true, silent = true }
 mapeado('n', 'H', '<Cmd>BufferPrevious<CR>', optsBar)

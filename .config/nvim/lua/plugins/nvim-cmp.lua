@@ -55,24 +55,7 @@ return {
             { name = 'nvim_lsp' },
             { name = 'luasnip' },
             { name = 'path' },
-            { name = 'buffer',    keyword_lenght = 3 },
-            { name = 'npm' },
-            -- {
-            --     name = 'spell',
-            --     option = {
-            --         keep_all_entries = false,
-            --         enable_in_context = function()
-            --             return true
-            --         end,
-            --     },
-            -- },
-            -- { name = 'vimtex'},
-            -- {
-            --     name = "latex_symbols",
-            --     option = {
-            --         strategy = 0, -- mixed
-            --     },
-            -- },
+            { name = 'buffer',  keyword_lenght = 3 },
         }),
         formatting = {
             fields = { "kind", "abbr", "menu" },
@@ -90,15 +73,45 @@ return {
         completion = {
             completeopt = 'menu,menuone,noinsert'
         },
-        window = {
-            -- completion = cmp.config.window.bordered(),
-            -- documentation = cmp.config.window.bordered(),
-        },
+        window = {},
         experimental = {
             ghost_text = true
         },
     }),
 
+    -- latex
+    cmp.setup.filetype('tex', {
+        sources = cmp.config.sources({
+            { name = 'vimtex' },
+            { name = 'luasnip' },
+            {
+                name = "latex_symbols",
+                option = { strategy = 0 },
+            },
+            {
+                name = 'spell',
+                option = {
+                    keep_all_entries = false,
+                    enable_in_context = function()
+                        return true
+                    end,
+                },
+            },
+            { name = 'buffer' },
+        })
+    }),
+
+    -- package.json
+    cmp.setup.filetype('json', {
+        sources = cmp.config.sources({
+            { name = 'npm' },
+            { name = 'nvim_lsp' },
+            { name = 'buffer' },
+            { name = 'path' },
+        })
+    }),
+
+    -- git commit
     cmp.setup.filetype('gitcommit', {
         sources = cmp.config.sources({
             { name = 'git' },
@@ -106,11 +119,27 @@ return {
         })
     }),
 
+    -- vimwiki
+    cmp.setup.filetype({ 'vimwiki', 'text' }, {
+        sources = cmp.config.sources({
+            {
+                name = 'spell',
+                option = {
+                    keep_all_entries = false,
+                    enable_in_context = function()
+                        return true
+                    end,
+                },
+            },
+            { name = 'buffer' },
+        })
+    }),
+
     cmp.setup.cmdline({ '/', '?' }, {
         mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-            { name = 'buffer' }
-        }
+        sources = cmp.config.sources({
+
+        })
     }),
 
     cmp.setup.cmdline(':', {

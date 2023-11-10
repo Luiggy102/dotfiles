@@ -19,8 +19,13 @@ return {
             },
             c = {
                 name = "código",
-                a = { vim.lsp.buf.code_action, "acción" },
-                r = { vim.lsp.buf.rename, "renombar" },
+                -- a = { ":Lspsaga code_action", "acción" },
+                -- r = { vim.lsp.buf.rename, "renombar" },
+                -- h = {
+                --     name = "jerarquía",
+                --     i = { ":Lspsaga incoming_calls<cr>", "jerarquía entrada" },
+                --     o = { ":Lspsaga outgoing_calls", "jerarquía salida" },
+                -- },
                 d = {
                     name = "dependencias (node)",
                     d = { ":lua require('package-info').delete()<cr>", "eliminar dependencia" },
@@ -28,6 +33,16 @@ return {
                     i = { ":lua require('package-info').install()<cr>", "instalar dependencia" },
                     u = { ":lua require('package-info').update()<cr>", "actualizar dependencia" },
                 }
+                -- a = { vim.lsp.buf.code_action, "acción" },
+            },
+            l = {
+                name = "latex",
+                l = { ":VimtexCompile<cr>", "compilar" },
+                e = { ":VimtexErrors<cr>", "errores" },
+                o = { ":VimtexLog<cr>", "logs" },
+                c = { ":VimtexTocToggle<cr>", "contenidos" },
+                s = { ":VimtexStop<cr>", "detener" },
+                v = { ":VimtexView<cr>", "ver documento" },
             },
             b = {
                 name = "buffer (pestañas)",
@@ -72,7 +87,7 @@ return {
                 l = { ":!lua %<cr>", "Lua" },
                 c = { ':w<CR>:!g++ % -o "$(basename -s .cpp %)"<CR>:term {./"$(basename -s .cpp %)"}<cr>', "C++" },
                 p = { ":w<cr>:term {python3 %}<cr>", "Python" },
-                x = { ":w<cr>:!tectonic %<cr>", "Compilar Latex" },
+                x = { ":VimtexCompile", "Compilar Latex" },
             },
         },
     }),

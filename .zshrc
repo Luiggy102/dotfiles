@@ -82,7 +82,7 @@ alias tea='trans es:de'
 
 # youtube
 alias y='ytfzf'
-alias yt='ytfzf -t'
+alias yt='ytfzf -t -T kitty'
 alias ym='ytfzf -m'
 
 alias nvc='cd $HOME/.config/nvim/' 

@@ -1,7 +1,7 @@
 return {
 
     -- lsp
-    { 'williamboman/mason.nvim', dependencies = 'williamboman/mason-lspconfig.nvim' },
+    { 'williamboman/mason.nvim',     dependencies = 'williamboman/mason-lspconfig.nvim' },
     {
         'neovim/nvim-lspconfig',
         event = { 'BufReadPre', 'BufNewFile' },
@@ -9,6 +9,20 @@ return {
             'hrsh7th/cmp-nvim-lsp',
             { 'antosha417/nvim-lsp-file-operations', config = true },
         }
+    },
+    {
+        'ray-x/lsp_signature.nvim',
+        event = 'VeryLazy',
+        opts = {
+            hint_prefix = ' ',
+            handler_opts = {
+                border = 'single' -- double, rounded, single, shadow, none, or a table of borders
+            },
+        },
+        config = function(_, opts) require 'lsp_signature'.setup(opts) end
+    },
+    {
+        'nvimdev/lspsaga.nvim', opts = { lightbulb = { enable = false } }
     },
 
     -- autocompletado
@@ -22,37 +36,47 @@ return {
     {
         'hrsh7th/nvim-cmp',
         dependencies = {
-            'hrsh7th/cmp-nvim-lsp',       -- para lsp
-            'saadparwaiz1/cmp_luasnip',   -- para snippets
-            'hrsh7th/cmp-buffer',         -- para los bufers
-            'hrsh7th/cmp-path',           -- para rutas
-            'hrsh7th/cmp-cmdline',        -- para los comandos
-            'micangl/cmp-vimtex',         -- para latex
-            'f3fora/cmp-spell',           -- para español
-            'kdheepak/cmp-latex-symbols', -- symbolos latex
+            -- lsp
+            'hrsh7th/cmp-nvim-lsp',     -- para lsp
+            -- otros
+            'petertriho/cmp-git',       -- para git
+            'saadparwaiz1/cmp_luasnip', -- para snippets
+            'hrsh7th/cmp-buffer',       -- para los bufers
+            'hrsh7th/cmp-path',         -- para rutas
+            'hrsh7th/cmp-cmdline',      -- para los comandos
+            'f3fora/cmp-spell',         -- para español
+            -- dependencias
             {
-                "David-Kunz/cmp-npm",     -- para node
+                "David-Kunz/cmp-npm", -- para node
                 dependencies = { 'nvim-lua/plenary.nvim' },
                 ft = "json",
                 config = function()
                     require('cmp-npm').setup({})
                 end
             },
+            -- latex
+            'micangl/cmp-vimtex',         -- para latex
+            'kdheepak/cmp-latex-symbols', -- symbolos latex
         },
     },
+
+    -- relacionado/epecifico a lenguage
+    -- js/javascript
+    { 'vuki656/package-info.nvim', dependencies = { 'MunifTanjim/nui.nvim' }, opts = {} },
+    -- latex
+    { 'lervag/vimtex' },
 
     -- ide
     'windwp/nvim-autopairs',
     'folke/zen-mode.nvim',
     'tpope/vim-fugitive',
-    { 'akinsho/toggleterm.nvim',     version = "*",                            config = true },
-    { 'vuki656/package-info.nvim', dependencies = { 'MunifTanjim/nui.nvim' }, opts = {} },
+    { 'akinsho/toggleterm.nvim',         version = "*",       config = true },
     { 'numToStr/Comment.nvim',           lazy = false,        opts = {} },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", },
     { 'stevearc/dressing.nvim',          opts = {}, },
     { 'lewis6991/gitsigns.nvim',         opts = {} },
     { 'karb94/neoscroll.nvim',           opts = {} },
-    { 'nvim-lualine/lualine.nvim', opts = { } },
+    { 'nvim-lualine/lualine.nvim',       opts = {} },
     {
         'romgrk/barbar.nvim',
         dependencies = {
@@ -65,8 +89,8 @@ return {
             sidebar_filetypes = {
                 NvimTree = true,
             },
-            exclude_ft = {'wiki'},
-            exclude_name = {'index.wiki'},
+            exclude_ft = { 'vimwiki' },
+            exclude_name = { 'index.wiki' },
         },
     },
     {
@@ -109,14 +133,14 @@ return {
     'alexghergh/nvim-tmux-navigation',
     { 'nvim-telescope/telescope.nvim', tag = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim', }, },
     {
-    {
-        'ggandor/leap.nvim',
-        dependencies = { 'tpope/vim-repeat' },
-        config = function()
-            require('leap').add_default_mappings()
-        end,
-        opts = {},
-    },
+        {
+            'ggandor/leap.nvim',
+            dependencies = { 'tpope/vim-repeat' },
+            config = function()
+                require('leap').add_default_mappings()
+            end,
+            opts = {},
+        },
         "nvim-tree/nvim-tree.lua",
         version = "*",
         lazy = false,
@@ -144,7 +168,18 @@ return {
     },
 
     -- extras
-    'vimwiki/vimwiki',
+    {
+        'vimwiki/vimwiki',
+        init = function()
+            vim.cmd [[
+                let g:vimwiki_list = []
+                let g:vimwiki_list += [{
+                  \ 'path': '~/Documents/personal/notas/vimwiki/',
+                  \ 'path_html': '~/Documents/personal/notas/vimwiki/'
+                  \ }]
+            ]]
+        end,
+    },
     {
         'nvimdev/dashboard-nvim',
         event = 'VimEnter',

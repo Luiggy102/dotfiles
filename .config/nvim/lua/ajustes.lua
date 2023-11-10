@@ -4,14 +4,21 @@ local buffer = vim.b
 local global = vim.g
 
 vim.api.nvim_command('set fillchars=eob:\\ ')
+-- spell en archivos tipo
+vim.cmd[[autocmd BufRead,BufNewFile *.wiki setlocal spell]]
+vim.cmd[[autocmd BufRead,BufNewFile *.tex setlocal spell]]
 
 -- Ajustes Globales
 global.mapleader = " "
 global.netrw_menu = 0
+-- pluggins
+global['vimtex_view_method'] = 'zathura'
+global['vimtex_compiler_method'] = 'tectonic'
+global['vimtex_syntax_enabled'] = 0
 
 -- opciones (set)
 -- opcion.spell = true
-opcion.spelllang = { 'es_Es' }
+opcion.spelllang = { 'es' }
 opcion.completeopt = { "menuone", "noselect" }
 opcion.showmode = true
 opcion.clipboard = "unnamedplus"
