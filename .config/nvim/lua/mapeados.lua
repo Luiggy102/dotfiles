@@ -8,9 +8,6 @@ mapeado("n", "<C-q>", vim.cmd.q)
 mapeado("i", "LL", "<Right>")
 
 -- plugins
--- NvimTree
-mapeado("n", "<C-n>", ':NvimTreeToggle<cr>')
--- IconPicker
 --mapeado("i", "<C-i>", '<CMD>IconPickerInsert emoji nerd_font<cr>')
 -- nvim bar
 local optsBar = { noremap = true, silent = true }
@@ -28,3 +25,8 @@ mapeado('n', '<C-9>', '<Cmd>BufferGoto 9<CR>', optsBar)
 mapeado('n', '<C-0>', '<Cmd>BufferLast<CR>', optsBar)
 mapeado('n', '<C-p>', '<Cmd>BufferPick<CR>', optsBar)
 mapeado('n', '<C-w>', '<Cmd>BufferClose<CR>', optsBar)
+-- NvimTree
+-- mapeado("n", "<C-n>", ':NvimTreeToggle<cr>',optsBar)
+mapeado("n", "<C-n>", ':NvimTreeFindFileToogle<cr>',optsBar)
+-- IconPicker
+mapeado("i", "II", "<CMD>IconPickerInsert emoji nerd_font<cr>",optsBar)

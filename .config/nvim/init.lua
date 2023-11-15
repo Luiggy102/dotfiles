@@ -6,4 +6,4 @@ require("mapeados")
 require("lazy_nvim")
 
 -- esquema de color
-vim.cmd("colorscheme catppuccin-mocha")
+vim.cmd("colorscheme oxocarbon")

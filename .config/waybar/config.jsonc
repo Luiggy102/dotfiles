@@ -1,92 +1,65 @@
 {
-    "layer": "top",
-    "position": "top",
-    //"spacing": 4,
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "height": 16,
+    "margin": 5,
+    // "width": 1280, // Waybar width
+    "spacing": 7, // Gaps between modules (4px)
+    // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "custom/playerctl"
-    ],
-    "modules-right": [
-        "pulseaudio",
-        "network",
-        "cpu",
-        "memory",
-        "temperature",
+        "clock",
         "battery",
-        "clock"
+        "network",
+        "pulseaudio"
     ],
+    "modules-center": [],
+    "modules-right": [],
+    // "hyprland/workspaces": {
+    //     "format": "{name} {icon}",
+    //     "format-icons": {
+    //         // "1": "",
+    //         // "2": "",
+    //         // "3": "",
+    //         // "4": "",
+    //         // "5": "",
+    //         "active": " ",
+    //         "default": " "
+    //     }
+    //     // "persistent-workspaces": {
+    //     //     "*": 5, // 5 workspaces by default on every monitor
+    //     // }
+    // },
     "hyprland/workspaces": {
-        "sort-by-number": true,
-        "all-outputs": true,
-        "on-click": "activate",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        // "format": "{name} {icon}",
         "format": "{icon}",
         "format-icons": {
-            "1": "<span color=\"#EBDBB2\">1</span>",
-            "2": "<span color=\"#EBDBB2\">2</span>",
-            "3": "<span color=\"#EBDBB2\">3</span>",
-            "4": "<span color=\"#EBDBB2\">4</span>",
-            "5": "<span color=\"#EBDBB2\">5</span>",
-            "6": "<span color=\"#EBDBB2\">6</span>",
-            "7": "<span color=\"#EBDBB2\">7</span>",
-            "8": "<span color=\"#EBDBB2\">8</span>",
-            "9": "<span color=\"#EBDBB2\">󰣇</span>",
-            "urgent": "",
-            "focused": "",
-            "default": ""
+            // "1": "",
+            // "2": "",
+            // "3": "",
+            // "4": "",
+            // "5": "",
+            "active": " ",
+            "default": " "
         }
+        // "persistent-workspaces": {
+        //     "*": 5, // 5 workspaces by default on every monitor
+        // }
     },
-    "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-muted": " muteado",
-        "scroll-step": 5,
-        "on-click": "pactl set-sink-mute 0 toggle",
+    "idle_inhibitor": {
+        "format": "{icon}",
         "format-icons": {
-            "headphone": "  ",
-            "hands-free": "  ",
-            "headset": "  ",
-            "phone": "  ",
-            "portable": "  ",
-            "car": "  ",
-            "default": [
-                "",
-                "",
-                ""
-            ]
+            "activated": "",
+            "deactivated": ""
         }
-    },
-    "hyprland/window": {
-        "format": "➡ {}",
-        "separate-outputs": true,
-        "max-length": 70
     },
     "tray": {
-        "icon-size": 14,
+        "icon-size": 16,
         "spacing": 10
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
-    },
-    "cpu": {
-        "format": " {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ]
     },
     "battery": {
         "states": {
@@ -94,38 +67,227 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}  {capacity}%",
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
         "format-icons": [
             "",
             "",
             "",
             "",
             ""
-        ],
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}"
+        ]
     },
     "network": {
-        "format-wifi": "  {essid} ",
-        "format-ethernet": " {ipaddr}/{cidr}",
-        "tooltip-format": " {ifname} via {gwaddr}",
-        "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "⚠ Desconectado",
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid}  ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-    "custom/playerctl": {
-        "format": "{icon}  <span>{}</span>",
-        "return-type": "json",
-        "max-length": 40,
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "on-click": "playerctl play-pause",
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}% ",
+        "format-source-muted": " ",
         "format-icons": {
-            "Playing": "",
-            "Paused": ""
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
         }
     }
 }
+// {
+//     "spacing": 4,
+//     // try to keep it 4px across the config
+//     "height": 18,
+//     "modules-left": [
+//         "hyprland/workspaces",
+//         "hyprland/window"
+//     ],
+//     "modules-right": [ /* "tray", */
+//         "pulseaudio",
+//         "cpu",
+//         "memory",
+//         "temperature",
+//         "battery",
+//         "clock"
+//     ],
+//
+//     "tray": {
+//         "spacing": 10
+//     },
+//     "clock": {
+//         "tooltip-format": "<big>[{:%Y %B}]</big>\n<tt><small>{calendar}</small></tt>",
+//         "format": "[{:%H:%M}]",
+//         "format-alt": "[{:%Y-%m-%d}]"
+//     },
+//     "cpu": {
+//         "format": "[CPU:{usage}%]",
+//         "tooltip": false
+//     },
+//     "memory": {
+//         "format": "[MEM:{percentage}%]"
+//     },
+//     "temperature": {
+//         "critical-threshold": 80,
+//         "format-critical": "[!!{temperatureC}°C!!]",
+//         "format": "[{temperatureC}°C]"
+//     },
+//     "battery": {
+//         "format": "[BAT:{capacity}%]"
+//     },
+//     "pulseaudio": {
+//         // "scroll-step": 1, // %, can be a float
+//         "format": "[VOL:{volume}%]",
+//         "format-muted": "[VOL: M]"
+//     }
+// }
+// {
+//     "layer": "top",
+//     "position": "top",
+//     //"spacing": 4,
+//     "modules-left": [
+//         "hyprland/workspaces",
+//         "hyprland/window"
+//     ],
+//     "modules-center": [
+//         "custom/playerctl"
+//     ],
+//     "modules-right": [
+//         "pulseaudio",
+//         "network",
+//         "cpu",
+//         "memory",
+//         "temperature",
+//         "battery",
+//         "clock"
+//     ],
+//     "hyprland/workspaces": {
+//         "sort-by-number": true,
+//         "all-outputs": true,
+//         "on-click": "activate",
+//         "on-scroll-up": "hyprctl dispatch workspace e+1",
+//         "on-scroll-down": "hyprctl dispatch workspace e-1",
+//         "format": "{icon}",
+//         "format-icons": {
+//             "1": "<span color=\"#EBDBB2\">1</span>",
+//             "2": "<span color=\"#EBDBB2\">2</span>",
+//             "3": "<span color=\"#EBDBB2\">3</span>",
+//             "4": "<span color=\"#EBDBB2\">4</span>",
+//             "5": "<span color=\"#EBDBB2\">5</span>",
+//             "6": "<span color=\"#EBDBB2\">6</span>",
+//             "7": "<span color=\"#EBDBB2\">7</span>",
+//             "8": "<span color=\"#EBDBB2\">8</span>",
+//             "9": "<span color=\"#EBDBB2\">󰣇</span>",
+//             "urgent": "",
+//             "focused": "",
+//             "default": ""
+//         }
+//     },
+//     "pulseaudio": {
+//         "format": "{icon}  {volume}%",
+//         "format-muted": " muteado",
+//         "scroll-step": 5,
+//         "on-click": "pactl set-sink-mute 0 toggle",
+//         "format-icons": {
+//             "headphone": "  ",
+//             "hands-free": "  ",
+//             "headset": "  ",
+//             "phone": "  ",
+//             "portable": "  ",
+//             "car": "  ",
+//             "default": [
+//                 "",
+//                 "",
+//                 ""
+//             ]
+//         }
+//     },
+//     "hyprland/window": {
+//         "format": "➡ {}",
+//         "separate-outputs": true,
+//         "max-length": 70
+//     },
+//     "tray": {
+//         "icon-size": 14,
+//         "spacing": 10
+//     },
+//     "clock": {
+//         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+//         "format-alt": "{:%Y-%m-%d}"
+//     },
+//     "cpu": {
+//         "format": " {usage}%",
+//         "tooltip": false
+//     },
+//     "memory": {
+//         "format": "{}% "
+//     },
+//     "temperature": {
+//         "critical-threshold": 80,
+//         "format": "{icon} {temperatureC}°C",
+//         "format-icons": [
+//             "",
+//             "",
+//             ""
+//         ]
+//     },
+//     "battery": {
+//         "states": {
+//             "good": 95,
+//             "warning": 30,
+//             "critical": 15
+//         },
+//         "format": "{icon}  {capacity}%",
+//         "format-icons": [
+//             "",
+//             "",
+//             "",
+//             "",
+//             ""
+//         ],
+//         "format-charging": "{capacity}% ",
+//         "format-plugged": "{capacity}% ",
+//         "format-alt": "{time} {icon}"
+//     },
+//     "network": {
+//         "format-wifi": "  {essid} ",
+//         "format-ethernet": " {ipaddr}/{cidr}",
+//         "tooltip-format": " {ifname} via {gwaddr}",
+//         "format-linked": " {ifname} (No IP)",
+//         "format-disconnected": "⚠ Desconectado",
+//         "format-alt": "{ifname}: {ipaddr}/{cidr}"
+//     },
+//     "custom/playerctl": {
+//         "format": "{icon}  <span>{}</span>",
+//         "return-type": "json",
+//         "max-length": 40,
+//         "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+//         "on-click": "playerctl play-pause",
+//         "format-icons": {
+//             "Playing": "",
+//             "Paused": ""
+//         }
+//     }
+// }
+//
 // {
 //     "layer": "top",
 //     "position": "top",

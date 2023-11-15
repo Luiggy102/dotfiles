@@ -18,6 +18,8 @@ global['vimtex_syntax_enabled'] = 0
 
 -- opciones (set)
 -- opcion.spell = true
+global.loaded_netrw = 1
+global.loaded_netrwPlugin = 1
 opcion.spelllang = { 'es' }
 opcion.completeopt = { "menuone", "noselect" }
 opcion.showmode = true
@@ -50,6 +52,7 @@ opcion.wrap = true
 opcion.linebreak = true
 opcion.scrolloff = 8
 opcion.sidescrolloff = 8
+opcion.colorcolumn = "66"
 
 -- ajustes buffer
 buffer.fileenconding = "utf-8"

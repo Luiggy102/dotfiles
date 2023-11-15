@@ -1,26 +1,14 @@
 local lspconfig = require('lspconfig')
 
 local on_attach = function(_, _)
-    vim.keymap.set('n', '<space>hi', ':Lspsaga incoming_calls<cr>')
-    vim.keymap.set('n', '<space>ho', ':Lspsaga outgoing_calls<cr>')
-
-    vim.keymap.set('n', '<space>ca', ':Lspsaga code_action<cr>')
-
-    vim.keymap.set('n', 'gd', ':Lspsaga goto_definition<cr>')
-    vim.keymap.set('n', '<space>gd', ':Lspsaga peek_definition<cr>')
-
-    vim.keymap.set('n', '<space>D', ':Lspsaga goto_type_definition<cr>')
-
-    vim.keymap.set('n', '<space>dn', ':Lspsaga diagnostic_jump_next<cr>')
-    vim.keymap.set('n', '<space>dp', ':Lspsaga diagnostic_jump_prev<cr>')
-
-    vim.keymap.set('n', '<space>fn', ':Lspsaga finder<cr>')
-
-    vim.keymap.set('n', 'K', ':Lspsaga hover_doc<cr>')
-
-    vim.keymap.set('n', '<space>gO', ':Lspsaga outline<cr>') -- o: saltar/abrir, e: entrar, q:salir
-
-    vim.keymap.set('n', '<space>rn', ':Lspsaga rename<cr>')
+    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition)
 end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -36,33 +24,29 @@ return {
     require('mason').setup(),
     require('mason-lspconfig').setup({
         ensure_installed = {
-            -- js/ts
-            "tsserver",
             -- lua
             "lua_ls",
             -- json
             "jsonls",
             -- latex
-            "ltex",
             "texlab",
+            -- js/ts
+            "tsserver",
+            -- c++/c
+            "clangd",
         }
     }),
+    lspconfig['texlab'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }),
+
     lspconfig['tsserver'].setup({
         capabilities = capabilities,
         on_attach = on_attach,
     }),
 
-    lspconfig['ltex'].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = {
-            ['ltex'] = {
-                language = "es",
-            }
-        }
-    }),
-
-    lspconfig['texlab'].setup({
+    lspconfig['clangd'].setup({
         capabilities = capabilities,
         on_attach = on_attach,
     }),

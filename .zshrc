@@ -86,6 +86,7 @@ alias yt='ytfzf -t -T kitty'
 alias ym='ytfzf -m'
 
 alias nvc='cd $HOME/.config/nvim/' 
+alias dot='cd $HOME/Documents/dotfiles/'
 alias dc='cd $HOME/Documents' 
 alias vw='nvim -c ":VimwikiIndex"'
 

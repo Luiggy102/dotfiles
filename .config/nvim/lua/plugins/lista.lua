@@ -21,9 +21,6 @@ return {
         },
         config = function(_, opts) require 'lsp_signature'.setup(opts) end
     },
-    {
-        'nvimdev/lspsaga.nvim', opts = { lightbulb = { enable = false } }
-    },
 
     -- autocompletado
     { 'ziontee113/icon-picker.nvim', opts = { disable_legacy_commands = true } },
@@ -37,23 +34,13 @@ return {
         'hrsh7th/nvim-cmp',
         dependencies = {
             -- lsp
-            'hrsh7th/cmp-nvim-lsp',     -- para lsp
+            'hrsh7th/cmp-nvim-lsp',       -- para lsp
             -- otros
-            'petertriho/cmp-git',       -- para git
-            'saadparwaiz1/cmp_luasnip', -- para snippets
-            'hrsh7th/cmp-buffer',       -- para los bufers
-            'hrsh7th/cmp-path',         -- para rutas
-            'hrsh7th/cmp-cmdline',      -- para los comandos
-            'f3fora/cmp-spell',         -- para español
-            -- dependencias
-            {
-                "David-Kunz/cmp-npm", -- para node
-                dependencies = { 'nvim-lua/plenary.nvim' },
-                ft = "json",
-                config = function()
-                    require('cmp-npm').setup({})
-                end
-            },
+            'petertriho/cmp-git',         -- para git
+            'saadparwaiz1/cmp_luasnip',   -- para snippets
+            'hrsh7th/cmp-buffer',         -- para los bufers
+            'hrsh7th/cmp-path',           -- para rutas
+            'hrsh7th/cmp-cmdline',        -- para los comandos
             -- latex
             'micangl/cmp-vimtex',         -- para latex
             'kdheepak/cmp-latex-symbols', -- symbolos latex
@@ -61,36 +48,58 @@ return {
     },
 
     -- relacionado/epecifico a lenguage
-    -- js/javascript
-    { 'vuki656/package-info.nvim', dependencies = { 'MunifTanjim/nui.nvim' }, opts = {} },
     -- latex
     { 'lervag/vimtex' },
 
     -- ide
     'windwp/nvim-autopairs',
-    'folke/zen-mode.nvim',
     'tpope/vim-fugitive',
+    { 'stevearc/dressing.nvim',          opts = {}, },
     { 'akinsho/toggleterm.nvim',         version = "*",       config = true },
     { 'numToStr/Comment.nvim',           lazy = false,        opts = {} },
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", },
-    { 'stevearc/dressing.nvim',          opts = {}, },
     { 'lewis6991/gitsigns.nvim',         opts = {} },
-    { 'karb94/neoscroll.nvim',           opts = {} },
-    { 'nvim-lualine/lualine.nvim',       opts = {} },
+    {
+        'nvim-lualine/lualine.nvim',
+        opts = {
+            options = {
+                section_separators = '',
+                component_separators = ''
+            }
+        }
+    },
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("nvim-tree").setup {
+                renderer = {
+                    indent_markers = {
+                        enable = true,
+                    }
+                },
+                actions = {
+                    open_file = {
+                        quit_on_open = true,
+                    },
+                },
+            }
+        end,
+    },
     {
         'romgrk/barbar.nvim',
         dependencies = {
-            'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
-            'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+            'lewis6991/gitsigns.nvim',
+            'nvim-tree/nvim-web-devicons',
         },
         init = function() vim.g.barbar_auto_setup = false end,
         opts = {
             auto_hide = true,
-            sidebar_filetypes = {
-                NvimTree = true,
-            },
             exclude_ft = { 'vimwiki' },
-            exclude_name = { 'index.wiki' },
         },
     },
     {
@@ -131,42 +140,39 @@ return {
 
     -- navegacion
     'alexghergh/nvim-tmux-navigation',
-    { 'nvim-telescope/telescope.nvim', tag = '0.1.4', dependencies = { 'nvim-lua/plenary.nvim', }, },
     {
-        {
-            'ggandor/leap.nvim',
-            dependencies = { 'tpope/vim-repeat' },
-            config = function()
-                require('leap').add_default_mappings()
-            end,
-            opts = {},
-        },
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.4',
         dependencies = {
-            "nvim-tree/nvim-web-devicons", },
+            'nvim-lua/plenary.nvim',
+            'nvim-lua/popup.nvim',
+            'nvim-telescope/telescope-media-files.nvim',
+            'nvim-telescope/telescope-file-browser.nvim'
+        },
+    },
+    {
+        'ggandor/leap.nvim',
+        dependencies = { 'tpope/vim-repeat' },
+        config = function()
+            require('leap').add_default_mappings()
+        end,
+        opts = {},
     },
 
     -- esquema de color
+    { 'nyoom-engineering/oxocarbon.nvim' },
+    { 'rose-pine/neovim',                name = 'rose-pine' },
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
+        "craftzdog/solarized-osaka.nvim",
+        lazy = false,
         priority = 1000,
-        opts = {
-            integrations = {
-                cmp = true,
-                gitsigns = true,
-                nvimtree = true,
-                treesitter = true,
-                leap = true,
-                mason = true,
-                vimwiki = true,
-                which_key = true,
-            }
-        }
     },
-
+    {
+        "oxfist/night-owl.nvim",
+        lazy = false,
+        priority = 1000,
+    },
+    'rebelot/kanagawa.nvim',
     -- extras
     {
         'vimwiki/vimwiki',
@@ -178,64 +184,6 @@ return {
                   \ 'path_html': '~/Documents/personal/notas/vimwiki/'
                   \ }]
             ]]
-        end,
-    },
-    {
-        'nvimdev/dashboard-nvim',
-        event = 'VimEnter',
-        dependencies = { { 'nvim-tree/nvim-web-devicons' } },
-        config = function()
-            require('dashboard').setup {
-                -- config
-                config = {
-                    theme = 'hyper',
-                    header = { " " },
-                    packages = { enable = true },
-                    footer = {},
-                    shortcut = {
-                        {
-                            icon = ' ',
-                            icon_hl = '@variable',
-                            desc = 'wiki',
-                            group = 'Ayuda',
-                            action = 'VimwikiIndex',
-                            key = 'w',
-                        },
-                        {
-                            icon = ' ',
-                            icon_hl = '@variable',
-                            desc = 'Directorio actual',
-                            group = 'Busqueda',
-                            action = 'Telescope find_files theme=ivy',
-                            key = 'f',
-                        },
-                        {
-                            icon = ' ',
-                            icon_hl = '@variable',
-                            desc = 'Recientes',
-                            group = 'Busqueda',
-                            action = 'Telescope oldfiles theme=ivy',
-                            key = 'h',
-                        },
-                        {
-                            icon = ' ',
-                            icon_hl = '@variable',
-                            desc = 'Arbol de Archivos',
-                            group = 'Busqueda',
-                            action = 'NvimTreeOpen',
-                            key = 'n',
-                        },
-                    },
-                    project = {
-                        enable = true,
-                        limit = 5,
-                        label = 'Proyectos',
-                        action = 'Telescope find_files theme=ivy cwd='
-                    },
-                    mru = { limit = 5, label = 'Archivos recientes' },
-                    disable_move = false,
-                }
-            }
         end,
     },
 }
