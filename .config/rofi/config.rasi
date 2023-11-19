@@ -14,10 +14,10 @@ configuration {
     hover-select: true;
     eh: 1;
     terminal: "kitty";
-    display-drun: "Aplicación";
-    display-window: "Ventana";
-    display-run: "Ejecutar";
-    display-ssh: "ssh";
+    display-drun: "   Aplicación ";
+    display-window: " 練 Ventana ";
+    display-run: "    Ejecutar ";
+    display-ssh: "   ssh ";
 }
 
 @theme "/dev/null"

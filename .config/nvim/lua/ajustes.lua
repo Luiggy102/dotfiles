@@ -29,7 +29,7 @@ opcion.tabstop = 4
 opcion.softtabstop = 4
 opcion.expandtab = true
 opcion.number = true
--- opcion.relativenumber = true
+opcion.relativenumber = true
 opcion.ignorecase = true
 opcion.termguicolors = true
 opcion.wrap = false
@@ -52,7 +52,8 @@ opcion.wrap = true
 opcion.linebreak = true
 opcion.scrolloff = 8
 opcion.sidescrolloff = 8
-opcion.colorcolumn = "66"
+-- colomna guia
+-- opcion.colorcolumn = "66"
 
 -- ajustes buffer
 buffer.fileenconding = "utf-8"

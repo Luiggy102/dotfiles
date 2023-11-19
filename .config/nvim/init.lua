@@ -4,6 +4,5 @@ require("ajustes")
 require("mapeados")
 -- manejador de paquetes
 require("lazy_nvim")
-
 -- esquema de color
 vim.cmd("colorscheme oxocarbon")

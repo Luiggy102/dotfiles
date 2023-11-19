@@ -2,10 +2,37 @@ local wk = require("which-key")
 return {
     wk.register({
         ["<leader>"] = {
-            z = { ":ZenMode<cr>", "modo zen" },
-            h = { ":Telescope oldfiles<cr>", "historial archivos" },
+            ------------ código -----------------------
+            c = {
+                name = "código  ",
+                _ = { ":<cr>", "" },
+                a = { ":Lspsaga code_action<cr>", "acción" },
+                p = { ":Lspsaga peek_definition<cr>", "ver definición (float)" },
+                h = {
+                    name = "Jerarquia llamadas  ",
+                    i = { ":Lspsaga incoming_calls<cr>", "entrante  " },
+                    o = { ":Lspsaga outgoing_calls<cr>", "saliente  " },
+                },
+                f = { ":Lspsaga finder<cr>", "finder" },
+                o = { ":Lspsaga outline<cr>", "abrir/cerrar outline" },
+            },
+            ------------ ir en código -----------------------
+            g = {
+                name = "ir (código) ",
+                n = {
+                    name = "siguiente",
+                    d = { ":Lspsaga diagnostic_jump_next<cr>", "diagnostico" },
+                    c = { ":Gitsigns next_hunk<cr>", "cambio" },
+                },
+                p = {
+                    name = "anterior",
+                    d = { ":Lspsaga diagnostic_jump_prev<cr>", "diagnostico" },
+                    c = { ":Gitsigns prev_hunk<cr>", "cambio" },
+                }
+            },
+            ------------ navegación de archivos -----------------------
             f = {
-                name = "files (archivos)",
+                name = "files (archivos)  ",
                 f = { ":Telescope find_files<cr>", "buscar archivo" },
                 h = { ":Telescope oldfiles<cr>", "buscar archivos recientes" },
                 n = { ":enew<cr>", "nuevo archivo" },
@@ -17,14 +44,9 @@ return {
                 o = { function() vim.lsp.buf.format { async = true } end, "Formatear" },
                 b = { ":Telescope file_browser path=%:p:h select_buffer=true<cr>", "navegador de archivos" },
             },
-            c = {
-                name = "código",
-                d = {
-                }
-                -- a = { vim.lsp.buf.code_action, "acción" },
-            },
+            ------------ Latex -----------------------
             l = {
-                name = "latex",
+                name = "latex  ",
                 l = { ":VimtexCompile<cr>", "compilar" },
                 e = { ":VimtexErrors<cr>", "errores" },
                 o = { ":VimtexLog<cr>", "logs" },
@@ -32,17 +54,19 @@ return {
                 s = { ":VimtexStop<cr>", "detener" },
                 v = { ":VimtexView<cr>", "ver documento" },
             },
+            ------------ pestañas -----------------------
             b = {
-                name = "buffer (pestañas)",
+                name = "buffer 里",
                 p = { ":BufferMovePrevious<cr>", "mover a la izquierda" },
                 n = { ":BufferMoveNext<cr>", "mover a la derecha" },
                 f = { ":BufferPin<cr>", "fijar" },
                 d = { ":BufferOrderByDirectory<CR>", "ordenar por directorio" },
                 l = { ":BufferOrderByLanguage<CR>", "ordenar por lenguage" },
             },
-            g = {
-                name = "git",
-                -- gitsigns
+            ------------ git -----------------------
+            i = {
+                name = "git  ",
+                -- gitsigns --
                 h = {
                     name = "hunk (cambios)",
                     p = { ":Gitsigns prev_hunk<cr>", "cambio anterior" },
@@ -51,7 +75,7 @@ return {
                     r = { ":Gitsigns reset_hunk<cr>", "revertir cambio" },
                 },
                 b = { ":Gitsigns blame_line<cr>", "ver quien realizó cambio en esa línea" },
-                -- vim fugitive
+                -- vim fugitive --
                 s = { ":G status<cr>", "status" },
                 o = { ":G log<cr>", "log" },
                 d = { ":G diff<cr>", "diff" },
@@ -61,14 +85,9 @@ return {
                 l = { ":G pull origin main<cr>", "pull (origin/maim)" },
                 p = { ":G push origin main<cr>", "push (origin/main)" },
             },
-            i = {
-                name = "íconos",
-                i = { ":IconPickerInsert<cr>", "insertar" },
-                n = { ":IconPickerNormal<cr>", "insertar en normal" },
-                y = { ":IconPickerYank<cr>", "copiar" },
-            },
+            ------------ ejecutar -----------------------
             n = {
-                name = "ejecutar código",
+                name = "ejecutar código  ",
                 n = { ":!node %<cr>", "NodeJS" },
                 t = { ":!ts-node %<cr>", "TypeScript" },
                 r = { ":!Rscript %<cr>", "R" },
@@ -77,6 +96,9 @@ return {
                 p = { ":w<cr>:term {python3 %}<cr>", "Python" },
                 x = { ":VimtexCompile", "Compilar Latex" },
             },
+            ------------ acceso rápido -----------------------
+            h = { ":Telescope oldfiles<cr>", "historial archivos  " },
+            t = { ":Telescope colorscheme<cr>", "esquema de color  " },
         },
     }),
 }

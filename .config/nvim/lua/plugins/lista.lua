@@ -21,6 +21,13 @@ return {
         },
         config = function(_, opts) require 'lsp_signature'.setup(opts) end
     },
+    {
+        'nvimdev/lspsaga.nvim',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter',
+            'nvim-tree/nvim-web-devicons'
+        },
+    },
 
     -- autocompletado
     { 'ziontee113/icon-picker.nvim', opts = { disable_legacy_commands = true } },
@@ -160,19 +167,17 @@ return {
     },
 
     -- esquema de color
-    { 'nyoom-engineering/oxocarbon.nvim' },
-    { 'rose-pine/neovim',                name = 'rose-pine' },
     {
-        "craftzdog/solarized-osaka.nvim",
+        'nyoom-engineering/oxocarbon.nvim',
+        lazy = false,
+        priority = 1000
+    },
+    {
+        "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
     },
-    {
-        "oxfist/night-owl.nvim",
-        lazy = false,
-        priority = 1000,
-    },
-    'rebelot/kanagawa.nvim',
+    'https://github.com/shaunsingh/nord.nvim',
     -- extras
     {
         'vimwiki/vimwiki',

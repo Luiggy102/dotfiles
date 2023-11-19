@@ -9,6 +9,10 @@ export FZF_DEFAULT_OPTS="--border --padding 2%"
 export PF_ASCII='tux'
 export BAT_THEME="Catppuccin-mocha"
 
+# swww
+# export SWWW_TRANSITION='wipe'
+# export SWWW_TRANSITION_FPS='60'
+
 zstyle ':omz:update' mode disabled
 
 plugins=(
