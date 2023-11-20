@@ -93,6 +93,7 @@ alias nvc='cd $HOME/.config/nvim/'
 alias dot='cd $HOME/Documents/dotfiles/'
 alias dc='cd $HOME/Documents' 
 alias vw='nvim -c ":VimwikiIndex"'
+alias cl='clear'
 
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
