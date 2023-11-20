@@ -51,6 +51,8 @@ return {
             -- latex
             'micangl/cmp-vimtex',         -- para latex
             'kdheepak/cmp-latex-symbols', -- symbolos latex
+            -- corrección ortográfica
+            'f3fora/cmp-spell'
         },
     },
 
