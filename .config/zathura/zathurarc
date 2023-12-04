@@ -31,43 +31,43 @@ set guioptions none
 
 # Theme catppuccin (mocha)
 
-# set default-fg                "#CDD6F4"
-# set default-bg 			          "#1E1E2E"
-#
-# set completion-bg		          "#313244"
-# set completion-fg		          "#CDD6F4"
-# set completion-highlight-bg	  "#575268"
-# set completion-highlight-fg	  "#CDD6F4"
-# set completion-group-bg		    "#313244"
-# set completion-group-fg		    "#89B4FA"
-#
-# set statusbar-fg		          "#CDD6F4"
-# set statusbar-bg		          "#313244"
-#
-# set notification-bg		        "#313244"
-# set notification-fg		        "#CDD6F4"
-# set notification-error-bg	    "#313244"
-# set notification-error-fg	    "#F38BA8"
-# set notification-warning-bg	  "#313244"
-# set notification-warning-fg	  "#FAE3B0"
-#
-# set inputbar-fg			          "#CDD6F4"
-# set inputbar-bg 		          "#313244"
-#
-# set recolor-lightcolor		    "#1E1E2E"
-# set recolor-darkcolor		      "#CDD6F4"
-#
-# set index-fg			            "#CDD6F4"
-# set index-bg			            "#1E1E2E"
-# set index-active-fg		        "#CDD6F4"
-# set index-active-bg		        "#313244"
-#
-# set render-loading-bg		      "#1E1E2E"
-# set render-loading-fg		      "#CDD6F4"
-#
-# set highlight-color		        "#575268"
-# set highlight-fg              "#F5C2E7"
-# set highlight-active-color	  "#F5C2E7"
+set default-fg                "#CDD6F4"
+set default-bg 			          "#1E1E2E"
+
+set completion-bg		          "#313244"
+set completion-fg		          "#CDD6F4"
+set completion-highlight-bg	  "#575268"
+set completion-highlight-fg	  "#CDD6F4"
+set completion-group-bg		    "#313244"
+set completion-group-fg		    "#89B4FA"
+
+set statusbar-fg		          "#CDD6F4"
+set statusbar-bg		          "#313244"
+
+set notification-bg		        "#313244"
+set notification-fg		        "#CDD6F4"
+set notification-error-bg	    "#313244"
+set notification-error-fg	    "#F38BA8"
+set notification-warning-bg	  "#313244"
+set notification-warning-fg	  "#FAE3B0"
+
+set inputbar-fg			          "#CDD6F4"
+set inputbar-bg 		          "#313244"
+
+set recolor-lightcolor		    "#1E1E2E"
+set recolor-darkcolor		      "#CDD6F4"
+
+set index-fg			            "#CDD6F4"
+set index-bg			            "#1E1E2E"
+set index-active-fg		        "#CDD6F4"
+set index-active-bg		        "#313244"
+
+set render-loading-bg		      "#1E1E2E"
+set render-loading-fg		      "#CDD6F4"
+
+set highlight-color		        "#575268"
+set highlight-fg              "#F5C2E7"
+set highlight-active-color	  "#F5C2E7"
 #
 
 # Theme Gruvbox
@@ -113,41 +113,45 @@ set guioptions none
 # set recolor                     "true"
 # set recolor-keephue             true      # keep original color
 
-
-# Theme tokyo-night
-
-# set recolor-lightcolor          "#16161e"
-# set recolor-darkcolor           "#a9b1d6"
-# set default-bg                  "#1a1b26"
-# set default-fg                  "#a9b1d6"
-# set inputbar-bg                 "#1a1b26"
-# set inputbar-fg                 "#73daca"
-# set statusbar-bg                "#24283b"
-# set statusbar-fg                "#a9b1d6"
-# set index-bg                    "#1a1b26"
-# set index-fg                    "#FFFFFF"
-# set index-active-bg             "#24283b"
-# set index-active-fg             "#FFFFFF"
-# set highlight-fg                "#f7768e"
-# set highlight-color             "#e0af68"
-# set highlight-active-color      "#9aa5ce"
+# Tokyonight color theme for Zathura
+# Swaps Foreground for Background to get a light version if the user prefers
 #
-# # Completion 
+# Tokyonight color theme
 #
+# set notification-error-bg "#f7768e"
+# set notification-error-fg "#c0caf5"
+# set notification-warning-bg "#e0af68"
+# set notification-warning-fg "#414868"
+# set notification-bg "#1a1b26"
+# set notification-fg "#c0caf5"
 # set completion-bg "#1a1b26"
-# set completion-group-bg "#24283b"
-# set completion-highlight-bg "#343b58"
-# set completion-highlight-fg "#9aa5ce"
-#
-# # Notifications
-# set notification-bg             "#1a1b26"
-# set notification-fg             "#73daca"
-#
-# set notification-error-bg       "#1a1b26"
-# set notification-error-fg       "#f7768e"
-#
-# set notification-warning-bg     "#1a1b26"
-# set notification-warning-fg     "#f7768e"
+# set completion-fg "#a9b1d6"
+# set completion-group-bg "#1a1b26"
+# set completion-group-fg "#a9b1d6"
+# set completion-highlight-bg "#414868"
+# set completion-highlight-fg "#c0caf5"
+# set index-bg "#1a1b26"
+# set index-fg "#c0caf5"
+# set index-active-bg "#414868"
+# set index-active-fg "#c0caf5"
+# set inputbar-bg "#1a1b26"
+# set inputbar-fg "#c0caf5"
+# set statusbar-bg "#1a1b26"
+# set statusbar-fg "#c0caf5"
+# set highlight-color "#e0af68"
+# set highlight-active-color "#9ece6a"
+# set default-bg "#1a1b26"
+# set default-fg "#c0caf5"
+# set render-loading true
+# set render-loading-fg "#1a1b26"
+# set render-loading-bg "#c0caf5"
+# #
+# # Recolor mode settings
+# # <C-r> to switch modes
+# #
+# set recolor-lightcolor "#1a1b26"
+# set recolor-darkcolor "#c0caf5"
+
 
 ## Purify theme ###########################
 

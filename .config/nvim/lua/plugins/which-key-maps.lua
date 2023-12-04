@@ -31,8 +31,8 @@ return {
                 }
             },
             ------------ navegación de archivos -----------------------
-            f = {
-                name = "files (archivos)  ",
+            a = {
+                name = "archivos  ",
                 f = { ":Telescope find_files<cr>", "buscar archivo" },
                 h = { ":Telescope oldfiles<cr>", "buscar archivos recientes" },
                 n = { ":enew<cr>", "nuevo archivo" },
@@ -53,15 +53,6 @@ return {
                 c = { ":VimtexTocToggle<cr>", "contenidos" },
                 s = { ":VimtexStop<cr>", "detener" },
                 v = { ":VimtexView<cr>", "ver documento" },
-            },
-            ------------ pestañas -----------------------
-            b = {
-                name = "buffer 里",
-                p = { ":BufferMovePrevious<cr>", "mover a la izquierda" },
-                n = { ":BufferMoveNext<cr>", "mover a la derecha" },
-                f = { ":BufferPin<cr>", "fijar" },
-                d = { ":BufferOrderByDirectory<CR>", "ordenar por directorio" },
-                l = { ":BufferOrderByLanguage<CR>", "ordenar por lenguage" },
             },
             ------------ git -----------------------
             i = {
@@ -98,6 +89,7 @@ return {
             },
             ------------ acceso rápido -----------------------
             h = { ":Telescope oldfiles<cr>", "historial archivos  " },
+            f = { ":Telescope find_files<cr>", "historial archivos  " },
             t = { ":Telescope colorscheme<cr>", "esquema de color  " },
         },
     }),

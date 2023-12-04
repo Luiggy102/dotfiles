@@ -1,97 +1,187 @@
 {
     "layer": "top",
-    "position": "top",
-    // "position": "bottom",
-    // "height": 16,
-    "margin": 0,
-    "spacing": 7,
+    "position": "bottom",
+    "mod": "dock",
+    "exclusive": true,
+    "passtrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
     "modules-left": [
-        "hyprland/workspaces",
         "clock",
-        "battery",
-        "network",
-        "pulseaudio"
+        "tray"
+        // "hyprland/window"
     ],
     "modules-center": [],
     "modules-right": [
-        "tray",
-        "custom/playerctl"
+        "hyprland/workspaces",
+        // https://github.com/open-pomodoro/openpomodoro-cli#installation
+        "custom/pomodoro",
+        "network",
+        "pulseaudio",
+        "battery"
     ],
+    "hyprland/window": {
+        "format": "{}"
+    },
     "hyprland/workspaces": {
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "all-outputs": true,
+        "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-            "active": "  ",
-            "default": "  "
+            "urgent": "⟳",
+            "active": "◽",
+            "default": "◾"
         }
     },
     "tray": {
-        "icon-size": 16,
+        "icon-size": 12,
+        "tooltip": false,
         "spacing": 10
     },
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%H.%M  %a %b %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n\n<tt><small>{calendar}</small></tt>"
+    },
+    "pulseaudio": {
+        "format": "🔊 {volume}%",
+        "tooltip": false,
+        "format-muted": "🔊 N/A",
+        "on-click": "changeVolume toggle",
+        "on-scroll-up": "changeVolume 5%+",
+        "on-scroll-down": "changeVolume 5%-",
+        "scroll-step": 5
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "tooltip": false,
+        "format-source": "音入：{volume}パ",
+        "format-source-muted": "音声入力：無",
+        "on-click": "amixer set Capture toggle",
+        "on-scroll-up": "amixer set Capture 5%+",
+        "on-scroll-down": "amixer set Capture 5%-",
+        "scroll-step": 5
+    },
+    "network": {
+        "format-wifi": "📡 {essid} {signalStrength}%",
+        "format-ethernet": "📡 {signalStrength}%",
+        "tooltip-format": "接続先:{essid}　アドレス：{No IP}",
+        "format-disconnected": "📡 N/A"
     },
     "battery": {
         "states": {
-            "good": 95,
-            "warning": 30,
+            "warning": 20,
             "critical": 15
         },
-        "format": "{capacity}% {icon} ",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
+        "format": "🔋 {capacity}%",
+        "format-charging": "🔌 {capacity}%",
+        "format-plugged": "🔌 {capacity}%"
     },
-    "network": {
-        "format-wifi": "{essid}  ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": " {volume}% ",
-        "format-source-muted": " ",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": [
-                "",
-                "",
-                ""
-            ]
-        }
-    },
-    "custom/playerctl": {
-        "format": "{icon}  <span>{}</span>",
-        "return-type": "json",
-        "max-length": 80,
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "on-click": "playerctl play-pause",
-        "format-icons": {
-            "Playing": "",
-            "Paused": ""
-        }
+    "custom/pomodoro": {
+        "format": "🍅 {}",
+        "exec": "pomodoro status --format '%r'",
+        "exec-if": "pgrep pomodoro || exit 0",
+        "interval": 2, 
+        "on-click": "pomodoro start",
+        "on-click-middle": "pomodoro break",
+        "on-click-right": "pomodoro finish"
     }
 }
-
+// minimalista
+// {
+//     "layer": "top",
+//     // "position": "top",
+//     "position": "bottom",
+//     // "height": 16,
+//     "margin": 0,
+//     "spacing": 7,
+//     "modules-left": [
+//         "hyprland/workspaces",
+//         "clock",
+//         "battery",
+//         "network",
+//         "pulseaudio"
+//     ],
+//     "modules-center": [],
+//     "modules-right": [
+//         "tray",
+//         "custom/playerctl"
+//     ],
+//     "hyprland/workspaces": {
+//         "format": "{icon}",
+//         "format-icons": {
+//             "active": "  ",
+//             "default": "  "
+//         }
+//     },
+//     "tray": {
+//         "icon-size": 16,
+//         "spacing": 10
+//     },
+//     "clock": {
+//         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+//         "format-alt": "{:%Y-%m-%d}"
+//     },
+//     "battery": {
+//         "states": {
+//             "good": 95,
+//             "warning": 30,
+//             "critical": 15
+//         },
+//         "format": "{capacity}% {icon} ",
+//         "format-charging": "{capacity}% ",
+//         "format-plugged": "{capacity}% ",
+//         "format-alt": "{time} {icon}",
+//         "format-icons": [
+//             "",
+//             "",
+//             "",
+//             "",
+//             ""
+//         ]
+//     },
+//     "network": {
+//         "format-wifi": "{essid}  ",
+//         "format-ethernet": "{ipaddr}/{cidr} ",
+//         "tooltip-format": "{ifname} via {gwaddr} ",
+//         "format-linked": "{ifname} (No IP) ",
+//         "format-disconnected": "Disconnected ⚠",
+//         "format-alt": "{ifname}: {ipaddr}/{cidr}"
+//     },
+//     "pulseaudio": {
+//         "format": "{volume}% {icon} {format_source}",
+//         "format-bluetooth": "{volume}% {icon} {format_source}",
+//         "format-bluetooth-muted": " {icon} {format_source}",
+//         "format-muted": " {format_source}",
+//         "format-source": " {volume}% ",
+//         "format-source-muted": " ",
+//         "format-icons": {
+//             "headphone": "",
+//             "hands-free": "",
+//             "headset": "",
+//             "phone": "",
+//             "portable": "",
+//             "car": "",
+//             "default": [
+//                 "",
+//                 "",
+//                 ""
+//             ]
+//         }
+//     },
+//     "custom/playerctl": {
+//         "format": "{icon}  <span>{}</span>",
+//         "return-type": "json",
+//         "max-length": 80,
+//         "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+//         "on-click": "playerctl play-pause",
+//         "format-icons": {
+//             "Playing": "",
+//             "Paused": ""
+//         }
+//     }
+// }
 // == dwm == //
 // {
 //     "spacing": 4,

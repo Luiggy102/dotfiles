@@ -1,12 +1,15 @@
--- ajustes de vim 
+-- ajustes de vim
 local opcion = vim.opt
 local buffer = vim.b
 local global = vim.g
 
 vim.api.nvim_command('set fillchars=eob:\\ ')
 -- spell en archivos tipo
-vim.cmd[[autocmd BufRead,BufNewFile *.wiki setlocal spell]]
-vim.cmd[[autocmd BufRead,BufNewFile *.tex setlocal spell]]
+vim.cmd [[autocmd BufRead,BufNewFile *.wiki setlocal spell]]
+vim.cmd [[autocmd BufRead,BufNewFile *.tex setlocal spell]]
+-- indentado en archivos tipo
+-- R (cambiar indentado y activar 'Nvim-R' automáticamente)
+vim.cmd [[ autocmd BufRead,BufNewFile *.r setlocal expandtab | setlocal tabstop=2 | setlocal shiftwidth=2 | setlocal autoindent | setlocal smartindent | let R_auto_start = 1 | let R_objbr_auto_start = 1 ]]
 
 -- Ajustes Globales
 global.mapleader = " "
@@ -57,3 +60,9 @@ opcion.sidescrolloff = 8
 
 -- ajustes buffer
 buffer.fileenconding = "utf-8"
+
+-- neovide
+vim.g.neovide_cursor_vfx_mode = "torpedo"
+vim.o.guifont = "JetBrains Mono:h15"
+vim.g.neovide_refresh_rate = 60
+vim.g.neovide_cursor_trail_size = 0.8

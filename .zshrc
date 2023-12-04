@@ -134,3 +134,6 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(starship init zsh)"
+
+# Created by `pipx` on 2023-12-01 02:13:39
+export PATH="$PATH:/home/ludwig/.local/bin"

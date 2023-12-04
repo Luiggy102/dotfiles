@@ -2,8 +2,8 @@ local mapeado = vim.keymap.set
 
 -- basicos
 mapeado({"n", "v"}, ";", ":")
--- mapeado("n", "<C-w>", vim.cmd.w)
--- mapeado("n", "<C-q>", vim.cmd.q)
+mapeado("n", "<C-w>", vim.cmd.w)
+mapeado("n", "<C-q>", vim.cmd.q)
 
 mapeado("i", "LL", "<Right>")
 
@@ -11,24 +11,22 @@ mapeado("i", "LL", "<Right>")
 --mapeado("i", "<C-i>", '<CMD>IconPickerInsert emoji nerd_font<cr>')
 -- nvim bar
 local optsBar = { noremap = true, silent = true }
-mapeado('n', 'H', '<Cmd>BufferPrevious<CR>', optsBar)
-mapeado('n', 'L', '<Cmd>BufferNext<CR>', optsBar)
-mapeado('n', 'X>', '<Cmd>BufferClose<CR>', optsBar)
-mapeado('n', '<C-1>', '<Cmd>BufferGoto 1<CR>', optsBar)
-mapeado('n', '<C-2>', '<Cmd>BufferGoto 2<CR>', optsBar)
-mapeado('n', '<C-3>', '<Cmd>BufferGoto 3<CR>', optsBar)
-mapeado('n', '<C-4>', '<Cmd>BufferGoto 4<CR>', optsBar)
-mapeado('n', '<C-5>', '<Cmd>BufferGoto 5<CR>', optsBar)
-mapeado('n', '<C-6>', '<Cmd>BufferGoto 6<CR>', optsBar)
-mapeado('n', '<C-7>', '<Cmd>BufferGoto 7<CR>', optsBar)
-mapeado('n', '<C-8>', '<Cmd>BufferGoto 8<CR>', optsBar)
-mapeado('n', '<C-9>', '<Cmd>BufferGoto 9<CR>', optsBar)
-mapeado('n', '<C-0>', '<Cmd>BufferLast<CR>', optsBar)
-mapeado('n', '<C-p>', '<Cmd>BufferPick<CR>', optsBar)
--- NvimTree
--- mapeado("n", "<C-n>", ':NvimTreeToggle<cr>',optsBar)
-mapeado("n", "<C-n>", ':NvimTreeFindFileToggle<cr>',optsBar)
+mapeado('n', 'H', '<Cmd>bprevious<CR>', optsBar)
+mapeado('n', 'L', '<Cmd>bnext<CR>', optsBar)
+mapeado('n', 'X', '<Cmd>bdelete<CR>', optsBar)
+
 -- nvim telescrope filebrowser
 mapeado("n", "<C-f>", ':Telescope file_browser path=%:p:h select_buffer=true<cr>',optsBar)
+mapeado("n", "<leader>sf", ':Telescope file_browser path=%:p:h select_buffer=true<cr>',optsBar)
+
 -- IconPicker
 mapeado("i", "II", "<CMD>IconPickerInsert emoji nerd_font<cr>",optsBar)
+
+-- capturas (sillicon.lua)
+ vim.keymap.set('v', '<Leader>s', function() require('silicon').visualise_cmdline({ to_clip = true }) end)
+-- Generate image of a whole buffer, with lines in a visual selection highlighted
+vim.keymap.set('v', '<Leader>bs', function() require('silicon').visualise_cmdline({ to_clip = true, show_buf = true }) end)
+-- Generate visible portion of a buffer
+vim.keymap.set('n', '<Leader>s', function() require('silicon').visualise_cmdline({ to_clip = true, visible = true }) end)
+-- Generate current buffer line in normal mode
+vim.keymap.set('n', '<Leader>s', function() require('silicon').visualise_api({ to_clip = true }) end)

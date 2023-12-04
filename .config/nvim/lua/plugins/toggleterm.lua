@@ -16,7 +16,7 @@ return {
         open_mapping = [[<c-\>]],
         -- direction = 'float',
         -- direction = 'horizontal',
-        direction = 'vertical',
-        size = 60,
+        -- direction = 'vertical',
+        -- size = 60,
     },
 }

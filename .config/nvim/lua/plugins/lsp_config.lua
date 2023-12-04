@@ -41,6 +41,8 @@ return {
             "tsserver",
             -- c++/c
             "clangd",
+            -- bash
+            "bashls",
         }
     }),
     lspconfig['texlab'].setup({
@@ -54,6 +56,16 @@ return {
     }),
 
     lspconfig['clangd'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }),
+
+    lspconfig['bashls'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }),
+
+    lspconfig['r_language_server'].setup({
         capabilities = capabilities,
         on_attach = on_attach,
     }),

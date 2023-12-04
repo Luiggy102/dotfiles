@@ -4,7 +4,7 @@ return {
         lightbulb = { enable = false, sign = false, },
         -- barra de simbolos
         symbol_in_winbar = {
-            enable = false
+            enable = true,
         },
     })
 }

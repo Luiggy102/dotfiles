@@ -11,6 +11,7 @@ return {
         }
     },
     {
+
         'ray-x/lsp_signature.nvim',
         event = 'VeryLazy',
         opts = {
@@ -51,6 +52,8 @@ return {
             -- latex
             'micangl/cmp-vimtex',         -- para latex
             'kdheepak/cmp-latex-symbols', -- symbolos latex
+            -- r
+            'jalvesaq/cmp-nvim-r',
             -- corrección ortográfica
             'f3fora/cmp-spell'
         },
@@ -59,6 +62,10 @@ return {
     -- relacionado/epecifico a lenguage
     -- latex
     { 'lervag/vimtex' },
+    -- r
+    { 'jalvesaq/Nvim-R', lazy = false },
+    -- r (archivos csv)
+    { 'chrisbra/csv.vim' },
 
     -- ide
     'windwp/nvim-autopairs',
@@ -72,44 +79,21 @@ return {
         'nvim-lualine/lualine.nvim',
         opts = {
             options = {
+                --                section_separators = { left = '', right = '' },
+                -- component_separators = { left = '', right = '' }
                 section_separators = '',
-                component_separators = ''
+                component_separators = '',
+            },
+            sections = {
+                lualine_a = {
+                    {
+                        'buffers',
+                        hide_filename_extention = true,
+                        'diff',
+                    }
+                }
             }
         }
-    },
-    {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        config = function()
-            require("nvim-tree").setup {
-                renderer = {
-                    indent_markers = {
-                        enable = true,
-                    }
-                },
-                actions = {
-                    open_file = {
-                        quit_on_open = true,
-                    },
-                },
-            }
-        end,
-    },
-    {
-        'romgrk/barbar.nvim',
-        dependencies = {
-            'lewis6991/gitsigns.nvim',
-            'nvim-tree/nvim-web-devicons',
-        },
-        init = function() vim.g.barbar_auto_setup = false end,
-        opts = {
-            auto_hide = true,
-            exclude_ft = { 'vimwiki' },
-        },
     },
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -146,6 +130,11 @@ return {
             ignore_missing = true,
         },
     },
+    -- capturas de pantalla
+    {
+        "narutoxy/silicon.lua",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
 
     -- navegacion
     'alexghergh/nvim-tmux-navigation',
@@ -179,6 +168,7 @@ return {
         lazy = false,
         priority = 1000,
     },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     'https://github.com/shaunsingh/nord.nvim',
     -- extras
     {
