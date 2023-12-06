@@ -158,16 +158,6 @@ return {
     },
 
     -- esquema de color
-    {
-        'nyoom-engineering/oxocarbon.nvim',
-        lazy = false,
-        priority = 1000
-    },
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-    },
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     'https://github.com/shaunsingh/nord.nvim',
     -- extras

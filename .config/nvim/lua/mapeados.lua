@@ -2,7 +2,7 @@ local mapeado = vim.keymap.set
 
 -- basicos
 mapeado({"n", "v"}, ";", ":")
-mapeado("n", "<C-w>", vim.cmd.w)
+mapeado("n", "<C-s>", vim.cmd.w)
 mapeado("n", "<C-q>", vim.cmd.q)
 
 mapeado("i", "LL", "<Right>")

@@ -2,8 +2,7 @@ export EDITOR='nvim'
 export QT_QPA_PLATFORMTHEME='qt6ct'
 export QT_QPA_PLATFORM='wayland onlyoffice'
 export QT_QPA_PLATFORM='xcb onlyoffice'
-export ANKI_WAYLAND=1
-export WLR_NO_HARDWARE_CURSORS=1
+export ANKI_WAYLAND=1 export WLR_NO_HARDWARE_CURSORS=1
 export ZSH=$HOME/.oh-my-zsh
 export FZF_DEFAULT_OPTS="--border --padding 2%"
 export PF_ASCII='tux'
@@ -137,3 +136,5 @@ eval "$(starship init zsh)"
 
 # Created by `pipx` on 2023-12-01 02:13:39
 export PATH="$PATH:/home/ludwig/.local/bin"
+
+pfetch
