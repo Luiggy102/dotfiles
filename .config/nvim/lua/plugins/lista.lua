@@ -80,8 +80,7 @@ return {
         'nvim-lualine/lualine.nvim',
         opts = {
             options = {
-                --                section_separators = { left = '', right = '' },
-                -- component_separators = { left = '', right = '' }
+                icons_enabled = false,
                 section_separators = '',
                 component_separators = '',
             },
@@ -93,7 +92,6 @@ return {
                         hide_filename_extension = true,
                         symbols = {
                             modified = ' ●',
-                            -- alternate_file = '# ',
                             alternate_file = '',
                             directory = '',
                         },
@@ -101,7 +99,6 @@ return {
                 },
                 lualine_b = { 'branch', 'diff', 'diagnostics' },
                 lualine_c = {},
-                -- lualine_x = { 'encoding', 'fileformat', 'filetype' },
                 lualine_x = { 'filetype' },
                 lualine_y = { 'progress' },
                 lualine_z = { 'location' }
@@ -151,6 +148,7 @@ return {
 
     -- navegacion
     'alexghergh/nvim-tmux-navigation',
+    'easymotion/vim-easymotion',
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.4',
@@ -161,18 +159,10 @@ return {
             'nvim-telescope/telescope-file-browser.nvim'
         },
     },
-    {
-        'ggandor/leap.nvim',
-        dependencies = { 'tpope/vim-repeat' },
-        config = function()
-            require('leap').add_default_mappings()
-        end,
-        opts = {},
-    },
 
     -- esquema de color
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    'https://github.com/shaunsingh/nord.nvim',
+    'shaunsingh/nord.nvim',
     -- extras
     {
         'vimwiki/vimwiki',

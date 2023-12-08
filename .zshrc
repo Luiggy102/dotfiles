@@ -93,6 +93,7 @@ alias ym='ytfzf -m'
 alias nvc='cd $HOME/.config/nvim/' 
 alias dot='cd $HOME/Documents/dotfiles/'
 alias dc='cd $HOME/Documents' 
+alias conf='cd $HOME/.config'
 alias vw='nvim -c ":VimwikiIndex"'
 alias cl='clear'
 
