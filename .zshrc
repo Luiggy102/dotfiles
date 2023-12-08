@@ -5,8 +5,10 @@ export QT_QPA_PLATFORM='xcb onlyoffice'
 export ANKI_WAYLAND=1 export WLR_NO_HARDWARE_CURSORS=1
 export ZSH=$HOME/.oh-my-zsh
 export FZF_DEFAULT_OPTS="--border --padding 2%"
+export BAT_THEME="Catppuccin-macchiato"
+
+# Pfetch
 export PF_ASCII='tux'
-export BAT_THEME="Catppuccin-mocha"
 
 # swww
 # export SWWW_TRANSITION='wipe'

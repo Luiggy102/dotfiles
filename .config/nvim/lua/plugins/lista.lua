@@ -17,7 +17,8 @@ return {
         opts = {
             hint_prefix = ' ',
             handler_opts = {
-                border = 'single' -- double, rounded, single, shadow, none, or a table of borders
+                -- double, rounded, single, shadow, none, or a table of borders
+                border = 'single'
             },
         },
         config = function(_, opts) require 'lsp_signature'.setup(opts) end
@@ -88,11 +89,23 @@ return {
                 lualine_a = {
                     {
                         'buffers',
-                        hide_filename_extention = true,
-                        'diff',
+                        icons_enabled = false,
+                        hide_filename_extension = true,
+                        symbols = {
+                            modified = ' ●',
+                            -- alternate_file = '# ',
+                            alternate_file = '',
+                            directory = '',
+                        },
                     }
-                }
-            }
+                },
+                lualine_b = { 'branch', 'diff', 'diagnostics' },
+                lualine_c = {},
+                -- lualine_x = { 'encoding', 'fileformat', 'filetype' },
+                lualine_x = { 'filetype' },
+                lualine_y = { 'progress' },
+                lualine_z = { 'location' }
+            },
         }
     },
     {

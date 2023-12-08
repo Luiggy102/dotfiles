@@ -11,6 +11,10 @@ vim.cmd [[autocmd BufRead,BufNewFile *.tex setlocal spell]]
 -- R (cambiar indentado y activar 'Nvim-R' automáticamente)
 vim.cmd [[ autocmd BufRead,BufNewFile *.r setlocal expandtab | setlocal tabstop=2 | setlocal shiftwidth=2 | setlocal autoindent | setlocal smartindent | let R_auto_start = 1 | let R_objbr_auto_start = 1 ]]
 
+-- formatear el código en el guardado
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
 -- Ajustes Globales
 global.mapleader = " "
 global.netrw_menu = 0
