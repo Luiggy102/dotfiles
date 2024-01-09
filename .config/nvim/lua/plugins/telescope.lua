@@ -22,13 +22,6 @@ return {
             -- oldfiles = { theme = "ivy", }
         },
         extensions = {
-            media_files = {
-                -- filetypes whitelist
-                -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-                filetypes = { "png", "webp", "jpg", "jpeg" },
-                -- find command (defaults to `fd`)
-                find_cmd = "rg"
-            },
             file_browser = {
                 theme = "ivy",
                 hidden = true,
@@ -48,5 +41,4 @@ return {
         },
     },
     require("telescope").load_extension('file_browser'),
-    require('telescope').load_extension('media_files'),
 }

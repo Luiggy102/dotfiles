@@ -43,30 +43,28 @@ return {
         'hrsh7th/nvim-cmp',
         dependencies = {
             -- lsp
-            'hrsh7th/cmp-nvim-lsp',       -- para lsp
+            'hrsh7th/cmp-nvim-lsp',     -- para lsp
             -- otros
-            'petertriho/cmp-git',         -- para git
-            'saadparwaiz1/cmp_luasnip',   -- para snippets
-            'hrsh7th/cmp-buffer',         -- para los bufers
-            'hrsh7th/cmp-path',           -- para rutas
-            'hrsh7th/cmp-cmdline',        -- para los comandos
-            -- latex
-            'micangl/cmp-vimtex',         -- para latex
-            'kdheepak/cmp-latex-symbols', -- symbolos latex
-            -- r
-            'jalvesaq/cmp-nvim-r',
-            -- corrección ortográfica
-            'f3fora/cmp-spell'
+            'saadparwaiz1/cmp_luasnip', -- para snippets
+            'hrsh7th/cmp-buffer',       -- para los bufers
+            'hrsh7th/cmp-path',         -- para rutas
+            'hrsh7th/cmp-cmdline',      -- para los comandos
         },
     },
 
-    -- relacionado/epecifico a lenguage
-    -- latex
-    { 'lervag/vimtex' },
-    -- r
-    { 'jalvesaq/Nvim-R', lazy = false },
-    -- r (archivos csv)
-    { 'chrisbra/csv.vim' },
+    -- golang
+    {
+        'olexsmir/gopher.nvim',
+        ft = 'go',
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        opts = {},
+        build = function()
+            vim.cmd [[silent! GoInstallDeps]]
+        end
+    },
 
     -- ide
     'windwp/nvim-autopairs',
@@ -81,15 +79,17 @@ return {
         opts = {
             options = {
                 icons_enabled = false,
-                section_separators = '',
-                component_separators = '',
+                section_separators = { left = '', right = '' },
+                component_separators = { left = '', right = '' },
+                -- section_separators = '',
+                -- component_separators = '',
             },
             sections = {
                 lualine_a = {
                     {
                         'buffers',
-                        icons_enabled = false,
-                        hide_filename_extension = true,
+                        icons_enabled = true,
+                        hide_filename_extension = false,
                         symbols = {
                             modified = ' ●',
                             alternate_file = '',
@@ -155,14 +155,20 @@ return {
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-lua/popup.nvim',
-            'nvim-telescope/telescope-media-files.nvim',
             'nvim-telescope/telescope-file-browser.nvim'
         },
     },
 
     -- esquema de color
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     'shaunsingh/nord.nvim',
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        opts = {
+            transparent_background = true,
+        }
+    },
     -- extras
     {
         'vimwiki/vimwiki',
@@ -176,4 +182,7 @@ return {
             ]]
         end,
     },
+    {
+        'mattn/calendar-vim'
+    }
 }

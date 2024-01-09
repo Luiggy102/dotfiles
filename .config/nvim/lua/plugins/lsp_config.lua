@@ -33,31 +33,11 @@ return {
         ensure_installed = {
             -- lua
             "lua_ls",
-            -- json
-            "jsonls",
-            -- latex
-            "texlab",
-            -- js/ts
-            "tsserver",
-            -- c++/c
-            "clangd",
             -- bash
             "bashls",
+            -- golang
+            "gopls"
         }
-    }),
-    lspconfig['texlab'].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-    }),
-
-    lspconfig['tsserver'].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-    }),
-
-    lspconfig['clangd'].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
     }),
 
     lspconfig['bashls'].setup({
@@ -65,15 +45,20 @@ return {
         on_attach = on_attach,
     }),
 
-    lspconfig['r_language_server'].setup({
+    lspconfig['gopls'].setup({
         capabilities = capabilities,
         on_attach = on_attach,
-    }),
-
-    lspconfig['jsonls'].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-        filetypes = { 'json', 'jsonc' }
+        cmd = { 'gopls' },
+        filetypes = { 'go', 'gomod', 'gowork', 'gotml' },
+        settings = {
+            gopls = {
+                completeUnimported = true,
+                usePlaceholders = true,
+                analyses = {
+                    unusedparams = true,
+                }
+            }
+        }
     }),
 
     lspconfig['lua_ls'].setup({

@@ -17,18 +17,15 @@ return {
                 o = { ":Lspsaga outline<cr>", "abrir/cerrar outline" },
             },
             ------------ ir en código -----------------------
-            g = {
-                name = "ir (código) ",
-                n = {
-                    name = "siguiente",
-                    d = { ":Lspsaga diagnostic_jump_next<cr>", "diagnostico" },
-                    c = { ":Gitsigns next_hunk<cr>", "cambio" },
-                },
-                p = {
-                    name = "anterior",
-                    d = { ":Lspsaga diagnostic_jump_prev<cr>", "diagnostico" },
-                    c = { ":Gitsigns prev_hunk<cr>", "cambio" },
-                }
+            n = {
+                name = "siguiente",
+                d = { ":Lspsaga diagnostic_jump_next<cr>", "diagnostico" },
+                c = { ":Gitsigns next_hunk<cr>", "cambio" },
+            },
+            p = {
+                name = "anterior",
+                d = { ":Lspsaga diagnostic_jump_prev<cr>", "diagnostico" },
+                c = { ":Gitsigns prev_hunk<cr>", "cambio" },
             },
             ------------ navegación de archivos -----------------------
             a = {
@@ -77,7 +74,7 @@ return {
                 p = { ":G push origin main<cr>", "push (origin/main)" },
             },
             ------------ ejecutar -----------------------
-            n = {
+            r = {
                 name = "ejecutar código  ",
                 n = { ":!node %<cr>", "NodeJS" },
                 t = { ":!ts-node %<cr>", "TypeScript" },
@@ -86,6 +83,7 @@ return {
                 c = { ':w<CR>:!g++ % -o "$(basename -s .cpp %)"<CR>:term {./"$(basename -s .cpp %)"}<cr>', "C++" },
                 p = { ":w<cr>:term {python3 %}<cr>", "Python" },
                 x = { ":VimtexCompile", "Compilar Latex" },
+                o = { ":w<cr>:!go run %<cr>", "golang" }
             },
             ------------ acceso rápido -----------------------
             h = { ":Telescope oldfiles<cr>", "historial archivos  " },
