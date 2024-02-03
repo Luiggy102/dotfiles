@@ -28,14 +28,3 @@ mapeado("n", "<leader>cw", ':CalendarH<cr>', optsBar)
 
 -- IconPicker
 mapeado("i", "II", "<CMD>IconPickerInsert emoji nerd_font<cr>", optsBar)
-
--- capturas (sillicon.lua)
-vim.keymap.set('v', '<Leader>s', function() require('silicon').visualise_cmdline({ to_clip = true }) end)
-
--- Generate image of a whole buffer, with lines in a visual selection highlighted
-vim.keymap.set('v', '<Leader>bs',
-    function() require('silicon').visualise_cmdline({ to_clip = true, show_buf = true }) end)
--- Generate visible portion of a buffer
-vim.keymap.set('n', '<Leader>s', function() require('silicon').visualise_cmdline({ to_clip = true, visible = true }) end)
--- Generate current buffer line in normal mode
-vim.keymap.set('n', '<Leader>s', function() require('silicon').visualise_api({ to_clip = true }) end)

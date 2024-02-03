@@ -52,20 +52,6 @@ return {
         },
     },
 
-    -- golang
-    {
-        'olexsmir/gopher.nvim',
-        ft = 'go',
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-        },
-        opts = {},
-        build = function()
-            vim.cmd [[silent! GoInstallDeps]]
-        end
-    },
-
     -- ide
     'windwp/nvim-autopairs',
     'tpope/vim-fugitive',
@@ -140,11 +126,6 @@ return {
             ignore_missing = true,
         },
     },
-    -- capturas de pantalla
-    {
-        "narutoxy/silicon.lua",
-        dependencies = { "nvim-lua/plenary.nvim" },
-    },
 
     -- navegacion
     'alexghergh/nvim-tmux-navigation',
@@ -166,12 +147,16 @@ return {
         name = "catppuccin",
         priority = 1000,
         opts = {
-            transparent_background = true,
+            transparent_background = false,
         }
     },
     -- extras
+    -- lectura/escritura
     {
         'vimwiki/vimwiki',
+        dependencies = {
+            'mattn/calendar-vim'
+        },
         init = function()
             vim.cmd [[
                 let g:vimwiki_list = []
@@ -183,6 +168,11 @@ return {
         end,
     },
     {
-        'mattn/calendar-vim'
+        -- Enfocar solo el bloque de código
+        'folke/twilight.nvim',
+        dependencies = {
+            -- Modo concentración
+            'folke/zen-mode.nvim'
+        }
     }
 }

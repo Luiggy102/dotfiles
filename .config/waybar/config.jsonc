@@ -1,359 +1,144 @@
+//{
+    //"layer": "top",
+    //"modules-left": ["hyprland/workspaces", "hyprland/mode"],
+    //"modules-center": ["hyprland/window"],
+    //"modules-right": [
+		////"mpris",
+		////"mpd",
+		//"memory",
+		//"disk",
+		//"cpu",
+		//"bluetooth",
+		//"network",
+		//"pulseaudio",
+		//"user",
+		//"clock"
+	//],
+    //"clock": {
+        //"format-alt": "{:%a, %d. %b  %H:%M}"
+    //}
+//}
+
+
+// vim:set ft=jsonc:
 {
-    "layer": "top",
-    "position": "bottom",
-    "mod": "dock",
-    "exclusive": true,
-    "passtrough": false,
-    "gtk-layer-shell": true,
-    "height": 0,
-    "modules-left": [
-        "clock",
-        "tray"
-        // "hyprland/window"
-    ],
-    "modules-center": [],
-    "modules-right": [
-        "hyprland/workspaces",
-        // https://github.com/open-pomodoro/openpomodoro-cli#installation
-        "custom/pomodoro",
-        "network",
-        "pulseaudio",
-        "battery"
-    ],
-    "hyprland/window": {
-        "format": "{}"
+  "position": "bottom",
+  "modules-left": [
+    "custom/arch-pill",
+    "hyprland/workspaces",
+    "cpu",
+    "memory",
+    "temperature",
+    "battery",
+    "custom/cafeine"
+  ],
+  "modules-center": [
+	  //"hyprland/window", 
+	  "custom/playerctl"
+  ],
+  "modules-right": ["tray", "network", "pulseaudio", "backlight", "clock"],
+  // Modules configuration
+  "custom/arch-pill": {
+    "format": "󰣇",
+    "on-click": "~/.config/rofi/scripts/launcher",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+      "format": "{id}: {icon} ",
+      "format-icons": {
+        "active": " ",
+        "default": " "
+      }
+      // "on-scroll-up": "hyprctl dispatch workspace e+1",
+      // "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+  "clock": {
+	  "format": "  {:%H:%M   %p %a %d}"
+    //"format": "<span foreground='#cba6f7'>  </span><span>{:%H:%I %p %a %d}</span>",
+    //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    //"format-alt": "<span foreground='#89dceb'> </span><span>{:%H:%I %p}</span>",
+  },
+  "cpu": {
+    "format": "<span foreground='#89b4fa'></span>  {usage}%"
+  },
+  "memory": {
+    "format": "<span foreground='#f5e0dc'>󰍛</span> {}%",
+    "on-click": "kitty htop"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "<span foreground='#eba0ac'></span> {temperatureC}°C"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "<span foreground='#f9e2af'>{icon}</span>  {percent}%",
+    "states": [0, 50],
+    "format-icons": ["", ""]
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
     },
-    "hyprland/workspaces": {
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
-        "all-outputs": true,
-        "on-click": "activate",
-        "format": "{icon}",
-        "format-icons": {
-            "urgent": "⟳",
-            "active": "◽",
-            "default": "◾"
-        }
+    "format": "<span foreground='#a6e3a1'>{icon}</span>   {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    "format": "Loading",
+    "format-wifi": "{essid}   ({signalStrength}%)",
+    "format-ethernet": "{ipaddr}/{cidr}",
+    "format-disconnected": "Disconnected",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "tooltip-format-wifi": "{essid}({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "~/.config/rofi/scripts/wifi"
+  },
+  "pulseaudio": {
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format": "<span size='13000' foreground='#fab387'></span>  {volume}%",
+    "format-muted": "<span size='14000'>󰝟</span>",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["奔", "墳"]
     },
-    "tray": {
-        "icon-size": 12,
-        "tooltip": false,
-        "spacing": 10
-    },
-    "clock": {
-        "format": "{:%H.%M  %a %b %d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n\n<tt><small>{calendar}</small></tt>"
-    },
-    "pulseaudio": {
-        "format": "🔊 {volume}%",
-        "tooltip": false,
-        "format-muted": "🔊 N/A",
-        "on-click": "changeVolume toggle",
-        "on-scroll-up": "changeVolume 5%+",
-        "on-scroll-down": "changeVolume 5%-",
-        "scroll-step": 5
-    },
-    "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "tooltip": false,
-        "format-source": "音入：{volume}パ",
-        "format-source-muted": "音声入力：無",
-        "on-click": "amixer set Capture toggle",
-        "on-scroll-up": "amixer set Capture 5%+",
-        "on-scroll-down": "amixer set Capture 5%-",
-        "scroll-step": 5
-    },
-    "network": {
-        "format-wifi": "📡 {essid} {signalStrength}%",
-        "format-ethernet": "📡 {signalStrength}%",
-        "tooltip-format": "接続先:{essid}　アドレス：{No IP}",
-        "format-disconnected": "📡 N/A"
-    },
-    "battery": {
-        "states": {
-            "warning": 20,
-            "critical": 15
-        },
-        "format": "🔋 {capacity}%",
-        "format-charging": "🔌 {capacity}%",
-        "format-plugged": "🔌 {capacity}%"
-    },
-    "custom/pomodoro": {
-        "format": "🍅 {}",
-        "exec": "pomodoro status --format '%r'",
-        "exec-if": "pgrep pomodoro || exit 0",
-        "interval": 2, 
-        "on-click": "pomodoro start",
-        "on-click-middle": "pomodoro break",
-        "on-click-right": "pomodoro finish"
+    "on-click-right": "pavucontrol"
+  },
+  // "custom/cafeine": {
+  //   "format": "{icon}",
+  //   "return-type": "json",
+  //   "format-icons": {
+  //     "active": "<span foreground='#b4befe'></span>",
+  //     "inactive": "<span foreground='#cdd6f4'>󰒲</span>"
+  //   },
+  //   "interval": 20,
+  //   "exec": "~/.scripts/newm-cafeine",
+  // },
+  "hyprland/window": {
+	  "format": "{title}"
+  },
+  "custom/playerctl": {
+    "format": "{icon}  <span>{}</span>",
+    "return-type": "json",
+    "max-length": 50,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click-middle": "playerctl play-pause",
+    "on-click-left": "playerctl previous",
+    "on-click-right": "playerctl next",
+    "format-icons": {
+      "Playing": "<span foreground='#94e2d5'></span>",
+      "Paused": "<span foreground='#f38ba8'></span>"
     }
+  },
+  "tray": {
+    "icon-size": 20,
+    "reverse-direction": true,
+    "spacing": 6
+  },
 }
-// minimalista
-// {
-//     "layer": "top",
-//     // "position": "top",
-//     "position": "bottom",
-//     // "height": 16,
-//     "margin": 0,
-//     "spacing": 7,
-//     "modules-left": [
-//         "hyprland/workspaces",
-//         "clock",
-//         "battery",
-//         "network",
-//         "pulseaudio"
-//     ],
-//     "modules-center": [],
-//     "modules-right": [
-//         "tray",
-//         "custom/playerctl"
-//     ],
-//     "hyprland/workspaces": {
-//         "format": "{icon}",
-//         "format-icons": {
-//             "active": "  ",
-//             "default": "  "
-//         }
-//     },
-//     "tray": {
-//         "icon-size": 16,
-//         "spacing": 10
-//     },
-//     "clock": {
-//         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-//         "format-alt": "{:%Y-%m-%d}"
-//     },
-//     "battery": {
-//         "states": {
-//             "good": 95,
-//             "warning": 30,
-//             "critical": 15
-//         },
-//         "format": "{capacity}% {icon} ",
-//         "format-charging": "{capacity}% ",
-//         "format-plugged": "{capacity}% ",
-//         "format-alt": "{time} {icon}",
-//         "format-icons": [
-//             "",
-//             "",
-//             "",
-//             "",
-//             ""
-//         ]
-//     },
-//     "network": {
-//         "format-wifi": "{essid}  ",
-//         "format-ethernet": "{ipaddr}/{cidr} ",
-//         "tooltip-format": "{ifname} via {gwaddr} ",
-//         "format-linked": "{ifname} (No IP) ",
-//         "format-disconnected": "Disconnected ⚠",
-//         "format-alt": "{ifname}: {ipaddr}/{cidr}"
-//     },
-//     "pulseaudio": {
-//         "format": "{volume}% {icon} {format_source}",
-//         "format-bluetooth": "{volume}% {icon} {format_source}",
-//         "format-bluetooth-muted": " {icon} {format_source}",
-//         "format-muted": " {format_source}",
-//         "format-source": " {volume}% ",
-//         "format-source-muted": " ",
-//         "format-icons": {
-//             "headphone": "",
-//             "hands-free": "",
-//             "headset": "",
-//             "phone": "",
-//             "portable": "",
-//             "car": "",
-//             "default": [
-//                 "",
-//                 "",
-//                 ""
-//             ]
-//         }
-//     },
-//     "custom/playerctl": {
-//         "format": "{icon}  <span>{}</span>",
-//         "return-type": "json",
-//         "max-length": 80,
-//         "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-//         "on-click": "playerctl play-pause",
-//         "format-icons": {
-//             "Playing": "",
-//             "Paused": ""
-//         }
-//     }
-// }
-// == dwm == //
-// {
-//     "spacing": 4,
-//     // try to keep it 4px across the config
-//     "height": 18,
-//     "modules-left": [
-//         "hyprland/workspaces",
-//         "hyprland/window"
-//     ],
-//     "modules-right": [ /* "tray", */
-//         "pulseaudio",
-//         "cpu",
-//         "memory",
-//         "temperature",
-//         "battery",
-//         "clock"
-//     ],
-//
-//     "tray": {
-//         "spacing": 10
-//     },
-//     "clock": {
-//         "tooltip-format": "<big>[{:%Y %B}]</big>\n<tt><small>{calendar}</small></tt>",
-//         "format": "[{:%H:%M}]",
-//         "format-alt": "[{:%Y-%m-%d}]"
-//     },
-//     "cpu": {
-//         "format": "[CPU:{usage}%]",
-//         "tooltip": false
-//     },
-//     "memory": {
-//         "format": "[MEM:{percentage}%]"
-//     },
-//     "temperature": {
-//         "critical-threshold": 80,
-//         "format-critical": "[!!{temperatureC}°C!!]",
-//         "format": "[{temperatureC}°C]"
-//     },
-//     "battery": {
-//         "format": "[BAT:{capacity}%]"
-//     },
-//     "pulseaudio": {
-//         // "scroll-step": 1, // %, can be a float
-//         "format": "[VOL:{volume}%]",
-//         "format-muted": "[VOL: M]"
-//     }
-// }
-// {
-//     "layer": "top",
-//     "position": "top",
-//     //"spacing": 4,
-//     "modules-left": [
-//         "hyprland/workspaces",
-//         "hyprland/window"
-//     ],
-//     "modules-center": [
-//         "custom/playerctl"
-//     ],
-//     "modules-right": [
-//         "pulseaudio",
-//         "network",
-//         "cpu",
-//         "memory",
-//         "temperature",
-//         "battery",
-//         "clock"
-//     ],
-//     "hyprland/workspaces": {
-//         "sort-by-number": true,
-//         "all-outputs": true,
-//         "on-click": "activate",
-//         "on-scroll-up": "hyprctl dispatch workspace e+1",
-//         "on-scroll-down": "hyprctl dispatch workspace e-1",
-//         "format": "{icon}",
-//         "format-icons": {
-//             "1": "<span color=\"#EBDBB2\">1</span>",
-//             "2": "<span color=\"#EBDBB2\">2</span>",
-//             "3": "<span color=\"#EBDBB2\">3</span>",
-//             "4": "<span color=\"#EBDBB2\">4</span>",
-//             "5": "<span color=\"#EBDBB2\">5</span>",
-//             "6": "<span color=\"#EBDBB2\">6</span>",
-//             "7": "<span color=\"#EBDBB2\">7</span>",
-//             "8": "<span color=\"#EBDBB2\">8</span>",
-//             "9": "<span color=\"#EBDBB2\">󰣇</span>",
-//             "urgent": "",
-//             "focused": "",
-//             "default": ""
-//         }
-//     },
-//     "pulseaudio": {
-//         "format": "{icon}  {volume}%",
-//         "format-muted": " muteado",
-//         "scroll-step": 5,
-//         "on-click": "pactl set-sink-mute 0 toggle",
-//         "format-icons": {
-//             "headphone": "  ",
-//             "hands-free": "  ",
-//             "headset": "  ",
-//             "phone": "  ",
-//             "portable": "  ",
-//             "car": "  ",
-//             "default": [
-//                 "",
-//                 "",
-//                 ""
-//             ]
-//         }
-//     },
-//     "hyprland/window": {
-//         "format": "➡ {}",
-//         "separate-outputs": true,
-//         "max-length": 70
-//     },
-//     "tray": {
-//         "icon-size": 14,
-//         "spacing": 10
-//     },
-//     "clock": {
-//         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-//         "format-alt": "{:%Y-%m-%d}"
-//     },
-//     "cpu": {
-//         "format": " {usage}%",
-//         "tooltip": false
-//     },
-//     "memory": {
-//         "format": "{}% "
-//     },
-//     "temperature": {
-//         "critical-threshold": 80,
-//         "format": "{icon} {temperatureC}°C",
-//         "format-icons": [
-//             "",
-//             "",
-//             ""
-//         ]
-//     },
-//     "battery": {
-//         "states": {
-//             "good": 95,
-//             "warning": 30,
-//             "critical": 15
-//         },
-//         "format": "{icon}  {capacity}%",
-//         "format-icons": [
-//             "",
-//             "",
-//             "",
-//             "",
-//             ""
-//         ],
-//         "format-charging": "{capacity}% ",
-//         "format-plugged": "{capacity}% ",
-//         "format-alt": "{time} {icon}"
-//     },
-//     "network": {
-//         "format-wifi": "  {essid} ",
-//         "format-ethernet": " {ipaddr}/{cidr}",
-//         "tooltip-format": " {ifname} via {gwaddr}",
-//         "format-linked": " {ifname} (No IP)",
-//         "format-disconnected": "⚠ Desconectado",
-//         "format-alt": "{ifname}: {ipaddr}/{cidr}"
-//     },
-//     "custom/playerctl": {
-//         "format": "{icon}  <span>{}</span>",
-//         "return-type": "json",
-//         "max-length": 40,
-//         "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-//         "on-click": "playerctl play-pause",
-//         "format-icons": {
-//             "Playing": "",
-//             "Paused": ""
-//         }
-//     }
-// }
