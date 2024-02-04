@@ -1,4 +1,5 @@
 local cmp = require 'cmp'
+local luasnip = require('luasnip')
 local kind_icons = {
     Text = "󰉿",
     Method = "󰆧",
@@ -28,21 +29,23 @@ local kind_icons = {
     Misc = " ",
 }
 return {
+    -- require("luasnip.loaders.from_vscode").lazy_load(),
     require("luasnip.loaders.from_vscode").lazy_load({
-        paths = { string.format("%s/.local/share/nvim/lazy/friendly-snippets/", os.getenv("HOME")) } }),
-    vim.keymap.set({ "i" }, "<C-K>", function() require('luasnip').expand() end, { silent = true }),
-    vim.keymap.set({ "i", "s" }, "<C-L>", function() require('luasnip').jump(1) end, { silent = true }),
-    vim.keymap.set({ "i", "s" }, "<C-J>", function() require('luasnip').jump(-1) end, { silent = true }),
+        paths = { string.format("%s/.local/share/nvim/lazy/friendly-snippets/", os.getenv("HOME")) }
+    }),
+    vim.keymap.set({ "i" }, "<C-K>", function() luasnip.expand() end, { silent = true }),
+    vim.keymap.set({ "i", "s" }, "<C-L>", function() luasnip.jump(1) end, { silent = true }),
+    vim.keymap.set({ "i", "s" }, "<C-J>", function() luasnip.jump(-1) end, { silent = true }),
     vim.keymap.set({ "i", "s" }, "<C-E>", function()
-        if require('luasnip').choice_active() then
-            require('luasnip').change_choice(1)
+        if luasnip.choice_active() then
+            luasnip.change_choice(1)
         end
     end, { silent = true }),
 
     cmp.setup({
         snippet = {
             expand = function(args)
-                require('luasnip').lsp_expand(args.body)
+                luasnip.lsp_expand(args.body)
             end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -80,38 +83,6 @@ return {
         experimental = {
             ghost_text = true
         },
-    }),
-
-    -- latex
-    cmp.setup.filetype('tex', {
-        sources = cmp.config.sources({
-            { name = 'vimtex' },
-            { name = 'luasnip' },
-            {
-                name = "latex_symbols",
-                option = { strategy = 0 },
-            },
-            {
-                name = 'spell',
-                option = {
-                    keep_all_entries = false,
-                    enable_in_context = function()
-                        return true
-                    end,
-                },
-            },
-            { name = 'buffer' },
-        })
-    }),
-
-    -- package.json
-    cmp.setup.filetype('json', {
-        sources = cmp.config.sources({
-            { name = 'npm' },
-            { name = 'nvim_lsp' },
-            { name = 'buffer' },
-            { name = 'path' },
-        })
     }),
 
     -- git commit

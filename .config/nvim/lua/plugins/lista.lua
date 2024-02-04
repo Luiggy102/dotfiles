@@ -61,14 +61,37 @@ return {
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", },
     { 'lewis6991/gitsigns.nvim',         opts = {} },
     {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+            lsp = {
+                signature = {
+                    enabled = false,
+                },
+            },
+        },
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            {
+                "rcarriga/nvim-notify",
+                opts = {
+                    timeout = 5000,
+                    -- el estilo
+                    render = "minimal",
+                    -- animación
+                    stages = "fade",
+                }
+            },
+        }
+    },
+    {
         'nvim-lualine/lualine.nvim',
         opts = {
             options = {
                 icons_enabled = false,
-                section_separators = { left = '', right = '' },
-                component_separators = { left = '', right = '' },
-                -- section_separators = '',
-                -- component_separators = '',
+                -- son los a,b,c - x,y,z
+                section_separators = { left = '', right = '' },
+                component_separators = { left = '', right = '' },
             },
             sections = {
                 lualine_a = {
@@ -85,7 +108,7 @@ return {
                 },
                 lualine_b = { 'branch', 'diff', 'diagnostics' },
                 lualine_c = {},
-                lualine_x = { 'filetype' },
+                lualine_x = {},
                 lualine_y = { 'progress' },
                 lualine_z = { 'location' }
             },
@@ -141,7 +164,6 @@ return {
     },
 
     -- esquema de color
-    'shaunsingh/nord.nvim',
     {
         "catppuccin/nvim",
         name = "catppuccin",

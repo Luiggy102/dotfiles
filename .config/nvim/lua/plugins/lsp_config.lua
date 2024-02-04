@@ -36,11 +36,18 @@ return {
             -- bash
             "bashls",
             -- golang
-            "gopls"
+            "gopls",
+            -- jsonls
+            "jsonls"
         }
     }),
 
     lspconfig['bashls'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }),
+
+    lspconfig['jsonls'].setup({
         capabilities = capabilities,
         on_attach = on_attach,
     }),
