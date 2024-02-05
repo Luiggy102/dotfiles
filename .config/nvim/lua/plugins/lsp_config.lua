@@ -31,25 +31,15 @@ return {
     require('mason').setup(),
     require('mason-lspconfig').setup({
         ensure_installed = {
-            -- lua
-            "lua_ls",
-            -- bash
-            "bashls",
             -- golang
             "gopls",
+            -- bash
+            "bashls",
             -- jsonls
             "jsonls"
+            -- lua (opcional)
+            -- "lua_ls",
         }
-    }),
-
-    lspconfig['bashls'].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-    }),
-
-    lspconfig['jsonls'].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
     }),
 
     lspconfig['gopls'].setup({
@@ -67,6 +57,17 @@ return {
             }
         }
     }),
+
+    lspconfig['bashls'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }),
+
+    lspconfig['jsonls'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }),
+
 
     lspconfig['lua_ls'].setup({
         capabilities = capabilities,

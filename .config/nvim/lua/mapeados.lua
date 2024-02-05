@@ -8,6 +8,10 @@ mapeado("n", "<C-q>", vim.cmd.q)
 
 mapeado("i", "LL", "<Right>")
 
+-- esc alternativo
+mapeado("i", "fj", "<esc>")
+mapeado("i", "jf", "<esc>")
+
 -- buffers
 mapeado('n', 'H', '<Cmd>bprevious<CR>', optsBar)
 mapeado('n', 'L', '<Cmd>bnext<CR>', optsBar)
