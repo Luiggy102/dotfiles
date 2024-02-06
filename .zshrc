@@ -1,18 +1,6 @@
 export EDITOR='nvim'
-export QT_QPA_PLATFORMTHEME='qt6ct'
-export QT_QPA_PLATFORM='wayland onlyoffice'
-export QT_QPA_PLATFORM='xcb onlyoffice'
-export ANKI_WAYLAND=1 export WLR_NO_HARDWARE_CURSORS=1
 export ZSH=$HOME/.oh-my-zsh
 export FZF_DEFAULT_OPTS="--border --padding 2%"
-export BAT_THEME="Catppuccin-macchiato"
-
-# Pfetch
-export PF_ASCII='tux'
-
-# swww
-# export SWWW_TRANSITION='wipe'
-# export SWWW_TRANSITION_FPS='60'
 
 zstyle ':omz:update' mode disabled
 
@@ -21,7 +9,6 @@ colored-man-pages
 git
 vi-mode 
 copypath 
-node
 sudo 
 web-search
 copybuffer # ctrl + o para copiar lo que esta en la terminal
@@ -48,11 +35,7 @@ rehash_precmd() {
 add-zsh-hook -Uz precmd rehash_precmd
 
 alias v='nvim'
-alias t='tmux a || tmux'
-alias o='xdg-open'
 alias dl="cd $HOME/Downloads"
-
-alias off='sudo shutdown -h now'
 
 alias l='lsd'
 alias ls='lsd'
@@ -85,14 +68,8 @@ alias cts='for i in *.ts; do ffmpeg -i "$i" "${i%.*}.mp4"; done && rm -rf *ts'
 alias tae='trans de:es'
 alias tea='trans es:de'
 
-# youtube
-alias y='ytfzf'
-alias yt='ytfzf -t -T kitty'
-alias ym='ytfzf -m'
-
 alias nvc='cd $HOME/.config/nvim/' 
-alias dot='cd $HOME/Documents/dotfiles/'
-alias dc='cd $HOME/Documents' 
+alias dot='cd $HOME/dotfiles/'
 alias conf='cd $HOME/.config'
 alias vw='nvim -c ":VimwikiIndex"'
 alias cl='clear'
@@ -112,7 +89,8 @@ run_ranger () {
     zle reset-prompt
 }
 zle -N run_ranger
-bindkey '^f' run_ranger
+# ^[ es la tecla ALT
+bindkey '^[f' run_ranger
 
 run_nvim() {
 	echo "nvim ."
@@ -121,7 +99,7 @@ run_nvim() {
 	zle redisplay
 }
 zle -N run_nvim
-bindkey '^v' run_nvim
+bindkey '^[v' run_nvim
 
 run_dir_fzf() {
 	echo "cd"
@@ -130,14 +108,6 @@ run_dir_fzf() {
 	zle redisplay
 }
 zle -N run_dir_fzf
-bindkey '^j' run_dir_fzf
-
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+bindkey '^[j' run_dir_fzf
 
 eval "$(starship init zsh)"
-
-# Created by `pipx` on 2023-12-01 02:13:39
-export PATH="$PATH:/home/ludwig/.local/bin"
-
-pfetch
