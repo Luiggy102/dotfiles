@@ -10,8 +10,8 @@ return {
             -- hidden = true,
             mappings = {
                 i = {
-                    ["<C-j>"] = "move_selection_next",
-                    ["<C-k>"] = "move_selection_previous",
+                    ["<A-j>"] = "move_selection_next",
+                    ["<A-k>"] = "move_selection_previous",
                     ["<esc>"] = "close",
 
                 },

@@ -1,12 +1,12 @@
 return {
-    require('nvim-tmux-navigation').setup{
+    require('nvim-tmux-navigation').setup {
         keybindings = {
-            left = "<C-h>",
-            down = "<C-j>",
-            up = "<C-k>",
-            right = "<C-l>",
+            left = "<A-h>",
+            down = "<A-j>",
+            up = "<A-k>",
+            right = "<A-l>",
             -- last_active = "<C-\\>",
-            next = "<C-Space>",
+            next = "<A-Space>",
         }
     }
 }
