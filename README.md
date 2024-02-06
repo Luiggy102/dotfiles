@@ -2,36 +2,31 @@
 
 ## Instalation
 
-1. Upgrade Termux
+1. Upgrade Termux and install git
 ```
-pkg update -y && pkg upgrade -y
-```
-
-2. Install git
-```
-pkg install git -y
+pkg update -y && pkg upgrade -y && pkg install git -y
 ```
 
-3. Clone the termux brach from the repo
+2. Clone the termux brach from the repo
 ```
-git clone -b termux git@github.com:Luiggy102/dotfiles.git
+git clone -b termux https://github.com/Luiggy102/dotfiles.git
 ```
 
-4. Go to the dir
+3. Go to the dir
 ```
 cd dotfiles
 ```
 
-5. Make the setup script executable
+4. Make the setup script executable
 ```
 chmod +x setup.sh
 ```
 
-6. run it
+5. run it
 ```
 ./setup.sh
 ```
-*Post install*
+***Post install***
 ```
 rm -rf $HOME/.zshrc && ln -s $HOME/dotfiles/.zshrc $HOME/
 ```

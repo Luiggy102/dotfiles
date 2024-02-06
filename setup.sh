@@ -19,13 +19,13 @@ pkg install zsh -y
 pkg install golang -y
 pkg install golang-doc -y
 pkg install neovim -y
-pkg install neofetch -y
-pkg install screenfetch -y
 pkg install bat -y
 pkg install ranger -y
 pkg install ytfzf -y
+pkg install fastfetch -y
 pkg install ani-cli -y
 pkg install tmux -y
+pkg install lsd -y
 pkg install tree -y
 pkg install cowsay -y
 pkg install cmatrix -y
@@ -51,6 +51,7 @@ rm -rf $HOME/.termux && ln -s $HOME/dotfiles/.termux $HOME/
 
 # configs
 mkdir $HOME/.config/
+mkdir $HOME/go/
 mkdir $HOME/go/src/
 ln -s $HOME/dotfiles/.config/ytfzf $HOME/.config/
 ln -s $HOME/dotfiles/.config/nvim $HOME/.config/
