@@ -113,4 +113,3 @@ bindkey '^[j' run_dir_fzf
 eval "$(starship init zsh)"
 
 clear
-fastfetch

@@ -33,10 +33,10 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load({
         paths = { string.format("%s/.local/share/nvim/lazy/friendly-snippets/", os.getenv("HOME")) }
     }),
-    vim.keymap.set({ "i" }, "<C-K>", function() luasnip.expand() end, { silent = true }),
-    vim.keymap.set({ "i", "s" }, "<C-L>", function() luasnip.jump(1) end, { silent = true }),
-    vim.keymap.set({ "i", "s" }, "<C-J>", function() luasnip.jump(-1) end, { silent = true }),
-    vim.keymap.set({ "i", "s" }, "<C-E>", function()
+    vim.keymap.set({ "i" }, "<A-k>", function() luasnip.expand() end, { silent = true }),
+    vim.keymap.set({ "i", "s" }, "<A-l>", function() luasnip.jump(1) end, { silent = true }),
+    vim.keymap.set({ "i", "s" }, "<A-j>", function() luasnip.jump(-1) end, { silent = true }),
+    vim.keymap.set({ "i", "s" }, "<A-e>", function()
         if luasnip.choice_active() then
             luasnip.change_choice(1)
         end

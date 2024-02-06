@@ -15,7 +15,7 @@ return {
         'ray-x/lsp_signature.nvim',
         event = 'VeryLazy',
         opts = {
-            hint_prefix = ' ',
+            hint_prefix = '󰌵 ',
             handler_opts = {
                 -- double, rounded, single, shadow, none, or a table of borders
                 border = 'single'
@@ -194,7 +194,15 @@ return {
         'folke/twilight.nvim',
         dependencies = {
             -- Modo concentración
-            'folke/zen-mode.nvim'
+            {
+                'folke/zen-mode.nvim',
+                opts = {
+                    plugins = {
+                        tmux = { enabled = true }, -- disables the tmux statusline
+                    }
+
+                }
+            }
         }
     }
 }
