@@ -51,6 +51,7 @@ rm -rf $HOME/.termux && ln -s $HOME/dotfiles/.termux $HOME/
 
 # configs
 mkdir $HOME/.config/
+mkdir $HOME/go/src/
 ln -s $HOME/dotfiles/.config/ytfzf $HOME/.config/
 ln -s $HOME/dotfiles/.config/nvim $HOME/.config/
 ln -s $HOME/dotfiles/.config/ranger $HOME/.config/
@@ -77,4 +78,3 @@ done
 clear
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-rm -rf $HOME/.zshrc && ln -s $HOME/dotfiles/.zshrc $HOME/
