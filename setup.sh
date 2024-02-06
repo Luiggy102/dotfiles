@@ -1,3 +1,4 @@
+##############################
 echo "Actualizando Termux..."
 for i in {1..2}; do
 	sleep 1
@@ -7,6 +8,7 @@ done
 pkg update -y && pkg upgrade -y
 clear
 
+##############################
 echo "Instalando paquetes..."
 for i in {1..2}; do
 	sleep 1
@@ -31,25 +33,7 @@ pkg install starship -y
 pkg install htop -y
 clear
 
-echo "Instalando ohmyzsh..."
-for i in {1..2}; do
-	sleep 1
-	echo -e "\n"
-done
-clear
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-echo "Instalando tmp(tmux)..."
-for i in {1..2}; do
-	sleep 1
-	echo -e "\n"
-done
-clear
-
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-
+############################
 echo "Creando directorios y links simbólicos..."
 for i in {1..2}; do
 	sleep 1
@@ -60,7 +44,6 @@ clear
 # ln -s <archivo/carptea original> <donde quero que este>
 
 # dot en home
-rm -rf $HOME/.zshrc && ln -s $HOME/dotfiles/.zshrc $HOME/
 rm -rf $HOME/.tmux.conf && ln -s $HOME/dotfiles/.tmux.conf $HOME/
 
 # termux
@@ -72,9 +55,26 @@ ln -s $HOME/dotfiles/.config/ytfzf $HOME/.config/
 ln -s $HOME/dotfiles/.config/nvim $HOME/.config/
 ln -s $HOME/dotfiles/.config/ranger $HOME/.config/
 ln -s $HOME/dotfiles/.config/starship.toml $HOME/.config/
-
 clear
-echo "listo"
 
 
+################################
+echo "Instalando tmp(tmux)..."
+for i in {1..2}; do
+	sleep 1
+	echo -e "\n"
+done
+clear
 
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+################################
+echo "Instalando ohmyzsh..."
+for i in {1..2}; do
+	sleep 1
+	echo -e "\n"
+done
+clear
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+rm -rf $HOME/.zshrc && ln -s $HOME/dotfiles/.zshrc $HOME/
