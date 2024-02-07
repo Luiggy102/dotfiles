@@ -23,6 +23,7 @@ pkg install bat -y
 pkg install ranger -y
 pkg install ytfzf -y
 pkg install fastfetch -y
+pkg install openssh -y
 pkg install nodejs -y
 pkg install ani-cli -y
 pkg install tmux -y
