@@ -36,9 +36,9 @@ return {
             -- bash
             "bashls",
             -- jsonls
-            "jsonls"
-            -- lua (opcional)
-            -- "lua_ls",
+            "jsonls",
+            -- lua
+            "lua_ls",
         }
     }),
 
