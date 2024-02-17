@@ -181,6 +181,8 @@ return {
         },
         init = function()
             vim.cmd [[
+
+let g:vimwiki_global_ext = 0
                 let g:vimwiki_list = []
                 let g:vimwiki_list += [{
                   \ 'path': '~/Documents/personal/notas/vimwiki/',

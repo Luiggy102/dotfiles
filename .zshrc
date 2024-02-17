@@ -74,6 +74,10 @@ alias conf='cd $HOME/.config'
 alias vw='nvim -c ":VimwikiIndex"'
 alias cl='clear'
 
+# termux 
+alias open='termux-open'
+alias yt-dlp="yt-dlp --format mp4 -f 22 -o '%(title)s.%(ext)s'"
+
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
