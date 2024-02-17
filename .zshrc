@@ -1,6 +1,6 @@
 export EDITOR='nvim'
 export ZSH=$HOME/.oh-my-zsh
-export FZF_DEFAULT_OPTS="--border --padding 2%"
+# export FZF_DEFAULT_OPTS="--border --padding 2%"
 
 zstyle ':omz:update' mode disabled
 
@@ -11,6 +11,7 @@ vi-mode
 copypath 
 sudo 
 web-search
+golang
 copybuffer # ctrl + o para copiar lo que esta en la terminal
 dirhistory # alt + izquierda regresa, alt + derecha vuelve, etc
 fzf
@@ -117,3 +118,5 @@ bindkey '^[j' run_dir_fzf
 eval "$(starship init zsh)"
 
 clear
+alias eliminatorias='cd /data/data/com.termux/files/home/go/src/ejemplosAPI/south-american-qualifiers-cli'
+alias src='cd /data/data/com.termux/files/home/go/src/'
