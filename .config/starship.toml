@@ -12,13 +12,7 @@ $git_state\
 $git_metrics\
 $git_status\
 $hg_branch\
-$package\
-$nodejs\
-$c\
-$cmake\
-$php\
-$python\
-$rust\
+$golang\
 $memory_usage\
 $env_var\
 $line_break\
