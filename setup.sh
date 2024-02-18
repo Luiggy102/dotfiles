@@ -21,7 +21,7 @@ for i in {1..2}; do
 done
 
 echo "Setting up system utils"
-yay -S alsa-utils feh kitty redshift pfetch ytfzf nmcli lsd flatpack gutenprint sxiv
+yay -S alsa-utils feh kitty redshift pfetch ytfzf nmcli lsd flatpack gutenprint sxiv ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland
 
 echo "Setting up fonts"
 yay -S ttf-jetbrains-mono-nerd
