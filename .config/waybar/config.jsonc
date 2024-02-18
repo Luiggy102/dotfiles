@@ -91,31 +91,33 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "<span foreground='#a6e3a1'>{icon}</span>   {capacity}%",
+        "format": "<span foreground='#a6e3a1'>{icon}</span>  {capacity}%",
         "format-icons": {
             "discharging": [
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
             ],
             "charging": [
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
             ],
-            "plugged": "ﮣ"
+            "plugged": "󰂄"
         }
     },
     "network": {
