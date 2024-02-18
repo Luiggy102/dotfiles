@@ -11,7 +11,7 @@ for i in {1..2}; do
 	echo -e "\n"
 done
 
-yay -Syyu
+yay
 clear
 
 echo "Installing packages..."
@@ -31,7 +31,7 @@ echo "Setting up development utils"
 yay -S curl wget openssh bat bat-extras fzf git htop highlight neovim ranger tmux zsh zsh-autosuggestions zsh-syntax-highlighting tree starship
 
 echo "Setting up desktop utils"
-yay -S hyprland hyprpaper dunst fuzzel waybar swayidle swaylock wl-clipboard slurp grim thunar dolphin
+yay -S hyprland hyprpaper dunst fuzzel waybar swayidle swaylock wl-clipboard slurp grim thunar dolphin light
 
 echo "Setting up programming languages"
 yay -S nodejs npm go
@@ -45,6 +45,9 @@ for i in {1..2}; do
 	echo -e "\n"
 done
 clear
+
+# Screenshots dir
+mkdir $HOME/Pictures/Screenshots
 
 # remove if anay
 rm -rf $HOME/.config/dunst
@@ -85,6 +88,23 @@ for i in {1..2}; do
 done
 clear
 
-# Post install:
-# rm -rf $HOME/.zshrc && ln -s $HOME/dotfiles/.zshrc $HOME/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# == Post install reminders ==
+# -- active zsh --
+# rm -rf $HOME/.zshrc && ln -s $HOME/dotfiles/.zshrc $HOME/
+
+# --  add github ssh --
+# https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+
+# --  change dotfiles remote url from http to ssh --
+# git remote remove origin
+# git remote set-url origin git@github.com:Luiggy102/dotfiles.git
+
+# -- install autocpu-freq for battery life (laptop)
+# git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+# cd auto-cpufreq && sudo ./auto-cpufreq-installer
+
+# -- power button to suspend (laptop) --
+# sudo -e /etc/systemd/logind.conf
+# and change it to HandlePowerKey=ignore

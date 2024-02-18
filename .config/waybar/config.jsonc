@@ -57,7 +57,7 @@
         // "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
     "clock": {
-        "format": "  {:%H:%M   %p %a %d}"
+        "format": "  {:%H:%M    %a %d}"
         //"format": "<span foreground='#cba6f7'>  </span><span>{:%H:%I %p %a %d}</span>",
         //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         //"format-alt": "<span foreground='#89dceb'> </span><span>{:%H:%I %p}</span>",
