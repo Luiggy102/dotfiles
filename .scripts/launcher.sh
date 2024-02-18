@@ -70,6 +70,6 @@ case "$chosen" in
     pomofocus ) firefox 'https://pomofocus.io/' ;;
 
     # -- editConfig -- # 
-    editScript ) kitty nvim /usr/local/bin/fzfScript ;;
+    editScript ) kitty nvim $HOME/dotfiles/.scripts/launcher.sh ;;
 
 esac
