@@ -1,9 +1,9 @@
-# This setup script is meant to be used in a Archlinux distro with yay installed
+# set up script archlinux
 
-# echo "=== Setting up yay ==="
-# git clone https://aur.archlinux.org/yay.git
-# cd yay/
-# makepkg -si
+echo "=== Setting up yay ==="
+git clone https://aur.archlinux.org/yay.git
+cd yay/
+makepkg -si
 
 echo "Update system..."
 for i in {1..2}; do
@@ -21,7 +21,7 @@ for i in {1..2}; do
 done
 
 echo "Setting up system utils"
-yay -S alsa-utils feh kitty redshift ytfzf nmcli lsd flatpack tree-sitter tree-sitter-cli gutenprint sxiv ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland
+yay -S alsa-utils feh kitty redshift ytfzf nmcli lsd flatpak flatpak-builder tree-sitter tree-sitter-cli gutenprint sxiv gufw ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland
 
 echo "Setting up fonts"
 yay -S ttf-jetbrains-mono-nerd ttf-iosevka-nerd
