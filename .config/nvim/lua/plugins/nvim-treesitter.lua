@@ -1,19 +1,29 @@
+vim.opt.runtimepath:append("$HOME/.local/share/treesitter")
 return {
+
     require('nvim-treesitter.configs').setup {
+        parser_install_dir = "$HOME/.local/share/treesitter",
         ensure_installed = {
-            -- "bash",
-            -- "cpp",
-            -- "csv",
-            -- "git_config",
-            -- "javascript",
-            -- "json",
-            -- "latex",
-            -- "lua",
-            -- "markdown",
-            -- "r",
-            -- "typescript",
+            -- languages
+            -- go
+            "go",
+            "gomod",
+            "gosum",
+            "gowork",
+            -- extras
+            "lua",
+            "html",
+            "bash",
+            "json",
+            "vimdoc",
+            "markdown",
+            "markdown_inline",
+            -- git
+            "git_config",
+            "gitignore",
+            "gitcommit",
         },
-        auto_install = true,
+        auto_install = false,
         highlight = {
             enable = true,
             use_languagetree = false
