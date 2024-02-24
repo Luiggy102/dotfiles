@@ -29,14 +29,14 @@ for i in {1..2}; do
 done
 
 echo "Setting up system utils"
-yay -S alsa-utils feh kitty redshift ytfzf yt-dlp ani-cli nmcli rsync lsd flatpak flatpak-builder tree-sitter tree-sitter-cli gutenprint sxiv ufw ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland
+yay -S alsa-utils feh kitty redshift ytfzf yt-dlp ani-cli cmatrix nmcli rsync lsd flatpak flatpak-builder tree-sitter tree-sitter-cli gutenprint sxiv ufw ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland system-config-printer simple-scan foomatic-db-gutenprint-ppds cups foomatic-db foomatic-db-ppds
 
 echo "Setting up fonts"
 yay -S ttf-jetbrains-mono-nerd ttf-iosevka-nerd noto-fonts-emoji
 fc-cache -f -v
 
 echo "Setting up development utils"
-yay -S curl wget openssh bat bat-extras fzf git htop highlight neovim ranger tmux zsh zsh-autosuggestions zsh-syntax-highlighting tree starship jq
+yay -S curl wget openssh bat bat-extras fzf git htop highlight neovim ranger tmux zsh zsh-autosuggestions zsh-syntax-highlighting tree starship jq python-pillow
 
 echo "Setting up desktop utils"
 yay -S hyprland hyprpaper dunst fuzzel waybar swayidle swaylock wl-clipboard slurp grim thunar dolphin light
@@ -122,3 +122,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # -- enable fw --
 # sudo ufw enable
+
+# -- enable printers (reboot after install printer packages) -- 
+# sudo systemctl start cups
+# sudo systemctl enable cups

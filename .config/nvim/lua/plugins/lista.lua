@@ -183,8 +183,8 @@ return {
             vim.cmd [[
                 let g:vimwiki_list = []
                 let g:vimwiki_list += [{
-                  \ 'path': '~/Documents/personal/notas/vimwiki/',
-                  \ 'path_html': '~/Documents/personal/notas/vimwiki/'
+                  \ 'path': '~/vimwiki/wikis',
+                  \ 'path_html': '~/vimwiki/html'
                   \ }]
             ]]
         end,
