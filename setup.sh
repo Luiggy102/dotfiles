@@ -123,6 +123,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # -- enable fw --
 # sudo ufw enable
 
+# -- enable spell ES in neovim
+# sudo nvim
+# ::set spelllang=es spell
+
 # -- enable printers (reboot after install printer packages) -- 
 # sudo systemctl start cups
 # sudo systemctl enable cups

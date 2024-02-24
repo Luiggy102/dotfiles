@@ -6,12 +6,10 @@ local global = vim.g
 vim.api.nvim_command('set fillchars=eob:\\ ')
 
 -- spell en archivos tipo
--- vim.cmd [[autocmd BufRead,BufNewFile *.wiki setlocal spell]]
--- vim.cmd [[autocmd BufRead,BufNewFile *.tex setlocal spell]]
-
--- indentado en archivos tipo
--- R (cambiar indentado y activar 'Nvim-R' automáticamente)
-vim.cmd [[ autocmd BufRead,BufNewFile *.r setlocal expandtab | setlocal tabstop=2 | setlocal shiftwidth=2 | setlocal autoindent | setlocal smartindent | let R_auto_start = 1 | let R_objbr_auto_start = 1 ]]
+vim.cmd [[autocmd BufRead,BufNewFile *.wiki setlocal spell]]
+vim.cmd [[autocmd BufRead,BufNewFile *.tex setlocal spell]]
+vim.cmd [[autocmd BufRead,BufNewFile *.md setlocal spell]]
+vim.cmd [[autocmd BufRead,BufNewFile *.txt setlocal spell]]
 
 -- generar diario VimWiki
 vim.cmd [[

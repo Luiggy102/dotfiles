@@ -28,7 +28,7 @@ mapeado("n", "<C-f>", ':Telescope file_browser path=%:p:h select_buffer=true<cr>
 mapeado("n", "<leader>sf", ':Telescope file_browser path=%:p:h select_buffer=true<cr>', optsBar)
 
 -- calendario vimwiki
-mapeado("n", "<leader>cw", ':CalendarH<cr>', optsBar)
+mapeado("n", "<leader>wc", ':CalendarH<cr>', optsBar)
 
 -- IconPicker
 mapeado("i", "II", "<CMD>IconPickerInsert emoji nerd_font<cr>", optsBar)

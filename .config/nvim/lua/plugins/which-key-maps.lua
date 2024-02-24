@@ -32,7 +32,7 @@ return {
             },
             ------------ git -----------------------
             i = {
-                name = "git  ",
+                name = "git 󰊢 ",
                 -- gitsigns --
                 h = {
                     name = "hunk (cambios)",
@@ -58,8 +58,8 @@ return {
                 o = { ":w<cr>:!go run %<cr>", "golang" }
             },
             ------------ acceso rápido -----------------------
-            h = { ":Telescope oldfiles<cr>", "historial  " },
-            f = { ":Telescope find_files<cr>", "econtrar  " },
+            h = { ":Telescope oldfiles<cr>", "historial  " },
+            f = { ":Telescope find_files<cr>", "econtrar 󰈞 " },
             t = { ":Telescope colorscheme<cr>", "color  " },
             --------------- modo zen --------------------------
             z = { ":ZenMode<cr>", "zen  " },
