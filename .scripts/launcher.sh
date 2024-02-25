@@ -46,8 +46,8 @@ case "$chosen" in
 	
 
     # -- wiki -- #
-    vw ) kitty nvim -c "VimwikiIndex" ;;
-    vimwiki ) kitty nvim -c "VimwikiIndex" ;;
+    vw ) kitty -d=~/vimwiki/ nvim -c "VimwikiIndex" ;;
+    vimwiki ) kitty -d=~/vimwiki/ nvim -c "VimwikiIndex" ;;
 
     # -- Links -- # 
     songsterr ) firefox 'https://www.songsterr.com/' ;;
@@ -70,6 +70,6 @@ case "$chosen" in
     pomofocus ) firefox 'https://pomofocus.io/' ;;
 
     # -- editConfig -- # 
-    editScript ) kitty nvim $HOME/dotfiles/.scripts/launcher.sh ;;
+    editScript ) kitty -d=~/dotfiles/ nvim $HOME/dotfiles/.scripts/launcher.sh ;;
 
 esac
