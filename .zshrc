@@ -171,5 +171,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #source ~/Repos/extra/powerlevel10k/powerlevel10k.zsh-theme
 eval "$(starship init zsh)"
 
-# echo '\n'
-# pfetch
+pfetch

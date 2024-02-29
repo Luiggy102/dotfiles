@@ -29,7 +29,7 @@ for i in {1..2}; do
 done
 
 echo "Setting up system utils"
-yay -S alsa-utils feh kitty redshift ytfzf yt-dlp ani-cli cmatrix nmcli rsync lsd flatpak flatpak-builder tree-sitter tree-sitter-cli gutenprint sxiv ufw ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland system-config-printer simple-scan foomatic-db-gutenprint-ppds cups foomatic-db foomatic-db-ppds blueman
+yay -S alsa-utils feh kitty redshift ytfzf yt-dlp ani-cli cmatrix nmcli rsync lsd flatpak flatpak-builder tree-sitter tree-sitter-cli gutenprint sxiv ufw ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland system-config-printer simple-scan foomatic-db-gutenprint-ppds cups foomatic-db foomatic-db-ppds blueman pfetch
 
 echo "Setting up fonts"
 yay -S ttf-jetbrains-mono-nerd ttf-iosevka-nerd noto-fonts-emoji
