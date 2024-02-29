@@ -123,15 +123,6 @@ run_ranger () {
 zle -N run_ranger
 bindkey '^f' run_ranger
 
-#run_nvim_nerdTree() {
-	#echo "nvim"
-	#nvim -c ":History"
-	#zle reset-prompt
-	#zle redisplay
-#}
-#zle -N run_nvim_nerdTree
-#bindkey '^v' run_nvim_nerdTree
-
 run_nvim() {
 	echo "nvim ."
 	nvim .
@@ -150,25 +141,27 @@ run_dir_fzf() {
 zle -N run_dir_fzf
 bindkey '^j' run_dir_fzf
 
-#run_ytfzf() {
-	#echo "ytfzf"
-	#ytfzf 
-	#zle reset-prompt
-	#zle redisplay
-#}
-#zle -N run_ytfzf
-#bindkey '^y' run_ytfzf
+fast_source() {
+	echo "source ~/.zshrc"
+    source ~/.zshrc
+	zle reset-prompt
+	zle redisplay
+}
+zle -N fast_source
+bindkey '^s' fast_source
 
-#function rangerFileManager() { echo "ranger" ; ranger ; zle reset-prompt; zle redisplay }
-#zle -N rangerFileManager
-#bindkey '^f' rangerFileManager
+# extra alias
+if [ -f ~/.zsh_aliases ]; then
+    source ~/.zsh_aliases
+else
+    print "404: ~/.zsh_aliases not found."
+fi
+
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-#source ~/Repos/extra/powerlevel10k/powerlevel10k.zsh-theme
 eval "$(starship init zsh)"
 
+clear
 pfetch
