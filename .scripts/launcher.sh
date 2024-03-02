@@ -2,9 +2,15 @@
 
 choises="pomofocus
 github
+goByExample
+goTour
+goProjectLayout1
+goProjectLayout2
+goStdLib
+goProgramiz
+anki
 vw
 vimwiki
-anki
 zathura
 songsterr
 documentos
@@ -30,6 +36,15 @@ editScript"
 chosen=$(echo "$choises" | fuzzel -d)
 
 case "$chosen" in
+    
+    # -- links go -- #
+    goByExample ) firefox 'https://gobyexample.com/' ;;
+    goTour ) firefox 'https://go.dev/tour/welcome/1' ;;
+    goProjectLayout1 ) firefox 'https://github.com/golang-standards/project-layout/blob/master/README_es.md' ;;
+    goProjectLayout2 ) firefox 'https://go.dev/doc/modules/layout' ;;
+    goStdLib ) firefox 'https://pkg.go.dev/' ;;
+    goProgramiz ) firefox 'https://www.programiz.com/golang' ;;
+
 	
     # -- Folders -- #
     documentos ) dolphin $HOME/Documents/ ;;
@@ -57,7 +72,7 @@ case "$chosen" in
     github ) firefox 'https://github.com/Luiggy102?tab=repositories' ;;
     deepl ) firefox 'https://www.deepl.com/translator' ;;
     simpleLogin ) firefox 'https://app.simplelogin.io/dashboard/' ;;
-	invidious ) firefox 'https://invidious.io.lol/' ;;
+	invidious ) firefox 'https://yt.cdaut.de/search' ;;
 	geogebra ) firefox 'https://www.geogebra.org/graphing?lang=en' ;;
 	calculadoraDeSueño ) firefox 'https://sleepytime.cc/' ;;
 	googleAcademico) firefox 'https://scholar.google.com/' ;;

@@ -29,7 +29,7 @@ for i in {1..2}; do
 done
 
 echo "Setting up system utils"
-yay -S alsa-utils feh kitty redshift ytfzf yt-dlp ani-cli cmatrix nmcli rsync lsd flatpak flatpak-builder tree-sitter tree-sitter-cli gutenprint sxiv ufw ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland system-config-printer simple-scan foomatic-db-gutenprint-ppds cups foomatic-db foomatic-db-ppds blueman pfetch
+yay -S alsa-utils feh kitty redshift ytfzf yt-dlp ani-cli cmatrix nmcli rsync lsd flatpak flatpak-builder tree-sitter tree-sitter-cli gutenprint sxiv ufw ninja gcc wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf cmake libglvnd wayland system-config-printer simple-scan foomatic-db-gutenprint-ppds cups foomatic-db foomatic-db-ppds blueman pfetch gnome-sound-recorder
 
 echo "Setting up fonts"
 yay -S ttf-jetbrains-mono-nerd ttf-iosevka-nerd noto-fonts-emoji
@@ -65,12 +65,14 @@ rm -rf $HOME/.config/nvim
 rm -rf $HOME/.config/ranger
 rm -rf $HOME/.config/swaylock
 rm -rf $HOME/.config/waybar
+rm -rf $HOME/.config/fuzzel
 rm -rf $HOME/.config/starship.toml
 rm -rf $HOME/.tmux.conf 
 
 # copy the configs
 ln -s $HOME/dotfiles/.tmux.conf $HOME/
 ln -s $HOME/dotfiles/.config/dunst $HOME/.config/
+ln -s $HOME/dotfiles/.config/fuzzel $HOME/.config/
 ln -s $HOME/dotfiles/.config/hypr $HOME/.config/
 ln -s $HOME/dotfiles/.config/kitty $HOME/.config/
 ln -s $HOME/dotfiles/.config/nvim $HOME/.config/

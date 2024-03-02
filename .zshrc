@@ -4,12 +4,13 @@ export ZSH=$HOME/.oh-my-zsh
 export FZF_DEFAULT_OPTS="--border --padding 2%"
 
 # golang
-# export GOPATH=$HOME/go
-# export GOBIN=$GOPATH/bin
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
 # export GOROOT=/usr/lib/go
 
 # PATH
-export PATH=$PATH:$GOBIN:$GOROOT/bin
+export PATH=$PATH:$GOPATH:$GOBIN
+# export PATH=$PATH:$GOBIN:$GOROOT/bin
 
 zstyle ':omz:update' mode disabled  # disable automatic updates
 
@@ -104,7 +105,7 @@ alias vw='nvim -c "VimwikiIndex"'
 
 # dir
 alias nvc='cd ~/.config/nvim/'
-alias dot='cd ~/Documents/dotfiles/'
+alias dot='cd ~/dotfiles/'
 
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -163,5 +164,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 eval "$(starship init zsh)"
 
-clear
 pfetch
