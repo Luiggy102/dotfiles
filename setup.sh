@@ -65,6 +65,7 @@ rm -rf $HOME/.config/nvim
 rm -rf $HOME/.config/ranger
 rm -rf $HOME/.config/swaylock
 rm -rf $HOME/.config/waybar
+rm -rf $HOME/.config/ytfzf
 rm -rf $HOME/.config/fuzzel
 rm -rf $HOME/.config/starship.toml
 rm -rf $HOME/.tmux.conf 
@@ -73,6 +74,7 @@ rm -rf $HOME/.tmux.conf
 ln -s $HOME/dotfiles/.tmux.conf $HOME/
 ln -s $HOME/dotfiles/.config/dunst $HOME/.config/
 ln -s $HOME/dotfiles/.config/fuzzel $HOME/.config/
+ln -s $HOME/dotfiles/.config/ytfzf $HOME/.config/
 ln -s $HOME/dotfiles/.config/hypr $HOME/.config/
 ln -s $HOME/dotfiles/.config/kitty $HOME/.config/
 ln -s $HOME/dotfiles/.config/nvim $HOME/.config/

@@ -31,6 +31,8 @@ googleAcademico
 telegram
 pictures
 videos
+gitStatus
+gitPull
 editScript"
 
 chosen=$(echo "$choises" | fuzzel -d)
@@ -58,7 +60,10 @@ case "$chosen" in
 	zathura ) zathura ;;
 	pdf ) zathura ;;
     keepassXC ) keepassxc ;;
-	
+    
+    # -- scripts -- #
+    gitStatus ) upgit -sn ;;
+    gitPull ) upgit -lln ;;
 
     # -- wiki -- #
     vw ) kitty -d=~/vimwiki/ nvim -c "VimwikiIndex" ;;

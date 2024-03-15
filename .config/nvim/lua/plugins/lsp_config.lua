@@ -39,6 +39,8 @@ return {
             "jsonls",
             -- lua
             "lua_ls",
+            -- rust
+            "rust_analyzer"
         }
     }),
 
@@ -53,6 +55,19 @@ return {
                 usePlaceholders = true,
                 analyses = {
                     unusedparams = true,
+                }
+            }
+        }
+    }),
+
+    lspconfig['rust_analyzer'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        filetypes = { 'rust' },
+        settings = {
+            ['rust_analyzer'] = {
+                cargo = {
+                    allFeatures = true,
                 }
             }
         }
@@ -77,7 +92,6 @@ return {
         capabilities = capabilities,
         on_attach = on_attach,
     }),
-
 
     lspconfig['lua_ls'].setup({
         capabilities = capabilities,

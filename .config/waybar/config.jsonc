@@ -1,41 +1,18 @@
-//{
-//"layer": "top",
-//"modules-left": ["hyprland/workspaces", "hyprland/mode"],
-//"modules-center": ["hyprland/window"],
-//"modules-right": [
-////"mpris",
-////"mpd",
-//"memory",
-//"disk",
-//"cpu",
-//"bluetooth",
-//"network",
-//"pulseaudio",
-//"user",
-//"clock"
-//],
-//"clock": {
-//"format-alt": "{:%a, %d. %b  %H:%M}"
-//}
-//}
-// vim:set ft=jsonc:
 {
-    "position": "bottom",
+    "position": "top",
     "modules-left": [
         "custom/arch-pill",
-        "hyprland/workspaces",
-        "cpu",
-        "memory",
-        "temperature",
-        "battery",
-        "custom/cafeine"
+        "hyprland/workspaces"
+        // "cpu",
+        //"memory",
+        //"temperature"
     ],
     "modules-center": [
-        //"hyprland/window", 
         "custom/playerctl"
     ],
     "modules-right": [
         "tray",
+        "battery",
         "network",
         "pulseaudio",
         "backlight",
@@ -44,7 +21,6 @@
     // Modules configuration
     "custom/arch-pill": {
         "format": "󰣇",
-        "on-click": "~/.config/rofi/scripts/launcher",
         "tooltip": false
     },
     "hyprland/workspaces": {
@@ -58,16 +34,13 @@
     },
     "clock": {
         "format": "  {:%H:%M    %a %d}"
-        //"format": "<span foreground='#cba6f7'>  </span><span>{:%H:%I %p %a %d}</span>",
-        //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        //"format-alt": "<span foreground='#89dceb'> </span><span>{:%H:%I %p}</span>",
     },
     "cpu": {
         "format": "<span foreground='#89b4fa'></span>  {usage}%"
     },
     "memory": {
-        "format": "<span foreground='#f5e0dc'>󰍛</span> {}%",
-        "on-click": "kitty htop"
+        "format": "<span foreground='#f5e0dc'>󰍛</span> {}%"
+        // "on-click": "kitty htop"
     },
     "temperature": {
         "critical-threshold": 80,
@@ -92,6 +65,7 @@
             "critical": 15
         },
         "format": "<span foreground='#a6e3a1'>{icon}</span>  {capacity}%",
+        //"format": "<span foreground='#a6e3a1'>{icon}</span>",
         "format-icons": {
             "discharging": [
                 "󰁺",
@@ -115,21 +89,23 @@
                 "󰢞",
                 "󰂊",
                 "󰂋",
-                "󰂅"
+                "󰂅 "
             ],
-            "plugged": "󰂄"
+            "plugged": ""
         }
     },
     "network": {
-        "format": "Loading",
-        "format-wifi": "{essid}   ({signalStrength}%)",
+        "format": "Cargando",
+        // "format-wifi": "{essid}   ({signalStrength}%)",
+        "format-wifi": "{essid} ",
         "format-ethernet": "{ipaddr}/{cidr}",
         "format-disconnected": "Disconnected",
         "tooltip-format": "{ifname} via {gwaddr} ",
-        "tooltip-format-wifi": "{essid}({signalStrength}%) ",
+        // "tooltip-format-wifi": "{essid}({signalStrength}%) ",
+        "tooltip-format-wifi": "{essid} ",
         "tooltip-format-ethernet": "{ifname} ",
-        "tooltip-format-disconnected": "Disconnected",
-        "on-click": "~/.config/rofi/scripts/wifi"
+        "tooltip-format-disconnected": "Sin conección"
+        // "on-click": "~/.config/rofi/scripts/wifi"
     },
     "pulseaudio": {
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -146,19 +122,9 @@
                 "奔",
                 "墳"
             ]
-        },
-        "on-click-right": "pavucontrol"
+        }
+        // "on-click-right": "pavucontrol"
     },
-    // "custom/cafeine": {
-    //   "format": "{icon}",
-    //   "return-type": "json",
-    //   "format-icons": {
-    //     "active": "<span foreground='#b4befe'></span>",
-    //     "inactive": "<span foreground='#cdd6f4'>󰒲</span>"
-    //   },
-    //   "interval": 20,
-    //   "exec": "~/.scripts/newm-cafeine",
-    // },
     "hyprland/window": {
         "format": "{title}"
     },

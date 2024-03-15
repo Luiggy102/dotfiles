@@ -15,7 +15,7 @@ return {
         'ray-x/lsp_signature.nvim',
         event = 'VeryLazy',
         opts = {
-            hint_prefix = ' ',
+            hint_prefix = '󰌵 ',
             handler_opts = {
                 -- double, rounded, single, shadow, none, or a table of borders
                 border = 'single'
@@ -79,10 +79,10 @@ return {
                     -- el estilo
                     render = "minimal",
                     -- animación
-                    stages = "fade",
-                }
+                    stages = "static",
+                },
             },
-        }
+        },
     },
     {
         'nvim-lualine/lualine.nvim',
@@ -162,7 +162,6 @@ return {
             'nvim-telescope/telescope-file-browser.nvim'
         },
     },
-
     -- esquema de color
     {
         "catppuccin/nvim",
@@ -172,8 +171,25 @@ return {
             transparent_background = false,
         }
     },
-    -- extras
-    -- lectura/escritura
+    -- extras lenguajes
+    -- csv
+    { 'chrisbra/csv.vim' },
+    -- golang
+    {
+        -- Installation requires this go tool :GoInstallDeps
+        "olexsmir/gopher.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
+    -- rust :!rustup toolchain install stable
+    {
+        'Saecki/crates.nvim',
+        ft = { "rust", "toml" },
+        opts = {}
+    },
+    -- lectura/escritura (wiki)
     {
         'vimwiki/vimwiki',
         dependencies = {
@@ -181,20 +197,31 @@ return {
         },
         init = function()
             vim.cmd [[
+                let g:vimwiki_global_ext = 0
                 let g:vimwiki_list = []
                 let g:vimwiki_list += [{
                   \ 'path': '~/vimwiki/wikis',
                   \ 'path_html': '~/vimwiki/html'
                   \ }]
+
+                function! VimwikiLinkHandler(link)
+                  let link = a:link
+                  if link =~# '^vfile:'
+                    let link = link[1:]
+                  else
+                    return 0
+                  endif
+                  let link_infos = vimwiki#base#resolve_link(link)
+                  if link_infos.filename == ''
+                    echomsg 'Vimwiki Error: Unable to resolve link!'
+                    return 0
+                  else
+                    exe 'tabnew ' . fnameescape(link_infos.filename)
+                    return 1
+                  endif
+                endfunction
+
             ]]
         end,
     },
-    {
-        -- Enfocar solo el bloque de código
-        'folke/twilight.nvim',
-        dependencies = {
-            -- Modo concentración
-            'folke/zen-mode.nvim'
-        }
-    }
 }

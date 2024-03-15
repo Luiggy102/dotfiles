@@ -106,6 +106,7 @@ return {
                 },
             },
             { name = 'buffer' },
+            { name = 'path' },
         })
     }),
 

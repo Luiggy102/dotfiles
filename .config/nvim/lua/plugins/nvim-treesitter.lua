@@ -22,6 +22,8 @@ return {
             "git_config",
             "gitignore",
             "gitcommit",
+            -- rust
+            "rust",
         },
         auto_install = false,
         highlight = {

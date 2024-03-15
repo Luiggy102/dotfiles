@@ -70,6 +70,8 @@ alias lsa='lsd -lah'
 alias la='lsd -lAh'
 alias ll='lsd -lh'
 
+alias mpv='mpv --ytdl-format=worst'
+
 # bat extras
 alias b='bat'
 alias bgrep='batgrep'
@@ -164,4 +166,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 eval "$(starship init zsh)"
 
-pfetch
+# pfetch
