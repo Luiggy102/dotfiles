@@ -9,7 +9,8 @@ export GOBIN=$GOPATH/bin
 # export GOROOT=/usr/lib/go
 
 # PATH
-export PATH=$PATH:$GOPATH:$GOBIN
+# export PATH=$PATH:$GOPATH:$GOBIN
+export PATH=$PATH:$GOPATH:$GOBIN:~/.cargo/bin
 # export PATH=$PATH:$GOBIN:$GOROOT/bin
 
 zstyle ':omz:update' mode disabled  # disable automatic updates

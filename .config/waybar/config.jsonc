@@ -2,20 +2,21 @@
     "position": "top",
     "modules-left": [
         "custom/arch-pill",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "backlight",
+        "pulseaudio"
         // "cpu",
         //"memory",
         //"temperature"
     ],
     "modules-center": [
-        "custom/playerctl"
+        // "custom/playerctl",
+        "hyprland/window"
     ],
     "modules-right": [
         "tray",
         "battery",
         "network",
-        "pulseaudio",
-        "backlight",
         "clock"
     ],
     // Modules configuration
@@ -99,7 +100,7 @@
         // "format-wifi": "{essid}   ({signalStrength}%)",
         "format-wifi": "{essid} ",
         "format-ethernet": "{ipaddr}/{cidr}",
-        "format-disconnected": "Disconnected",
+        "format-disconnected": "No hay internet ñaño 󰱶",
         "tooltip-format": "{ifname} via {gwaddr} ",
         // "tooltip-format-wifi": "{essid}({signalStrength}%) ",
         "tooltip-format-wifi": "{essid} ",
@@ -126,7 +127,15 @@
         // "on-click-right": "pavucontrol"
     },
     "hyprland/window": {
-        "format": "{title}"
+        "format": "{title}",
+        "max-length": 50,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "  $1",
+            "(.*) - zsh": "> [$1]",
+            "(.*) - vim": " $1",
+            "(.*) - mpv": "  $1"
+        },
+        "separate-outputs": true
     },
     "custom/playerctl": {
         "format": "{icon}  <span>{}</span>",
