@@ -161,9 +161,21 @@ else
     print "404: ~/.zsh_aliases not found."
 fi
 
+# What OS are we running?
+if [[ $(uname) == "Darwin" ]]; then
+    echo "macos"
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+elif command -v dnf > /dev/null; then
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh        
+
+elif command -v pacman > /dev/null; then
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+else
+    echo 'Unknown OS!'
+fi
 
 eval "$(starship init zsh)"
 
