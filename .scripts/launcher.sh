@@ -16,6 +16,7 @@ songsterr
 documentos
 descargas
 linkedin
+waybar
 monkeyType
 kitty
 invidious
@@ -35,7 +36,14 @@ gitStatus
 gitPull
 editScript"
 
-chosen=$(echo "$choises" | fuzzel -d)
+if ! command -v fuzzel &> /dev/null
+then
+    # fedora wayland gnome
+    chosen=$(echo "$choises" | dmenu)
+else 
+    # else
+    chosen=$(echo "$choises" | fuzzel -d)
+fi
 
 case "$chosen" in
     
@@ -64,6 +72,7 @@ case "$chosen" in
     # -- scripts -- #
     gitStatus ) upgit -sn ;;
     gitPull ) upgit -lln ;;
+    waybar ) waybar ;;
 
     # -- wiki -- #
     vw ) kitty -d=~/vimwiki/ nvim -c "VimwikiIndex" ;;
