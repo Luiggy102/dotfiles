@@ -9,6 +9,17 @@ goProjectLayout2
 goStdLib
 goProgramiz
 anki
+
+
+
+
+
+
+
+
+
+
+
 vw
 vimwiki
 zathura
