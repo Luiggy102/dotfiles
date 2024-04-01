@@ -1,55 +1,62 @@
 {
-    "position": "top",
     "modules-left": [
-        "custom/arch-pill",
         "hyprland/workspaces",
-        "backlight",
-        "pulseaudio"
-        // "cpu",
-        //"memory",
-        //"temperature"
-    ],
-    "modules-center": [
-        // "custom/playerctl",
         "hyprland/window"
     ],
+    /*"modules-center": ["hyprland/window"],*/
     "modules-right": [
-        "tray",
-        "battery",
         "network",
-        "clock"
+        "custom/separator",
+        "battery",
+        "custom/separator",
+        "backlight",
+        "custom/separator",
+        "pulseaudio",
+        "custom/separator",
+        "clock",
+        "custom/separator",
+        "tray"
     ],
-    // Modules configuration
-    "custom/arch-pill": {
-        "format": "󰣇",
-        "tooltip": false
+    "hyprland/window": {
+        "format": "{initialTitle}",
+        "interval": 1
     },
     "hyprland/workspaces": {
-        "format": "{id}: {icon} ",
-        "format-icons": {
-            "active": " ",
-            "default": " "
+        "persistent-workspaces": {
+            "*": 5
         }
-        // "on-scroll-up": "hyprctl dispatch workspace e+1",
-        // "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀   {ifname}",
+        "format-disconnected": "󰤮  No hay internet ñano",
+        "interval": 10
     },
     "clock": {
-        "format": "  {:%H:%M    %a %d}"
+        "format": "{:%d/%m/%Y  %H:%M}",
+        "interval": 10
     },
-    "cpu": {
-        "format": "<span foreground='#89b4fa'></span>  {usage}%"
-    },
-    "memory": {
-        "format": "<span foreground='#f5e0dc'>󰍛</span> {}%"
-        // "on-click": "kitty htop"
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "<span foreground='#eba0ac'></span> {temperatureC}°C"
+    "battery": {
+        "format": "{icon}  {capacity}",
+        "states": {
+            "full": 100,
+            "three-quarters": 75,
+            "half": 50,
+            "warning": 30,
+            "critical": 20
+        },
+        "format-icons": {
+            "full": "",
+            "three-quarters": "",
+            "half": "",
+            "warning": "",
+            "critical": ""
+        },
+        "interval": 15
     },
     "backlight": {
         "device": "intel_backlight",
-        "format": "<span foreground='#f9e2af'>{icon}</span>  {percent}%",
+        "format": "{icon}  {percent}",
         "states": [
             0,
             50
@@ -59,100 +66,184 @@
             ""
         ]
     },
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "<span foreground='#a6e3a1'>{icon}</span>  {capacity}%",
-        //"format": "<span foreground='#a6e3a1'>{icon}</span>",
-        "format-icons": {
-            "discharging": [
-                "󰁺",
-                "󰁻",
-                "󰁼",
-                "󰁽",
-                "󰁾",
-                "󰁿",
-                "󰂀",
-                "󰂁",
-                "󰂂",
-                "󰁹"
-            ],
-            "charging": [
-                "󰢜",
-                "󰂆",
-                "󰂇",
-                "󰂈",
-                "󰢝",
-                "󰂉",
-                "󰢞",
-                "󰂊",
-                "󰂋",
-                "󰂅 "
-            ],
-            "plugged": ""
-        }
-    },
-    "network": {
-        "format": "Cargando",
-        // "format-wifi": "{essid}   ({signalStrength}%)",
-        "format-wifi": "{essid} ",
-        "format-ethernet": "{ipaddr}/{cidr}",
-        "format-disconnected": "No hay internet ñaño 󰱶",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        // "tooltip-format-wifi": "{essid}({signalStrength}%) ",
-        "tooltip-format-wifi": "{essid} ",
-        "tooltip-format-ethernet": "{ifname} ",
-        "tooltip-format-disconnected": "Sin conección"
-        // "on-click": "~/.config/rofi/scripts/wifi"
-    },
     "pulseaudio": {
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "format": "<span size='13000' foreground='#fab387'></span>  {volume}%",
-        "format-muted": "<span size='14000'>󰝟</span>",
+        "format": "{icon}  {volume}",
+        "format-muted": " Muteado",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
             "default": [
-                "奔",
-                "墳"
+                "",
+                ""
             ]
-        }
-        // "on-click-right": "pavucontrol"
-    },
-    "hyprland/window": {
-        "format": "{title}",
-        "max-length": 50,
-        "rewrite": {
-            "(.*) — Mozilla Firefox": "  $1",
-            "(.*) - zsh": "> [$1]",
-            "(.*) - vim": " $1",
-            "(.*) - mpv": "  $1"
         },
-        "separate-outputs": true
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "interval": 1
     },
-    "custom/playerctl": {
-        "format": "{icon}  <span>{}</span>",
-        "return-type": "json",
-        "max-length": 50,
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "on-click-middle": "playerctl play-pause",
-        "on-click-left": "playerctl previous",
-        "on-click-right": "playerctl next",
-        "format-icons": {
-            "Playing": "<span foreground='#94e2d5'></span>",
-            "Paused": "<span foreground='#f38ba8'></span>"
-        }
-    },
-    "tray": {
-        "icon-size": 20,
-        "reverse-direction": true,
-        "spacing": 6
+    "custom/separator": {
+        "format": "    ",
+        "interval": "once",
+        "tooltip": false
     }
 }
+// {
+//
+//     "position": "top",
+//     "modules-left": [
+//         "custom/arch-pill",
+//         "hyprland/workspaces",
+//         "backlight",
+//         "pulseaudio"
+//         // "cpu",
+//         //"memory",
+//         //"temperature"
+//     ],
+//     "modules-center": [
+//         // "custom/playerctl",
+//         "hyprland/window"
+//     ],
+//     "modules-right": [
+//         "tray",
+//         "battery",
+//         "network",
+//         "clock"
+//     ],
+//     // Modules configuration
+//     "custom/arch-pill": {
+//         "format": "󰣇",
+//         "tooltip": false
+//     },
+//     "hyprland/workspaces": {
+//         "format": "{id}: {icon} ",
+//         "format-icons": {
+//             "active": " ",
+//             "default": " "
+//         }
+//         // "on-scroll-up": "hyprctl dispatch workspace e+1",
+//         // "on-scroll-down": "hyprctl dispatch workspace e-1"
+//     },
+//     "clock": {
+//         "format": "  {:%H:%M    %a %d}"
+//     },
+//     "cpu": {
+//         "format": "<span foreground='#89b4fa'></span>  {usage}%"
+//     },
+//     "memory": {
+//         "format": "<span foreground='#f5e0dc'>󰍛</span> {}%"
+//         // "on-click": "kitty htop"
+//     },
+//     "temperature": {
+//         "critical-threshold": 80,
+//         "format": "<span foreground='#eba0ac'></span> {temperatureC}°C"
+//     },
+//     "backlight": {
+//         "device": "intel_backlight",
+//         "format": "<span foreground='#f9e2af'>{icon}</span>  {percent}%",
+//         "states": [
+//             0,
+//             50
+//         ],
+//         "format-icons": [
+//             "",
+//             ""
+//         ]
+//     },
+//     "battery": {
+//         "states": {
+//             "good": 95,
+//             "warning": 30,
+//             "critical": 15
+//         },
+//         "format": "<span foreground='#a6e3a1'>{icon}</span>  {capacity}%",
+//         //"format": "<span foreground='#a6e3a1'>{icon}</span>",
+//         "format-icons": {
+//             "discharging": [
+//                 "󰁺",
+//                 "󰁻",
+//                 "󰁼",
+//                 "󰁽",
+//                 "󰁾",
+//                 "󰁿",
+//                 "󰂀",
+//                 "󰂁",
+//                 "󰂂",
+//                 "󰁹"
+//             ],
+//             "charging": [
+//                 "󰢜",
+//                 "󰂆",
+//                 "󰂇",
+//                 "󰂈",
+//                 "󰢝",
+//                 "󰂉",
+//                 "󰢞",
+//                 "󰂊",
+//                 "󰂋",
+//                 "󰂅 "
+//             ],
+//             "plugged": ""
+//         }
+//     },
+//     "network": {
+//         "format": "Cargando",
+//         // "format-wifi": "{essid}   ({signalStrength}%)",
+//         "format-wifi": "{essid} ",
+//         "format-ethernet": "{ipaddr}/{cidr}",
+//         "format-disconnected": "No hay internet ñaño 󰱶",
+//         "tooltip-format": "{ifname} via {gwaddr} ",
+//         // "tooltip-format-wifi": "{essid}({signalStrength}%) ",
+//         "tooltip-format-wifi": "{essid} ",
+//         "tooltip-format-ethernet": "{ifname} ",
+//         "tooltip-format-disconnected": "Sin conección"
+//         // "on-click": "~/.config/rofi/scripts/wifi"
+//     },
+//     "pulseaudio": {
+//         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+//         "format": "<span size='13000' foreground='#fab387'></span>  {volume}%",
+//         "format-muted": "<span size='14000'>󰝟</span>",
+//         "format-icons": {
+//             "headphone": "",
+//             "hands-free": "",
+//             "headset": "",
+//             "phone": "",
+//             "portable": "",
+//             "car": "",
+//             "default": [
+//                 "奔",
+//                 "墳"
+//             ]
+//         }
+//         // "on-click-right": "pavucontrol"
+//     },
+//     "hyprland/window": {
+//         "format": "{title}",
+//         "max-length": 50,
+//         "rewrite": {
+//             "(.*) — Mozilla Firefox": "  $1",
+//             "(.*) - zsh": "> [$1]",
+//             "(.*) - vim": " $1",
+//             "(.*) - mpv": "  $1"
+//         },
+//         "separate-outputs": true
+//     },
+//     "custom/playerctl": {
+//         "format": "{icon}  <span>{}</span>",
+//         "return-type": "json",
+//         "max-length": 50,
+//         "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+//         "on-click-middle": "playerctl play-pause",
+//         "on-click-left": "playerctl previous",
+//         "on-click-right": "playerctl next",
+//         "format-icons": {
+//             "Playing": "<span foreground='#94e2d5'></span>",
+//             "Paused": "<span foreground='#f38ba8'></span>"
+//         }
+//     },
+//     "tray": {
+//         "icon-size": 20,
+//         "reverse-direction": true,
+//         "spacing": 6
+//     }
+// }
