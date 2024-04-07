@@ -3,7 +3,7 @@
 My personal linux dotfiles and configs 🐧⚡
 
 ## Hyprland
-![240204_14-07-35](https://github.com/Luiggy102/dotfiles/assets/79861715/27902a7b-c28f-4ba0-8246-19538016a1f3)
+![a](https://github.com/Luiggy102/dotfiles/assets/79861715/c45dd3d5-2fd9-43d8-b4be-2c0140a9d74d)
 
 ## Neovim
 ![240204_14-10-26](https://github.com/Luiggy102/dotfiles/assets/79861715/2aba95eb-ea0d-4156-b390-b8218961bccb)
