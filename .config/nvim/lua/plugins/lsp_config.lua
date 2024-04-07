@@ -40,7 +40,9 @@ return {
             -- lua
             "lua_ls",
             -- rust
-            "rust_analyzer"
+            "rust_analyzer",
+            -- latex
+            "ltex"
         }
     }),
 
@@ -76,6 +78,17 @@ return {
     lspconfig['bashls'].setup({
         capabilities = capabilities,
         on_attach = on_attach,
+    }),
+
+    lspconfig['ltex'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+            ['ltex'] = {
+                enabled = { "latex", "bibtex" },
+                language = "es"
+            }
+        }
     }),
 
     lspconfig['jsonls'].setup({
