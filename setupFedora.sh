@@ -44,6 +44,9 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Iosevka.zi
 rm -rf Iosevka.zip
 cd .. && sudo mv ./Iosevka /usr/share/fonts
 
+# update font cache
+sudo fc-cache -fv
+
 # starship prompt
 curl -sS https://starship.rs/install.sh | sh
 
