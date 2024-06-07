@@ -76,7 +76,6 @@ alias mpv='mpv --ytdl-format=worst'
 # bat extras
 alias b='bat'
 alias bgrep='batgrep'
-alias man='batman'
 alias bpipe='batpipe'
 alias bwatch='batwatch'
 alias bdiff='batdiff'
@@ -85,7 +84,6 @@ alias pbat='prettybat'
 #alias install='sudo apt install'
 
 alias ytv="youtube-dl --recode-video mp4" # descargar video
-#alias yta="youtube-dl -x --audio-format mp3" # descargar audio
 alias yta="yt-dlp -x --audio-format m4a" # descargar audio
 
 # Metadatos
@@ -101,7 +99,7 @@ alias tae='trans de:es'
 alias tea='trans es:de'
 
 # youtube
-alias y='ytfzf'
+alias y='ytfzf --ytdl-pref=bestvideo+bestaudio'
 alias yt='ytfzf -t'
 alias ym='ytfzf -m'
 alias vw='nvim -c "VimwikiIndex"'
@@ -178,5 +176,6 @@ else
 fi
 
 eval "$(starship init zsh)"
-
+eval "$(zoxide init zsh)"
 # pfetch
+autoload -U compinit; compinit
