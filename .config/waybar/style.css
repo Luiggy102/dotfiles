@@ -1,4 +1,5 @@
-@define-color base            #1a1a1a;
+@define-color base            #161616;
+/* @define-color base            #1a1a1a; */
 @define-color text            #eeeeee;
 @define-color green           #78A083;
 @define-color blue            #76ABAE;
