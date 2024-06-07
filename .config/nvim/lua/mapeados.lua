@@ -12,6 +12,9 @@ mapeado("i", "LL", "<Right>")
 mapeado("i", "fj", "<esc>")
 mapeado("i", "jf", "<esc>")
 
+-- pundo y coma rápido
+mapeado("n", "<leader>;", '$a;<esc>', optsBar)
+
 -- buffers
 mapeado('n', 'H', '<Cmd>bprevious<CR>', optsBar)
 mapeado('n', 'L', '<Cmd>bnext<CR>', optsBar)
@@ -23,8 +26,12 @@ mapeado('n', 'X', '<Cmd>b#<CR>', optsBar)
 vim.cmd [[let g:EasyMotion_do_mapping = 0]]
 vim.cmd [[nmap s <plug>(easymotion-s2)]]
 
+-- oil nvim
+mapeado("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
 -- nvim telescrope filebrowser
 mapeado("n", "<C-f>", ':Telescope file_browser path=%:p:h select_buffer=true<cr>', optsBar)
+mapeado("n", "<C-n>", ':Telescope file_browser path=%:p:h select_buffer=true<cr>', optsBar)
 mapeado("n", "<leader>sf", ':Telescope file_browser path=%:p:h select_buffer=true<cr>', optsBar)
 
 -- calendario vimwiki

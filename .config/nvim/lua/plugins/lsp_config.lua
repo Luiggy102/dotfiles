@@ -41,6 +41,8 @@ return {
             "lua_ls",
             -- rust
             "rust_analyzer",
+            -- cpp
+            "clangd",
             -- latex
             "ltex"
         }
@@ -80,9 +82,15 @@ return {
         on_attach = on_attach,
     }),
 
+    lspconfig['clangd'].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }),
+
     lspconfig['ltex'].setup({
         capabilities = capabilities,
         on_attach = on_attach,
+        filetypes = { 'latex' },
         settings = {
             ['ltex'] = {
                 enabled = { "latex", "bibtex" },

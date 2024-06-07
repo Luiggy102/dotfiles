@@ -43,12 +43,13 @@ return {
         'hrsh7th/nvim-cmp',
         dependencies = {
             -- lsp
-            'hrsh7th/cmp-nvim-lsp',     -- para lsp
+            'hrsh7th/cmp-nvim-lsp',      -- para lsp
             -- otros
-            'saadparwaiz1/cmp_luasnip', -- para snippets
-            'hrsh7th/cmp-buffer',       -- para los bufers
-            'hrsh7th/cmp-path',         -- para rutas
-            'hrsh7th/cmp-cmdline',      -- para los comandos
+            'saadparwaiz1/cmp_luasnip',  -- para snippets
+            'hrsh7th/cmp-buffer',        -- para los bufers
+            'hrsh7th/cmp-path',          -- para rutas
+            'hrsh7th/cmp-cmdline',       -- para los comandos
+            'kdheepak/cmp-latex-symbols' -- simbolos latex
         },
     },
 
@@ -160,6 +161,15 @@ return {
     'alexghergh/nvim-tmux-navigation',
     'easymotion/vim-easymotion',
     {
+        'stevearc/oil.nvim',
+        opts = {
+            default_file_explorer = true,
+        },
+        view_options = {
+            show_hidden = true,
+        },
+    },
+    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.4',
         dependencies = {
@@ -177,24 +187,10 @@ return {
             transparent_background = false,
         }
     },
+    { "nyoom-engineering/oxocarbon.nvim" },
     -- extras lenguajes
     -- csv
     { 'chrisbra/csv.vim' },
-    -- golang
-    {
-        -- Installation requires this go tool :GoInstallDeps
-        "olexsmir/gopher.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-        },
-    },
-    -- rust :!rustup toolchain install stable
-    {
-        'Saecki/crates.nvim',
-        ft = { "rust", "toml" },
-        opts = {}
-    },
     -- lectura/escritura (wiki)
     {
         'vimwiki/vimwiki',

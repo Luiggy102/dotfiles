@@ -62,7 +62,9 @@ return {
             f = { ":Telescope find_files<cr>", "econtrar 󰈞 " },
             t = { ":Telescope colorscheme<cr>", "color  " },
             --------------- modo zen --------------------------
-            z = { ":ZenMode<cr>", "zen  " },
+            s = { ":Telescope lsp_document_symbols<cr>", "lsp symbols  " },
+            -- s = { ":Telescope lsp_dynamic_workspace_symbols<cr>", "lsp symbols  " },
+            g = { ":Telescope live_grep<cr>", "grep  " },
         },
     }),
 }
