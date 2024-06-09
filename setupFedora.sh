@@ -4,6 +4,13 @@ sudo dnf upgrade
 # utils
 sudo dnf install zsh hyprland hyprpaper fuzzel swaylock swayidle bat lsd zoxide neovim zathura zathura-pdf-mupdf htop btop waybar light ufw gnome-pomodoro cava unrar lutris fzf mpv kitty keepassxc golang zsh-autosuggestions zsh-syntax-highlighting kde-connect-nautilus hugo dmenu wlsunset blueman fastfetch ranger
 
+# veracrypt
+wget https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-CentOS-8-x86_64.rpm
+sudo dnf install veracrypt-1.26.7-CentOS-8-x86_64.rp
+
+# rpm fusion
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
 # terminal images
 sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:justkidding/Fedora_40/home:justkidding.repo
 sudo dnf install ueberzugpp
