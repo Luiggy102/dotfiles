@@ -26,7 +26,7 @@ map [fullscreen] ; focus_inputbar ":"
 
 set selection-clipboard clipboard
 
-set recolor
+# set recolor
 set guioptions none
 
 # Theme

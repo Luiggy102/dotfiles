@@ -1,24 +1,108 @@
 {
+    "position": "bottom",
     "modules-left": [
-        "hyprland/workspaces",
+        "clock",
         "hyprland/window"
     ],
-    /*"modules-center": ["hyprland/window"],*/
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
     "modules-right": [
-        "network",
+        "tray",
         "custom/separator",
+        "privacy",
+        "custom/separator",
+        // "cpu",
+        // "custom/separator",
+        // "memory",
+        // "custom/separator",
+        // "temperature",
+        // "custom/separator",
+        // "disk",
+        // "custom/separator",
         "battery",
         "custom/separator",
         "backlight",
         "custom/separator",
         "pulseaudio",
         "custom/separator",
-        "clock",
-        "custom/separator",
-        "tray"
+        "network"
     ],
+    // "modules-left": [
+    //     "hyprland/workspaces",
+    //     "hyprland/window"
+    // ],
+    // /*"modules-center": ["hyprland/window"],*/
+    // "modules-right": [
+    //     "network",
+    //     "custom/separator",
+    //     "backlight",
+    //     "custom/separator",
+    //     "pulseaudio",
+    //     "custom/separator",
+    //     // 
+    //     "cpu",
+    //     "custom/separator",
+    //     "memory",
+    //     "custom/separator",
+    //     "disk",
+    //     "custom/separator",
+    //     //
+    //     "battery",
+    //     "custom/separator",
+    //     "clock",
+    //     "custom/separator",
+    //     "tray"
+    // ],
+    "privacy": {
+        "icon-spacing": 10,
+        "icon-size": 18,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+        ]
+    },
+    "memory": {
+        "interval": 3,
+        // "format": "  {used}"
+        "format": "󰍛  {used}"
+        // "max-length": 10
+    },
+    "cpu": {
+        "interval": 3,
+        "format": "  {usage}"
+        // "max-length": 10
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": " {temperatureC}°C"
+    },
+    "disk": {
+        "interval": 30,
+        // "format": "{used}/{total}",
+        // percentage_free, percentage_used, total, used, free
+        "format": "󰋊  {free}",
+        "path": "/"
+    },
     "hyprland/window": {
         "format": "{initialTitle}",
+        // "format": "{title}",
+        "max-length": 40,
+        "separate-outputs": true,
         "interval": 1
     },
     "hyprland/workspaces": {
@@ -35,17 +119,36 @@
         }
     },
     "network": {
-        "format-wifi": "  {essid}",
+        // "format-wifi": "  {essid} [ {bandwidthUpBytes}  {bandwidthDownBytes}]",
+        // "format-wifi": "  {essid} [{bandwidthTotalBytes}]",
+        // "format-wifi": "  {essid}",
+        "format-wifi": "{icon}",
         "format-ethernet": "󰈀   {ifname}",
-        "format-disconnected": "󰤮  No hay internet ñano",
-        "interval": 10
+        "format-disconnected": "󰤮 ",
+        //"format-disconnected": "{icon} ",
+        "tooltip": true,
+        "tooltip-format": "  {essid} {signalStrength}% [ {bandwidthUpBytes}  {bandwidthDownBytes}]",
+        "interval": 5,
+        "format-icons": [
+            "󰤯 ",
+            "󰤟 ",
+            "󰤢 ",
+            "󰤥 ",
+            "󰤨 "
+        ]
     },
     "clock": {
-        "format": "{:%d/%m/%Y  %H:%M}",
+        // "format": "{:%d/%m/%Y  %H:%M}",
+        "format": "{:%H:%M}",
+        "tooltip": true,
+        //"tooltip-format": "{:%d/%m/%Y}",
+        "tooltip-format": "{:%d/%m/%Y}<tt><small>{calendar}</small></tt>",
         "interval": 10
     },
     "battery": {
+        // "format": "{icon}  {capacity} {time} {cycles}",
         "format": "{icon}  {capacity}",
+        "format-time": "({H}:{M})",
         "states": {
             "full": 100,
             "three-quarters": 75,
@@ -60,7 +163,7 @@
             "warning": "",
             "critical": ""
         },
-        "interval": 15
+        "interval": 10
     },
     "backlight": {
         "device": "intel_backlight",
@@ -75,23 +178,26 @@
         ]
     },
     "pulseaudio": {
-        "format": "{icon}  {volume}",
-        "format-muted": " Muteado",
+        // "format": "{icon}  {volume}",
+        "format": "{icon} ",
+        "format-muted": " ",
         "format-icons": {
             "headphone": "",
             "phone": "",
             "portable": "",
             "car": "",
             "default": [
-                "",
-                ""
+                " ",
+                " ",
+                " "
             ]
         },
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "interval": 1
+        "interval": 1,
+        "tooltip": false
     },
     "custom/separator": {
-        "format": "    ",
+        "format": "   ",
         "interval": "once",
         "tooltip": false
     }

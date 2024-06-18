@@ -65,6 +65,8 @@ return {
             s = { ":Telescope lsp_document_symbols<cr>", "lsp symbols  " },
             -- s = { ":Telescope lsp_dynamic_workspace_symbols<cr>", "lsp symbols  " },
             g = { ":Telescope live_grep<cr>", "grep  " },
+            b = { ":Telescope buffers<cr>", "buffers  " },
+            o = { ":Lspsaga outline<cr>", "outline" },
         },
     }),
 }

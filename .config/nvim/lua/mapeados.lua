@@ -37,5 +37,8 @@ mapeado("n", "<leader>sf", ':Telescope file_browser path=%:p:h select_buffer=tru
 -- calendario vimwiki
 mapeado("n", "<leader>wc", ':CalendarH<cr>', optsBar)
 
+--lsp doc symbols
+mapeado("n", "<leader>ds", ":Telescope lsp_document_symbols<cr>", optsBar)
+
 -- IconPicker
 mapeado("i", "II", "<CMD>IconPickerInsert emoji nerd_font<cr>", optsBar)

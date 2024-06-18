@@ -1,15 +1,25 @@
+# in /etc/dnf/dnf.conf
+# max_parallel_downloads=10
+# fastestmirror=True
+
 # update
 sudo dnf upgrade
 
+# rpm fusion
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
 # utils
-sudo dnf install zsh hyprland hyprpaper fuzzel swaylock swayidle bat lsd zoxide neovim zathura zathura-pdf-mupdf htop btop waybar light ufw gnome-pomodoro cava unrar lutris fzf mpv kitty keepassxc golang zsh-autosuggestions zsh-syntax-highlighting kde-connect-nautilus hugo dmenu wlsunset blueman fastfetch ranger
+sudo dnf install zsh hyprland hyprpaper fuzzel swaylock swayidle bat lsd zoxide neovim zathura zathura-pdf-mupdf htop btop waybar light ufw gnome-pomodoro cava unrar lutris fzf mpv kitty keepassxc golang zsh-autosuggestions zsh-syntax-highlighting kde-connect-nautilus hugo wlsunset blueman fastfetch ranger bemenu
+
+# firmware updates
+sudo fwupdmgr refresh --force
+sudo fwupdmgr get-updates
+sudo fwupdmgr update
 
 # veracrypt
 wget https://launchpad.net/veracrypt/trunk/1.26.7/+download/veracrypt-1.26.7-CentOS-8-x86_64.rpm
-sudo dnf install veracrypt-1.26.7-CentOS-8-x86_64.rp
-
-# rpm fusion
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install veracrypt-1.26.7-CentOS-8-x86_64.rpm
+rm -rf veracrypt-1.26.7-CentOS-8-x86_64.rpm
 
 # terminal images
 sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:justkidding/Fedora_40/home:justkidding.repo
@@ -29,6 +39,9 @@ sudo make install doc && cd .. && rm -rf ytfzf
 git clone "https://github.com/pystardust/ani-cli.git"
 sudo cp ani-cli/ani-cli /usr/local/bin
 rm -rf ani-cli
+
+# freeze
+go install github.com/charmbracelet/freeze@latest
 
 # Screenshots dir
 mkdir $HOME/Pictures/Screenshots

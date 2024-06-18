@@ -16,19 +16,11 @@ export PATH=$PATH:$GOPATH:$GOBIN:~/.cargo/bin
 zstyle ':omz:update' mode disabled  # disable automatic updates
 
 plugins=(
-colored-man-pages
 git
 vi-mode 
-copypath 
 sudo 
-web-search
-copybuffer # ctrl + o para copiar lo que esta en la terminal
-dirhistory # alt + izquierda regresa, alt + derecha vuelve, etc
-history    # hsi: buscar en historia
 fzf
-golang
 )
-#rust
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,20 +42,7 @@ rehash_precmd() {
 add-zsh-hook -Uz precmd rehash_precmd
 
 alias v='nvim'
-#alias k='tmux a'
-#alias kk='tmux'
-alias t='tmux a || tmux'
-#alias tt='tmux'
 alias o='xdg-open'
-#alias oo='onlyoffice-desktopeditors ~/'
-alias lg='lazygit'
-alias s='nvim -S ~/.config/nvim/session/Session.vim'
-alias j='joplin'
-alias castero='python3 -m castero'
-alias p='python3'
-alias dl="cd $HOME/Downloads"
-
-alias off='sudo shutdown -h now'
 
 alias l='lsd'
 alias ls='lsd'
@@ -71,19 +50,7 @@ alias lsa='lsd -lah'
 alias la='lsd -lAh'
 alias ll='lsd -lh'
 
-alias mpv='mpv --ytdl-format=worst'
-
-# bat extras
-alias b='bat'
-alias bgrep='batgrep'
-alias bpipe='batpipe'
-alias bwatch='batwatch'
-alias bdiff='batdiff'
-alias pbat='prettybat'
-
-#alias install='sudo apt install'
-
-alias ytv="youtube-dl --recode-video mp4" # descargar video
+alias ytv="yt-dlp --recode-video mp4" # descargar video
 alias yta="yt-dlp -x --audio-format m4a" # descargar audio
 
 # Metadatos
@@ -92,21 +59,17 @@ alias dm="exiftool -all="
 alias cl="clear"
 
 # traductor
-#alias t="trans"
+alias t="trans"
 alias tda='trans -speak -download-audio'
 alias cts='for i in *.ts; do ffmpeg -i "$i" "${i%.*}.mp4"; done && rm -rf *ts'
 alias tae='trans de:es'
 alias tea='trans es:de'
 
 # youtube
-alias y='ytfzf --ytdl-pref=bestvideo+bestaudio'
+alias y='ytfzf'
 alias yt='ytfzf -t'
 alias ym='ytfzf -m'
 alias vw='nvim -c "VimwikiIndex"'
-
-# dir
-alias nvc='cd ~/.config/nvim/'
-alias dot='cd ~/dotfiles/'
 
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -135,8 +98,8 @@ zle -N run_nvim
 bindkey '^v' run_nvim
 
 run_dir_fzf() {
-	echo "cd"
-	cd $(find -type d | fzf)
+	echo "z"
+	z $(find -type d | fzf)
 	zle reset-prompt
 	zle redisplay
 }
@@ -170,12 +133,10 @@ elif command -v dnf > /dev/null; then
 elif command -v pacman > /dev/null; then
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 else
     echo 'Unknown OS!'
 fi
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-# pfetch
 autoload -U compinit; compinit

@@ -5,6 +5,9 @@ return {
         -- barra de simbolos
         symbol_in_winbar = {
             enable = false,
+            sign = true,
+            virtual_text = true,
+            priority = 100
         },
     })
 }

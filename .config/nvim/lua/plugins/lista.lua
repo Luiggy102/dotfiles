@@ -1,5 +1,4 @@
 return {
-
     -- lsp
     { 'williamboman/mason.nvim',     dependencies = 'williamboman/mason-lspconfig.nvim' },
     {
@@ -82,11 +81,16 @@ return {
             {
                 "rcarriga/nvim-notify",
                 opts = {
-                    timeout = 5000,
+                    fps = 60,
+                    timeout = 1250,
+                    -- minimum_width = 30,
+                    max_width = 40,
                     -- el estilo
-                    render = "minimal",
+                    render = "wrapped-compact",
                     -- animación
-                    stages = "static",
+                    -- stages = "static",
+                    --stages = "fade_in_slide_out",
+                    stages = "slide",
                 },
             },
         },
@@ -105,6 +109,12 @@ return {
                     {
                         'buffers',
                         icons_enabled = true,
+                        use_mode_colors = false,
+                        -- oxocarbon
+                        buffers_color = {
+                            active = { bg = '#ee5396' },
+                            inactive = { bg = '#82cfff' },
+                        },
                         hide_filename_extension = false,
                         symbols = {
                             modified = ' ●',
@@ -187,7 +197,7 @@ return {
             transparent_background = false,
         }
     },
-    { "nyoom-engineering/oxocarbon.nvim" },
+    "nyoom-engineering/oxocarbon.nvim",
     -- extras lenguajes
     -- csv
     { 'chrisbra/csv.vim' },
