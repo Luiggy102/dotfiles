@@ -1,6 +1,6 @@
 # My Dotfiles 💻
 
-My personal linux dotfiles and configs 🐧⚡
+My personal linux dotfiles and configs 🐧
 
 ![alt text](./screenshots/desktop.png) 
 

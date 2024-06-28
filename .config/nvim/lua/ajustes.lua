@@ -17,8 +17,8 @@ let g:vimwiki_list = [{'auto_diary_index': 1}]
 ]]
 
 -- formatear el código en el guardado
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+-- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- Ajustes Globales
 global.mapleader = " "

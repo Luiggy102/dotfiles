@@ -7,7 +7,6 @@ export FZF_DEFAULT_OPTS="--border --padding 2%"
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 # export GOROOT=/usr/lib/go
-
 # PATH
 # export PATH=$PATH:$GOPATH:$GOBIN
 export PATH=$PATH:$GOPATH:$GOBIN:~/.cargo/bin
@@ -20,6 +19,8 @@ git
 vi-mode 
 sudo 
 fzf
+copybuffer
+colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -98,8 +99,8 @@ zle -N run_nvim
 bindkey '^v' run_nvim
 
 run_dir_fzf() {
-	echo "z"
-	z $(find -type d | fzf)
+	echo "cd"
+	cd $(find -type d | fzf)
 	zle reset-prompt
 	zle redisplay
 }
@@ -140,3 +141,4 @@ fi
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 autoload -U compinit; compinit
+fastfetch

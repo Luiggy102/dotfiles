@@ -9,7 +9,7 @@ sudo dnf upgrade
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # utils
-sudo dnf install zsh hyprland hyprpaper fuzzel swaylock swayidle bat lsd zoxide neovim zathura zathura-pdf-mupdf htop btop waybar light ufw gnome-pomodoro cava unrar lutris fzf mpv kitty keepassxc golang zsh-autosuggestions zsh-syntax-highlighting kde-connect-nautilus hugo wlsunset blueman fastfetch ranger bemenu
+sudo dnf install zsh hyprland hyprpaper fuzzel swaylock swayidle bat lsd zoxide neovim zathura zathura-pdf-mupdf htop btop waybar light ufw gnome-pomodoro cava unrar lutris fzf mpv kitty keepassxc golang zsh-autosuggestions zsh-syntax-highlighting kde-connect-nautilus hugo wlsunset blueman fastfetch ranger bemenu gnome-shell-extension-gsconnect networkmanager-tui hyprlock
 
 # firmware updates
 sudo fwupdmgr refresh --force
@@ -29,6 +29,7 @@ sudo dnf install ueberzugpp
 git clone https://github.com/AdnanHodzic/auto-cpufreq.git
 cd auto-cpufreq && sudo ./auto-cpufreq-installer
 cd .. && rm -rf auto-cpufreq
+sudo auto-cpufreq --install
 
 # ytfzf 
 git clone https://github.com/pystardust/ytfzf
@@ -72,6 +73,8 @@ curl -sS https://starship.rs/install.sh | sh
 
 # firewall
 sudo ufw enable
+sudo ufw allow 1714:1764/udp
+sudo ufw allow 1714:1764/tcp
 
 # symlinks
 # remove if anay
@@ -79,6 +82,7 @@ rm -rf $HOME/.config/dunst
 rm -rf $HOME/.config/hypr
 rm -rf $HOME/.config/kitty
 rm -rf $HOME/.config/nvim
+rm -rf $HOME/.config/fastfetch
 rm -rf $HOME/.config/ranger
 rm -rf $HOME/.config/swaylock
 rm -rf $HOME/.config/waybar
@@ -98,6 +102,7 @@ ln -s $HOME/dotfiles/.config/kitty $HOME/.config/
 ln -s $HOME/dotfiles/.config/nvim $HOME/.config/
 ln -s $HOME/dotfiles/.config/ranger $HOME/.config/
 ln -s $HOME/dotfiles/.config/swaylock $HOME/.config/
+ln -s $HOME/dotfiles/.config/fastfetch $HOME/.config/
 ln -s $HOME/dotfiles/.config/waybar $HOME/.config/
 ln -s $HOME/dotfiles/.config/starship.toml $HOME/.config/
 ln -s $HOME/dotfiles/.config/zathura ~/.config
