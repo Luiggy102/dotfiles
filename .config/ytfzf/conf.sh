@@ -1,7 +1,7 @@
 search_region=EC
 fancy_subs=1
 async_thumbnails=1
-sub_link_count=1
+sub_link_count=2
 thumbnail_quality=medium
 thumbnail_viewer=kitty
 fzf_preview_side=right
