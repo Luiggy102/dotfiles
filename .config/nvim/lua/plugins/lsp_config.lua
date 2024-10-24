@@ -45,7 +45,19 @@ return {
 			"clangd",
 			-- latex
 			"ltex",
+			"texlab",
 			-- php
+			"intelephense",
+			-- web
+			"html",
+			"tsserver",
+			"cssls",
+			-- docker
+			"docker_compose_language_service",
+			"dockerls",
+			"yamlls",
+			-- sql
+			"sqlls",
 		},
 	}),
 	require("mason-tool-installer").setup({
@@ -66,11 +78,55 @@ return {
 		run_on_start = true,
 	}),
 
+	lspconfig["sqlls"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}),
+
 	lspconfig["bashls"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 	}),
 
+	lspconfig["intelephense"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}),
+
+	lspconfig["docker_compose_language_service"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = { "yaml" },
+	}),
+
+	lspconfig["yamlls"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = { "yaml" },
+	}),
+
+	lspconfig["dockerls"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}),
+
+	lspconfig["html"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = { "html" },
+	}),
+
+	lspconfig["cssls"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}),
+
+	lspconfig["tsserver"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}),
+
+	-- https://phpactor.readthedocs.io/en/master/usage/standalone.html
 	lspconfig["phpactor"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
@@ -118,6 +174,11 @@ return {
 		on_attach = on_attach,
 	}),
 
+	lspconfig["texlab"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}),
+
 	lspconfig["lua_ls"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
@@ -139,10 +200,10 @@ return {
 	lspconfig["ltex"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
-		filetypes = { "latex" },
+		filetypes = { "latex", "tex" },
 		settings = {
 			["ltex"] = {
-				enabled = { "latex", "bibtex" },
+				enabled = { "latex", "bibtex", "tex" },
 				language = "es",
 			},
 		},

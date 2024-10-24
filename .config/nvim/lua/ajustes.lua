@@ -3,18 +3,20 @@ local opcion = vim.opt
 local buffer = vim.b
 local global = vim.g
 
-vim.api.nvim_command('set fillchars=eob:\\ ')
+vim.api.nvim_command("set fillchars=eob:\\ ")
 
 -- spell en archivos tipo
-vim.cmd [[autocmd BufRead,BufNewFile *.wiki setlocal spell]]
-vim.cmd [[autocmd BufRead,BufNewFile *.tex setlocal spell]]
-vim.cmd [[autocmd BufRead,BufNewFile *.md setlocal spell]]
-vim.cmd [[autocmd BufRead,BufNewFile *.txt setlocal spell]]
+vim.cmd([[autocmd BufRead,BufNewFile *.wiki setlocal spell]])
+vim.cmd([[autocmd BufRead,BufNewFile *.tex setlocal spell]])
+vim.cmd([[autocmd BufRead,BufNewFile *.md setlocal spell]])
+vim.cmd([[autocmd BufRead,BufNewFile *.txt setlocal spell]])
+
+vim.cmd([[autocmd BufRead,BufNewFile *.dbout setlocal nonumber norelativenumber]])
 
 -- generar diario VimWiki
-vim.cmd [[
+vim.cmd([[
 let g:vimwiki_list = [{'auto_diary_index': 1}]
-]]
+]])
 
 -- formatear el código en el guardado
 -- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
@@ -37,7 +39,7 @@ opcion.tabstop = 4
 opcion.softtabstop = 4
 opcion.expandtab = true
 opcion.number = true
-opcion.relativenumber = false
+opcion.relativenumber = true
 opcion.ignorecase = true
 opcion.termguicolors = true
 opcion.wrap = false
