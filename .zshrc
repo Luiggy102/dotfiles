@@ -21,6 +21,7 @@ sudo
 fzf
 copybuffer
 colored-man-pages
+docker
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -71,6 +72,8 @@ alias y='ytfzf'
 alias yt='ytfzf -t'
 alias ym='ytfzf -m'
 alias vw='nvim -c "VimwikiIndex"'
+
+alias icat='kitten icat --align left'
 
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
@@ -141,4 +144,4 @@ fi
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 autoload -U compinit; compinit
-fastfetch
+# fastfetch
