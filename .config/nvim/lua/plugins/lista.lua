@@ -4,7 +4,19 @@ return {
 		"williamboman/mason.nvim",
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			-- "WhoIsSethDaniel/mason-tool-installer.nvim",
+		},
+	},
+	-- para folding
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = {
+			"kevinhwang91/promise-async",
+		},
+		opts = {
+			provider_selector = function(bufnr, filetype, buftype)
+				return { "treesitter", "indent" }
+			end,
 		},
 	},
 	{
@@ -37,6 +49,47 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
+	-- emmet
+	{ "https://github.com/mattn/emmet-vim" },
+	-- { "https://github.com/aca/emmet-ls" },
+	-- diagnosticos
+	{
+		"folke/trouble.nvim",
+		opts = {},
+		cmd = "Trouble",
+		keys = {
+			{
+				"<leader>xx",
+				"<cmd>Trouble diagnostics toggle<cr>",
+				desc = "Diagnostics (Trouble)",
+			},
+			{
+				"<leader>xX",
+				"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+				desc = "Buffer Diagnostics (Trouble)",
+			},
+			{
+				"<leader>cs",
+				"<cmd>Trouble symbols toggle focus=false<cr>",
+				desc = "Symbols (Trouble)",
+			},
+			{
+				"<leader>cl",
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				desc = "LSP Definitions / references / ... (Trouble)",
+			},
+			{
+				"<leader>xL",
+				"<cmd>Trouble loclist toggle<cr>",
+				desc = "Location List (Trouble)",
+			},
+			{
+				"<leader>xQ",
+				"<cmd>Trouble qflist toggle<cr>",
+				desc = "Quickfix List (Trouble)",
+			},
+		},
+	},
 
 	-- autocompletado
 	{ "ziontee113/icon-picker.nvim", opts = { disable_legacy_commands = true } },
@@ -49,6 +102,13 @@ return {
 			-- compartir los snippets de sql con mysql
 			require("luasnip").filetype_extend("mysql", { "sql" })
 			require("luasnip").filetype_extend("plsql", { "sql" })
+			require("luasnip").filetype_extend("javascriptreact", { "html" })
+			require("luasnip").filetype_extend("javascriptreact", { "css" })
+			require("luasnip").filetype_extend("typescript", { "html" })
+			require("luasnip").filetype_extend("typescript", { "css" })
+			require("luasnip").filetype_extend("html", { "css" })
+			-- require("luasnip").filetype_extend("htmlangular", { "html" })
+			-- require("luasnip").filetype_extend("htmlangular", { "css" })
 		end,
 	},
 	{
@@ -79,21 +139,24 @@ return {
 				enable = true,
 			},
 			renderer = {
-				root_folder_label = false,
+				-- root_folder_label = true,
+				-- root_folder_label = ":~:s?$?/..?",
+				root_folder_label = ":~:s?.*/??",
+				-- root_folder_label = vim.fn.getcwd():match("([^/\\]+)/*$"),
 				indent_markers = {
 					enable = true,
 				},
 			},
 			view = {
-				side = "left",
-				width = 20,
+				side = "right",
+				width = 30,
 			},
 			diagnostics = {
 				enable = true,
 			},
 			actions = {
 				open_file = {
-					quit_on_open = false,
+					quit_on_open = true,
 				},
 			},
 		},
@@ -103,6 +166,7 @@ return {
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	{ "numToStr/Comment.nvim", lazy = false, opts = {} },
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+	-- { "https://github.com/dlvandenberg/tree-sitter-angular" },
 	{ "lewis6991/gitsigns.nvim", opts = {} },
 	{
 		"folke/noice.nvim",
@@ -125,16 +189,18 @@ return {
 			{
 				"rcarriga/nvim-notify",
 				opts = {
-					fps = 144,
-					timeout = 2000,
+					fps = 60,
+					timeout = 5000,
 					-- minimum_width = 30,
 					max_width = 40,
 					-- el estilo
 					render = "wrapped-compact",
+					-- render = "compact",
 					-- animación
-					stages = "static",
+					-- stages = "static",
 					--stages = "fade_in_slide_out",
-					-- stages = "slide",
+					stages = "slide",
+					top_down = false, -- notificacion abajo
 				},
 			},
 		},
@@ -143,40 +209,55 @@ return {
 		"nvim-lualine/lualine.nvim",
 		opts = {
 			options = {
-				-- icons_enabled = true,
-				-- hide_filename_extension = true,
+				icons_enabled = false,
+				hide_filename_extension = false,
+				-- los por defecto
+				-- component_separators = { left = "", right = "" },
+				-- section_separators = { left = "", right = "" },
 				-- son los a,b,c - x,y,z
 				section_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
 				-- section_separators = { left = "", right = "" },
 				-- component_separators = { left = "", right = "" },
+				-- section_separators = { left = "", right = "" },
+				-- component_separators = { left = "", right = "" },
 				-- section_separators = { left = "", right = "" },
 				-- component_separators = { left = "", right = "" },
 			},
 			sections = {
-				lualine_a = {
-					{
-						"buffers",
-						icons_enabled = true,
-						hide_filename_extension = true,
-						use_mode_colors = false,
-						-- oxocarbon
-						-- buffers_color = {
-						-- 	active = { bg = "#ee5396" },
-						-- 	inactive = { bg = "#82cfff" },
-						-- },
-						symbols = {
-							modified = " ●",
-							alternate_file = "",
-							directory = "",
-						},
-					},
-				},
-				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = {},
-				lualine_x = {},
-				lualine_y = { "progress" },
-				lualine_z = { "location" },
+				-- verison completa
+				-- lualine_a = {
+				-- 	"mode",
+				-- 	{
+				-- 		"buffers",
+				-- 		icons_enabled = false,
+				-- 		hide_filename_extension = false,
+				-- 		use_mode_colors = false,
+				-- 		-- oxocarbon
+				-- 		-- buffers_color = {
+				-- 		-- 	active = { bg = "#ee5396" },
+				-- 		-- 	inactive = { bg = "#82cfff" },
+				-- 		-- },
+				-- 		symbols = {
+				-- 			modified = " ●",
+				-- 			alternate_file = "",
+				-- 			directory = "",
+				-- 		},
+				-- 	},
+				-- },
+				-- lualine_b = { "branch", "diff", "diagnostics" },
+				-- lualine_c = {},
+				-- lualine_x = {},
+				-- lualine_y = { "progress" },
+				-- lualine_z = { "location" },
+
+				-- minimalista
+				lualine_a = { "mode" },
+				lualine_b = {},
+				lualine_c = { { "buffers" } },
+				lualine_x = { { "filetype" } },
+				lualine_y = {},
+				lualine_z = {},
 			},
 		},
 	},
@@ -237,27 +318,26 @@ return {
 			},
 		},
 	},
-	{
-		"mfussenegger/nvim-lint",
-		event = {
-			"BufReadPre",
-			"BufNewFile",
-		},
-		config = function()
-			local lint = require("lint")
-			lint.linters_by_ft = {
-				go = { "golangcilint" },
-			}
-		end,
-		-- init = function()
-		-- 	vim.cmd([[au BufWritePost * lua require('lint').try_lint()]])
-		-- end,
-	},
-	-- linting
-
+	-- {
+	-- 	"mfussenegger/nvim-lint",
+	-- 	event = {
+	-- 		"BufReadPre",
+	-- 		"BufNewFile",
+	-- 	},
+	-- 	config = function()
+	-- 		local lint = require("lint")
+	-- 		lint.linters_by_ft = {
+	-- 			go = { "golangcilint" },
+	-- 		}
+	-- 	end,
+	-- 	-- init = function()
+	-- 	-- 	vim.cmd([[au BufWritePost * lua require('lint').try_lint()]])
+	-- 	-- end,
+	-- },
+	-- -- linting
+	--
 	-- navegacion
 	"alexghergh/nvim-tmux-navigation",
-	-- "easymotion/vim-easymotion",
 	{
 		"ggandor/leap.nvim",
 		dependencies = { "tpope/vim-repeat" },
@@ -294,10 +374,62 @@ return {
 			transparent_background = false,
 		},
 	},
+	{ "nyoom-engineering/oxocarbon.nvim" },
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			-- telescope sin borders
+			on_highlights = function(hl, c)
+				local prompt = "#2d3149"
+				hl.TelescopeNormal = {
+					bg = c.bg_dark,
+					fg = c.fg_dark,
+				}
+				hl.TelescopeBorder = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+				hl.TelescopePromptNormal = {
+					bg = prompt,
+				}
+				hl.TelescopePromptBorder = {
+					bg = prompt,
+					fg = prompt,
+				}
+				hl.TelescopePromptTitle = {
+					bg = prompt,
+					fg = prompt,
+				}
+				hl.TelescopePreviewTitle = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+				hl.TelescopeResultsTitle = {
+					bg = c.bg_dark,
+					fg = c.bg_dark,
+				}
+			end,
+		},
+	},
 	-- extras lenguajes
+	-- cs
+	{
+		"iabdelkareem/csharp.nvim",
+		dependencies = {
+			"williamboman/mason.nvim", -- Required, automatically installs omnisharp
+			"mfussenegger/nvim-dap",
+			"Tastyep/structlog.nvim", -- Optional, but highly recommended for debugging
+		},
+		config = function()
+			require("mason").setup() -- Mason setup must run before csharp, only if you want to use omnisharp
+			require("csharp").setup()
+		end,
+	},
 	-- csv
 	{ "chrisbra/csv.vim" },
-	-- sql
+	-- dbs
 	{
 		"kristijanhusak/vim-dadbod-ui",
 		dependencies = {
@@ -313,7 +445,19 @@ return {
 		init = function()
 			vim.g.db_ui_use_nerd_fonts = 1
 			vim.g.db_ui_win_position = "right"
-			vim.g.db_ui_winwidth = 35
+			vim.g.db_ui_winwidth = 25
+		end,
+	},
+	{
+		"kndndrj/nvim-dbee",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		build = function()
+			require("dbee").install()
+		end,
+		config = function()
+			require("dbee").setup()
 		end,
 	},
 	{
@@ -325,7 +469,7 @@ return {
 			vim.g.vimtex_view_method = "zathura"
 			-- vim.g.vimtex_compiler_method = "latexrun"
 			vim.g.vimtex_compiler_method = "tectonic"
-			vim.g.maplocalleader = ","
+			-- vim.g.maplocalleader = ","
 		end,
 	},
 	-- lectura/escritura (wiki)
@@ -336,10 +480,10 @@ return {
 		},
 		init = function()
 			-- desacartivar teclas
-			vim.g.vimwiki_key_mappings = {
-				all_maps = 0,
-				global = 0,
-			}
+			-- vim.g.vimwiki_key_mappings = {
+			-- 	all_maps = 0,
+			-- 	global = 0,
+			-- }
 			vim.cmd([[
                 let g:vimwiki_global_ext = 0
                 let g:vimwiki_list = []

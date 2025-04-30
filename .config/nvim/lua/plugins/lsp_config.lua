@@ -1,9 +1,30 @@
+-- first we need to configure our custom server
+local configs = require("lspconfig.configs")
+local util = require("lspconfig.util")
+
+configs.protobuf_language_server = {
+	default_config = {
+		cmd = { "protobuf-language-server" },
+		filetypes = { "proto", "cpp" },
+		root_dir = util.root_pattern(".git"),
+		single_file_support = true,
+		settings = {},
+	},
+}
+
+-- then we can continue as we do with official servers
+local lspconfig = require("lspconfig")
+lspconfig.protobuf_language_server.setup({
+	-- your custom stuff
+})
+
 local lspconfig = require("lspconfig")
 local mapsOpts = { noremap = true, silent = true }
 
 local on_attach = function(_, _)
 	------------ atajos por defecto nvim -----------------------
 	-- vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action)
+	-- vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action)
 	-- vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 	-- vim.keymap.set('n', 'K', vim.lsp.buf.hover)
 	-- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename)
@@ -13,10 +34,15 @@ local on_attach = function(_, _)
 	vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition)
 
 	------------ reemplazos de lsp saga -----------------------
+	vim.keymap.set("n", "<C-<kPoint>>", ":Lspsaga code_action<cr>")
 	vim.keymap.set("n", "gd", ":Lspsaga goto_definition<cr>", mapsOpts)
 	vim.keymap.set("n", "K", ":Lspsaga hover_doc<cr>", mapsOpts)
 	vim.keymap.set("n", "<space>rn", ":Lspsaga rename<cr>", mapsOpts)
 end
+----------- nuevo para suprimir las advertencias virtual tex
+vim.diagnostic.config({
+	virtual_text = true,
+})
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -51,6 +77,7 @@ return {
 			-- web
 			"html",
 			"tsserver",
+			"angularls",
 			"cssls",
 			-- docker
 			"docker_compose_language_service",
@@ -58,24 +85,62 @@ return {
 			"yamlls",
 			-- sql
 			"sqlls",
+			-- protobuf
+			"bufls",
+			-- c#
+			"csharp_ls",
+			"omnisharp",
+			-- emmet
+			"emmet_ls",
 		},
 	}),
-	require("mason-tool-installer").setup({
-		ensure_installed = {
-			-- formtaters --
-			-- cpp
-			"clang-format",
-			-- php
-			"pretty-php",
-			-- lua
-			"stylua",
-			-- linters --
-			-- go
-			"golangci-lint",
-			-- php
-			"phpcs",
+
+	lspconfig["omnisharp"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}),
+
+	lspconfig["emmet_ls"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = {
+			"css",
+			"eruby",
+			"html",
+			"javascript",
+			"javascriptreact",
+			"less",
+			"sass",
+			"scss",
+			"svelte",
+			"pug",
+			"typescriptreact",
+			"vue",
 		},
-		run_on_start = true,
+		init_options = {
+			html = {
+				options = {
+					["bem.enabled"] = true,
+				},
+			},
+		},
+	}),
+
+	lspconfig["intelephense"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}),
+
+	lspconfig["angularls"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		-- filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
+	}),
+
+	lspconfig["bufls"].setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = { "proto" },
 	}),
 
 	lspconfig["sqlls"].setup({
@@ -84,11 +149,6 @@ return {
 	}),
 
 	lspconfig["bashls"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-	}),
-
-	lspconfig["intelephense"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
 	}),
@@ -124,18 +184,17 @@ return {
 	lspconfig["tsserver"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
-	}),
-
-	-- https://phpactor.readthedocs.io/en/master/usage/standalone.html
-	lspconfig["phpactor"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		filetypes = { "php" },
-		cmd = { "phpactor", "language-server" },
-		init_options = {
-			["language_server_phpstan.enabled"] = false,
-			["language_server_psalm.enabled"] = false,
-		},
+		-- init_options = {
+		-- 	hostInfo = "neovim",
+		-- },
+		-- on_new_config = function(new_config, new_root_dir)
+		-- 	local local_ts = new_root_dir .. "/node_modules/typescript/lib"
+		-- 	if vim.fn.filereadable(local_ts .. "/tsserverlibrary.js") == 1 then
+		-- 		new_config.init_options.tsserver = {
+		-- 			path = local_ts,
+		-- 		}
+		-- 	end
+		-- end,
 	}),
 
 	lspconfig["bashls"].setup({
@@ -146,6 +205,7 @@ return {
 	lspconfig["clangd"].setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		filetypes = { "c", "cpp" },
 	}),
 
 	lspconfig["jsonls"].setup({
@@ -167,11 +227,6 @@ return {
 				},
 			},
 		},
-	}),
-
-	lspconfig["golangci_lint_ls"].setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
 	}),
 
 	lspconfig["texlab"].setup({
@@ -208,17 +263,4 @@ return {
 			},
 		},
 	}),
-
-	-- lspconfig['rust_analyzer'].setup({
-	--     capabilities = capabilities,
-	--     on_attach = on_attach,
-	--     filetypes = { 'rust' },
-	--     settings = {
-	--         ['rust_analyzer'] = {
-	--             cargo = {
-	--                 allFeatures = true,
-	--             }
-	--         }
-	--     }
-	-- }),
 }

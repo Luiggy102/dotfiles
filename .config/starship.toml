@@ -1,3 +1,4 @@
+add_newline = false
 # format = """
 # $username\
 # $hostname\
@@ -62,6 +63,7 @@ $git_state\
 $git_status\
 $line_break\
 $golang\
+$dotnet\
 $character"""
 
 [directory]
@@ -97,3 +99,12 @@ format =  '[$symbol($version )]($style)'
 version_format = '${raw}'
 symbol = ' '
 style = "bright-black"
+
+[dotnet]
+# format =  '[$symbol($version )]($style)'
+# 'via [$symbol($version )(🎯 $tfm )]($style)'
+format = '[$symbol($version) | (tfm: $tfm) ]($style)'
+style = "bright-black"
+
+# [line_break]
+# disabled = true

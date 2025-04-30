@@ -29,6 +29,7 @@ return {
 		highlight = {
 			enable = true,
 			use_languagetree = false,
+			additional_vim_regex_highlighting = { "html" },
 		},
 		indent = { enable = true },
 	}),

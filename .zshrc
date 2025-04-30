@@ -19,9 +19,6 @@ git
 vi-mode 
 sudo 
 fzf
-copybuffer
-colored-man-pages
-docker
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -93,8 +90,8 @@ zle -N run_ranger
 bindkey '^f' run_ranger
 
 run_nvim() {
-	echo "nvim ."
-	nvim .
+	echo "nvim -c 'Telescope find_files'"
+	nvim -c 'Telescope find_files'
 	zle reset-prompt
 	zle redisplay
 }
@@ -145,3 +142,11 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 autoload -U compinit; compinit
 # fastfetch
+# export PATH="$PATH:/opt/mssql-tools18/bin"
+export PATH="$PATH:/opt/mssql-tools/bin"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+export PATH="/home/ludwig/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/ludwig/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"

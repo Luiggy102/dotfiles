@@ -13,6 +13,8 @@ vim.cmd([[autocmd BufRead,BufNewFile *.txt setlocal spell]])
 
 vim.cmd([[autocmd BufRead,BufNewFile *.dbout setlocal nonumber norelativenumber]])
 
+-- vim.cmd([[nnoremap <LeftMouse> <LeftMouse>i]]) -- inset en el click del mouse
+
 -- generar diario VimWiki
 vim.cmd([[
 let g:vimwiki_list = [{'auto_diary_index': 1}]
@@ -24,6 +26,7 @@ let g:vimwiki_list = [{'auto_diary_index': 1}]
 
 -- Ajustes Globales
 global.mapleader = " "
+global.maplocalleader = ","
 global.netrw_menu = 0
 
 -- opciones (set)
@@ -39,7 +42,7 @@ opcion.tabstop = 4
 opcion.softtabstop = 4
 opcion.expandtab = true
 opcion.number = true
-opcion.relativenumber = true
+-- opcion.relativenumber = true
 opcion.ignorecase = true
 opcion.termguicolors = true
 opcion.wrap = false
@@ -64,6 +67,16 @@ opcion.scrolloff = 8
 opcion.sidescrolloff = 8
 -- colomna guia
 -- opcion.colorcolumn = "66"
+
+-- opciones fold
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]] -- como en el demo
+
+-- vim.o.foldcolumn = "auto:9" -- para ver los nested folds
+vim.o.foldcolumn = "0" -- para borrar
+
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
 
 -- ajustes buffer
 buffer.fileenconding = "utf-8"

@@ -36,12 +36,16 @@ mapeado("n", "<C-f>", ":Telescope file_browser path=%:p:h select_buffer=true<cr>
 mapeado("n", "<leader>sf", ":Telescope file_browser path=%:p:h select_buffer=true<cr>", optsBar)
 
 -- nvimtree
-mapeado(
-	"n",
-	"<C-n>",
-	":lua require('nvim-tree.api').tree.toggle({path = vim.fn.expand('%:p:h'),find_file=true})<cr>",
-	optsBar
-)
+-- para abrir en el path de buffer
+-- mapeado(
+-- 	"n",
+-- 	"<C-n>",
+-- 	":lua require('nvim-tree.api').tree.toggle({path = vim.fn.expand('%:p:h'),find_file=true})<cr>",
+-- 	optsBar
+-- )
+-- para abirlo normal
+mapeado("n", "<C-n>", ":NvimTreeToggle<cr>", optsBar)
+
 -- calendario vimwiki
 mapeado("n", "<leader>wc", ":CalendarH<cr>", optsBar)
 

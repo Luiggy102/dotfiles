@@ -31,8 +31,45 @@ local kind_icons = {
 return {
 	-- require("luasnip.loaders.from_vscode").lazy_load(),
 	require("luasnip.loaders.from_vscode").lazy_load({
-		paths = { string.format("%s/.local/share/nvim/lazy/friendly-snippets/", os.getenv("HOME")) },
+		paths = {
+			-- general
+			string.format("%s/.local/share/nvim/lazy/friendly-snippets/", os.getenv("HOME")),
+		},
 	}),
+	require("luasnip.loaders.from_vscode").lazy_load({
+		include = { "typescript", "html", "css" },
+		-- exclude = {},
+		paths = {
+			-- angular
+			string.format("%s/.config/nvim/lua/snippets/vscode-angular-snippets/", os.getenv("HOME")),
+			string.format("%s/.config/nvim/lua/snippets/angular-latest-snippets/", os.getenv("HOME")),
+		},
+	}),
+	require("luasnip.loaders.from_vscode").lazy_load({
+		include = { "html", "css" },
+		-- exclude = {},
+		paths = {
+			-- bs5
+			string.format("%s/.config/nvim/lua/snippets/B5-SNIPPETS/", os.getenv("HOME")),
+		},
+	}),
+	require("luasnip.loaders.from_vscode").lazy_load({
+		include = { "javascriptreact", "typescriptreact" },
+		-- exclude = {},
+		paths = {
+			-- react
+			string.format("%s/.config/nvim/lua/snippets/simple-react-snippets/", os.getenv("HOME")),
+		},
+	}),
+	require("luasnip.loaders.from_vscode").lazy_load({
+		include = { "php" },
+		-- exclude = {},
+		paths = {
+			-- laravel
+			string.format("%s/.config/nvim/lua/snippets/laravel5-snippets-vscode/snippets/", os.getenv("HOME")),
+		},
+	}),
+
 	vim.keymap.set({ "i" }, "<C-K>", function()
 		luasnip.expand()
 	end, { silent = true }),
@@ -42,6 +79,18 @@ return {
 	vim.keymap.set({ "i", "s" }, "<C-J>", function()
 		luasnip.jump(-1)
 	end, { silent = true }),
+
+	-- cambio con tab
+	-- vim.keymap.set({ "i" }, "<Tab>", function()
+	-- 	luasnip.expand()
+	-- end, { silent = true }),
+	-- vim.keymap.set({ "i", "s" }, "<Tab><tab>", function()
+	-- 	luasnip.jump(1)
+	-- end, { silent = true }),
+	-- vim.keymap.set({ "i", "s" }, "<S-tab>", function()
+	-- 	luasnip.jump(-1)
+	-- end, { silent = true }),
+
 	vim.keymap.set({ "i", "s" }, "<C-E>", function()
 		if luasnip.choice_active() then
 			luasnip.change_choice(1)
@@ -58,7 +107,8 @@ return {
 			["<C-b>"] = cmp.mapping.scroll_docs(-4),
 			["<C-f>"] = cmp.mapping.scroll_docs(4),
 			["<C-Space>"] = cmp.mapping.complete(),
-			["<CR>"] = cmp.mapping.confirm({ select = true }),
+			-- ["<CR>"] = cmp.mapping.confirm({ select = true }),
+			["<Tab>"] = cmp.mapping.confirm({ select = true }),
 		}),
 		sources = cmp.config.sources({
 			{ name = "nvim_lsp" },
