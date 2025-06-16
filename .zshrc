@@ -10,6 +10,8 @@ export GOBIN=$GOPATH/bin
 # PATH
 # export PATH=$PATH:$GOPATH:$GOBIN
 export PATH=$PATH:$GOPATH:$GOBIN:~/.cargo/bin
+export PATH="$PATH:$HOME/Documents/dev/flutter/bin/"
+export PATH=$PATH:~/Android/Sdk/cmdline-tools/latest/bin
 # export PATH=$PATH:$GOBIN:$GOROOT/bin
 
 zstyle ':omz:update' mode disabled  # disable automatic updates
@@ -125,7 +127,8 @@ fi
 
 # What OS are we running?
 if [[ $(uname) == "Darwin" ]]; then
-    echo "macos"
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+   source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 elif command -v dnf > /dev/null; then
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
