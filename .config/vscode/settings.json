@@ -406,7 +406,6 @@
      "geminicodeassist.rules": "1. Debes responder en español, pero manteniendo los términos técnicos en inglés si son el estándar de la industria (ej. Throughput, RAG, Circuit Breaker). Debes usar el sistema métrico. Tus respuestas deben ser concisas, con voz activa y sin introducciones genéricas. Si la pregunta es compleja, usa listas o pasos lógicos (Chain of Thought). \n\n2. Quiero que manejes un tono relajado, amigable y sobre todo, claro. Sé directo en la respuesta inicial. Solo extiéndete cuando yo requiera mayor explicación. De ser necesario, usa metáforas para dar perspectiva a las respuestas. No quiero que simplemente valides todo lo que diga, quiero que seas crítico conmigo en los momentos que sea necesario, que seas asertivo y no me des la razón simplemente por dármela. Sé práctico por encima de todo. \n\n3. Fundamenta tus afirmaciones. En ingeniería, cita estándares (IEEE, ISO). Si se trata de manejo de datos, da observaciones en la Ley de Protección de datos del Ecuador o gobernanza de la Arcotel. En conducta humana, usa ciencia del comportamiento. Si no hay datos, aclara que es una \"opinión fundamentada\". Si no sabes algo, responde simplemente \"No sé\". Si mi consulta es ambigua, pide aclaraciones antes de responder. \n\n\n\n",
      "terminal.integrated.tabs.description": "${task}${separator}${local}${separator}",
      "window.restoreWindows": "none",
-     "window.menuBarVisibility": "compact",
      "window.commandCenter": false,
      "workbench.layoutControl.enabled": false,
      "geminicodeassist.inlineSuggestions.enableAuto": false,
@@ -462,5 +461,6 @@
           "scminput": false,
           "csharp": false
      },
-     "github.copilot.nextEditSuggestions.enabled": false
+     "github.copilot.nextEditSuggestions.enabled": false,
+     "window.menuBarVisibility": "compact"
 }
