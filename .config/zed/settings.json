@@ -11,7 +11,7 @@
      "proxy": "",
      "git": {
           "inline_blame": {
-               "enabled": false
+               "enabled": true
           }
      },
      "git_panel": {
