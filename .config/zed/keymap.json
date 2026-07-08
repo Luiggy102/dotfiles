@@ -6,118 +6,129 @@
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
 [
-     // ==========================================
-     // Atajos para el Modo Insertar de Vim
-     // ==========================================
-     {
-          "context": "vim_mode == insert",
-          "bindings": {
-               "j f": "vim::NormalBefore",
-               "f j": "vim::NormalBefore",
-          },
-     },
-     // ==========================================
-     // Atajos para el Modo Normal de Vim (Tus Leader bindings con Espacio)
-     // ==========================================
-     {
-          "context": "vim_mode == normal && !menu",
-          "bindings": {
-               // Mapeo de ';' para que actúe como ':' (entrar a la línea de comandos)
-               ";": "command_palette::Toggle",
+    // ==========================================
+    // Atajos para el Modo Insertar de Vim
+    // ==========================================
+    {
+        "context": "vim_mode == insert",
+        "bindings": {
+            "j f": "vim::NormalBefore",
+            "f j": "vim::NormalBefore",
+        },
+    },
+    // ==========================================
+    // Atajos para el Modo Normal de Vim (Tus Leader bindings con Espacio)
+    // ==========================================
+    {
+        "context": "vim_mode == normal && !menu",
+        "bindings": {
+            // Mapeo de ';' para que actúe como ':' (entrar a la línea de comandos)
+            ";": "command_palette::Toggle",
 
-               "ctrl-b": "workspace::ToggleRightDock",
-               "alt-g": "workspace::ToggleLeftDock",
-               // Atajos con Prefijo Espacio (Replicando VS Code)
-               "space r n": "editor::Rename",
-               "space n d": "editor::GoToDiagnostic",
-               "space p d": "editor::GoToPreviousDiagnostic",
-               "space f": "file_finder::Toggle",
-               // "space g": "project_search::Toggle",
-               "space o": "projects::OpenRecent",
-               "space t": "theme_selector::Toggle",
+            "ctrl-b": "workspace::ToggleLeftDock",
+            // Atajos con Prefijo Espacio (Replicando VS Code)
+            "space r n": "editor::Rename",
+            // "space n d": "editor::GoToDiagnostic",
+            // "space p d": "editor::GoToPreviousDiagnostic",
+            "space f": "file_finder::Toggle",
+            // "space g": "project_search::Toggle",
+            "space o": "projects::OpenRecent",
+            "space t": "theme_selector::Toggle",
 
-               // Guardar y Cerrar al estilo Vim clásico mapeado a combinaciones físicas
-               "ctrl-s": "workspace::Save",
-               "ctrl-w": "pane::CloseActiveItem",
+            // Guardar y Cerrar al estilo Vim clásico mapeado a combinaciones físicas
+            "ctrl-s": "workspace::Save",
+            "ctrl-w": "pane::CloseActiveItem",
 
-               // Navegación rápida entre pestañas abiertas usando Shift + H / L
-               "shift-h": "pane::ActivatePreviousItem",
-               "shift-l": "pane::ActivateNextItem",
+            // Navegación rápida entre pestañas abiertas usando Shift + H / L
+            "shift-h": "pane::ActivatePreviousItem",
+            "shift-l": "pane::ActivateNextItem",
 
-               "ctrl-h": "workspace::ActivatePaneLeft",
-               "ctrl-l": "workspace::ActivatePaneRight",
-               "ctrl-k": "workspace::ActivatePaneUp",
-               "ctrl-j": "workspace::ActivatePaneDown",
-          },
-     },
-     // ==========================================
-     // Navegación Global de Paneles (Estilo tmux)
-     // ==========================================
-     {
-          "context": "Workspace",
-          "bindings": {
-               "ctrl-b": "workspace::ToggleRightDock",
-               "ctrl-h": "workspace::ActivatePaneLeft",
-               "ctrl-l": "workspace::ActivatePaneRight",
-               "ctrl-k": "workspace::ActivatePaneUp",
-               "ctrl-j": "workspace::ActivatePaneDown",
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-j": "workspace::ActivatePaneDown",
+        },
+    },
+    // ==========================================
+    // Navegación Global de Paneles (Estilo tmux)
+    // ==========================================
+    {
+        "context": "Workspace",
+        "bindings": {
+            // "ctrl-b": "workspace::ToggleRightDock",
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-j": "workspace::ActivatePaneDown",
 
-               // Redimensionamiento exacto de los paneles activos
-               // "ctrl-shift-h": "pane::ResizeLeft",
-               // "ctrl-shift-l": "pane::ResizeRight",
-               // "ctrl-shift-k": "pane::ResizeUp",
-               // "ctrl-shift-j": "pane::ResizeDown",
-          },
-     },
-     // ==========================================
-     // Atajos para el Project Panel (Explorador sin editar texto)
-     // ==========================================
-     {
-          "context": "ProjectPanel && not_editing",
-          "bindings": {
-               "r": "project_panel::Rename",
-               "n": "project_panel::NewFile",
-               "c": "project_panel::NewFile",
-               "d": "project_panel::Delete",
-               "x": "project_panel::Cut",
-               "y": "project_panel::Copy",
-               "p": "project_panel::Paste",
-               // "s": "project_panel::OpenToSide",
-               "o": "project_panel::Open",
-          },
-     },
-     // ==========================================
-     // Comportamiento de Splits dentro de la Terminal
-     // ==========================================
-     {
-          "context": "Terminal",
-          "bindings": {
-               "ctrl-x": "pane::SplitHorizontal",
-               "ctrl-v": "pane::SplitVertical",
-          },
-     },
-     {
-          "context": "Workspace",
-          "bindings": {
-               "ctrl-b": "workspace::ToggleRightDock",
-          },
-     },
-     {
-          "context": "Workspace",
-          "unbind": {
-               "ctrl-alt-b": "workspace::ToggleRightDock",
-          },
-     },
-     {
-          "context": "Workspace",
-          "bindings": {
-               "alt-g": "workspace::ToggleLeftDock",
-          },
-     },
-     {
-          "context": "Workspace",
-          "unbind": {
-               "ctrl-b": "workspace::ToggleLeftDock",
-          },
-     },
+            // Redimensionamiento exacto de los paneles activos
+            // "ctrl-shift-h": "pane::ResizeLeft",
+            // "ctrl-shift-l": "pane::ResizeRight",
+            // "ctrl-shift-k": "pane::ResizeUp",
+            // "ctrl-shift-j": "pane::ResizeDown",
+        },
+    },
+    // ==========================================
+    // Atajos para el Project Panel (Explorador sin editar texto)
+    // ==========================================
+    {
+        "context": "ProjectPanel && not_editing",
+        "bindings": {
+            "r": "project_panel::Rename",
+            "n": "project_panel::NewFile",
+            "c": "project_panel::NewFile",
+            "d": "project_panel::Delete",
+            "x": "project_panel::Cut",
+            "y": "project_panel::Copy",
+            "p": "project_panel::Paste",
+            // "s": "project_panel::OpenToSide",
+            "o": "project_panel::Open",
+        },
+    },
+    // ==========================================
+    // Comportamiento de Splits dentro de la Terminal
+    // ==========================================
+    {
+        "context": "Terminal",
+        "bindings": {
+            "ctrl-x": "pane::SplitHorizontal",
+            "ctrl-v": "pane::SplitVertical",
+        },
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            // "ctrl-b": "workspace::ToggleRightDock",
+        },
+    },
+    {
+        "context": "Workspace",
+        "unbind": {
+            // "ctrl-alt-b": "workspace::ToggleRightDock",
+        },
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            // "alt-g": "workspace::ToggleLeftDock",
+        },
+    },
+    {
+        "context": "Workspace",
+        "unbind": {
+            // "ctrl-b": "workspace::ToggleLeftDock",
+        },
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "alt-g": "agent::ToggleFocus",
+        },
+    },
+    {
+        "context": "Workspace",
+        "unbind": {
+            "ctrl-?": "agent::ToggleFocus",
+        },
+    },
 ]

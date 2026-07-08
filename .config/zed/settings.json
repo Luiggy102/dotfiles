@@ -7,20 +7,104 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+     "restore_on_startup": "empty_tab",
+     "proxy": "",
+     "git": {
+          "inline_blame": {
+               "enabled": false
+          }
+     },
+     "git_panel": {
+          "tree_view": true,
+          "status_style": "icon",
+          "dock": "left"
+     },
+     "outline_panel": {
+          "dock": "left",
+          "button": true
+     },
+     "zoomed_padding": true,
+     "window_decorations": "client",
+     "focus_follows_mouse": {
+          "enabled": true
+     },
+     "bottom_dock_layout": "contained",
+     "title_bar": {
+          "show_menus": false,
+          "show_user_picture": true,
+          "show_user_menu": true,
+          "show_onboarding_banner": true,
+          "show_project_items": true,
+          "show_branch_name": true,
+          "show_branch_status_icon": false
+     },
+     "debugger": {
+          "dock": "left",
+          "button": true
+     },
+     "search": {
+          "button": false
+     },
+     "terminal": {
+          "toolbar": {
+               "breadcrumbs": false
+          },
+          "dock": "right",
+          "button": false
+     },
+     "status_bar": {
+          "line_endings_button": false,
+          "show_active_file": false,
+          "cursor_position_button": false,
+          "active_language_button": true
+     },
+     "project_panel": {
+          "entry_spacing": "comfortable",
+          "hide_gitignore": false,
+          "dock": "left",
+          "button": true
+     },
+     "tabs": {
+          "close_position": "right",
+          "file_icons": false,
+          "git_status": false
+     },
+     "tab_bar": {
+          "show_nav_history_buttons": true,
+          "show_pinned_tabs_in_separate_row": false,
+          "show_tab_bar_buttons": false,
+          "show": true
+     },
+     "code_lens": "off",
+     "indent_guides": {
+          "enabled": true
+     },
+     "soft_wrap": "none",
+     "hard_tabs": false,
+     "cli_default_open_behavior": "existing_window",
+     "toolbar": {
+          "code_actions": true,
+          "selections_menu": true,
+          "breadcrumbs": false,
+          "quick_actions": false
+     },
      "icon_theme": {
           "mode": "dark",
           "light": "Zed (Default)",
           "dark": "Zed (Default)",
      },
      "diagnostics": {
+          "button": true,
+          "include_warnings": true,
           "inline": {
-               "enabled": false,
+               "enabled": true,
           },
      },
      "vim": {
           "toggle_relative_line_numbers": false,
      },
      "inlay_hints": {
+          "show_background": false,
           "enabled": false,
      },
      "agent": {
@@ -64,7 +148,7 @@
           },
      },
      "linked_edits": true,
-     "tab_size": 5,
+     "tab_size": 4,
      "telemetry": {
           "diagnostics": false,
           "metrics": false,

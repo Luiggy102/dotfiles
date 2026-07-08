@@ -1,11 +1,9 @@
 // ~/.config/Code/User/settings.json
-
 // Para las extensiones
 // Exportar
 // code --list-extensions > ~/.config/Code/User/extensions.list
 // Importar
 // xargs -a ~/.config/Code/User/extensions.list code --install-extension
-
 {
      "workbench.colorTheme": "Aura Dark",
      "workbench.iconTheme": "vscode-icons",
@@ -18,29 +16,61 @@
      "vim.hlsearch": true,
      "vim.insertModeKeyBindings": [
           {
-               "before": ["j", "f"],
-               "after": ["<Esc>"]
+               "before": [
+                    "j",
+                    "f"
+               ],
+               "after": [
+                    "<Esc>"
+               ]
           },
           {
-               "before": ["f", "j"],
-               "after": ["<Esc>"]
+               "before": [
+                    "f",
+                    "j"
+               ],
+               "after": [
+                    "<Esc>"
+               ]
           }
      ],
      "vim.normalModeKeyBindingsNonRecursive": [
           {
-               "before": ["s"],
-               "after": ["<leader>", "<leader>", "s"]
+               "before": [
+                    "s"
+               ],
+               "after": [
+                    "<leader>",
+                    "<leader>",
+                    "s"
+               ]
           },
           {
-               "before": ["S"],
-               "after": ["<leader>", "<leader>", "F"]
+               "before": [
+                    "S"
+               ],
+               "after": [
+                    "<leader>",
+                    "<leader>",
+                    "F"
+               ]
           },
           {
-               "before": ["<leader>", ";"],
-               "after": [":norm", "A", ";", "<esc>"]
+               "before": [
+                    "<leader>",
+                    ";"
+               ],
+               "after": [
+                    ":norm",
+                    "A",
+                    ";",
+                    "<esc>"
+               ]
           },
           {
-               "before": ["K"],
+               "before": [
+                    "K"
+               ],
                "commands": [
                     {
                          "command": "editor.action.showHover"
@@ -49,7 +79,10 @@
                "silent": true
           },
           {
-               "before": ["<leader>", "o"],
+               "before": [
+                    "<leader>",
+                    "o"
+               ],
                "commands": [
                     {
                          "command": "workbench.action.openRecent"
@@ -58,7 +91,10 @@
                "silent": true
           },
           {
-               "before": ["<leader>", "t"],
+               "before": [
+                    "<leader>",
+                    "t"
+               ],
                "commands": [
                     {
                          "command": "workbench.action.selectTheme"
@@ -67,7 +103,11 @@
                "silent": true
           },
           {
-               "before": ["<space>", "r", "n"],
+               "before": [
+                    "<space>",
+                    "r",
+                    "n"
+               ],
                "commands": [
                     {
                          "command": "editor.action.rename"
@@ -76,7 +116,11 @@
                "silent": true
           },
           {
-               "before": ["<space>", "n", "d"],
+               "before": [
+                    "<space>",
+                    "n",
+                    "d"
+               ],
                "commands": [
                     {
                          "command": "editor.action.marker.next"
@@ -85,7 +129,11 @@
                "silent": true
           },
           {
-               "before": ["<space>", "p", "d"],
+               "before": [
+                    "<space>",
+                    "p",
+                    "d"
+               ],
                "commands": [
                     {
                          "command": "editor.action.marker.prev"
@@ -94,7 +142,11 @@
                "silent": true
           },
           {
-               "before": ["<space>", "n", "c"],
+               "before": [
+                    "<space>",
+                    "n",
+                    "c"
+               ],
                "commands": [
                     "workbench.action.editor.nextChange",
                     "editor.action.dirtydiff.next"
@@ -102,7 +154,11 @@
                "silent": true
           },
           {
-               "before": ["<space>", "p", "c"],
+               "before": [
+                    "<space>",
+                    "p",
+                    "c"
+               ],
                "commands": [
                     "workbench.action.editor.previousChange",
                     "editor.action.dirtydiff.next"
@@ -110,19 +166,35 @@
                "silent": true
           },
           {
-               "before": [";"],
-               "after": [":"]
+               "before": [
+                    ";"
+               ],
+               "after": [
+                    ":"
+               ]
           },
           {
-               "before": ["<C-s>"],
-               "after": [":w", "<cr>"]
+               "before": [
+                    "<C-s>"
+               ],
+               "after": [
+                    ":w",
+                    "<cr>"
+               ]
           },
           {
-               "before": ["<C-w>"],
-               "after": [":q", "<cr>"]
+               "before": [
+                    "<C-w>"
+               ],
+               "after": [
+                    ":q",
+                    "<cr>"
+               ]
           },
           {
-               "before": ["H"],
+               "before": [
+                    "H"
+               ],
                "commands": [
                     {
                          "command": "workbench.action.previousEditor"
@@ -131,7 +203,9 @@
                "silent": true
           },
           {
-               "before": ["L"],
+               "before": [
+                    "L"
+               ],
                "commands": [
                     {
                          "command": "workbench.action.nextEditor"
@@ -140,27 +214,46 @@
                "silent": true
           },
           {
-               "before": ["<C-h>"],
-               "commands": ["workbench.action.navigateLeft"],
+               "before": [
+                    "<C-h>"
+               ],
+               "commands": [
+                    "workbench.action.navigateLeft"
+               ],
                "silent": true
           },
           {
-               "before": ["<C-l>"],
-               "commands": ["workbench.action.navigateRight"],
+               "before": [
+                    "<C-l>"
+               ],
+               "commands": [
+                    "workbench.action.navigateRight"
+               ],
                "silent": true
           },
           {
-               "before": ["<C-j>"],
-               "commands": ["workbench.action.navigateDown"],
+               "before": [
+                    "<C-j>"
+               ],
+               "commands": [
+                    "workbench.action.navigateDown"
+               ],
                "silent": true
           },
           {
-               "before": ["<C-k>"],
-               "commands": ["workbench.action.navigateUp"],
+               "before": [
+                    "<C-k>"
+               ],
+               "commands": [
+                    "workbench.action.navigateUp"
+               ],
                "silent": true
           },
           {
-               "before": ["<leader>", "f"],
+               "before": [
+                    "<leader>",
+                    "f"
+               ],
                "commands": [
                     {
                          "command": "workbench.action.quickOpen"
@@ -169,7 +262,10 @@
                "silent": true
           },
           {
-               "before": ["<leader>", "b"],
+               "before": [
+                    "<leader>",
+                    "b"
+               ],
                "commands": [
                     {
                          "command": "workbench.action.showAllEditors"
@@ -178,7 +274,10 @@
                "silent": true
           },
           {
-               "before": ["<leader>", "g"],
+               "before": [
+                    "<leader>",
+                    "g"
+               ],
                "commands": [
                     {
                          "command": "workbench.action.findInFiles"
@@ -187,8 +286,13 @@
                "silent": true
           },
           {
-               "before": ["X"],
-               "after": [":b#", "<cr>"]
+               "before": [
+                    "X"
+               ],
+               "after": [
+                    ":b#",
+                    "<cr>"
+               ]
           }
      ],
      "vim.leader": "<space>",
@@ -235,7 +339,16 @@
                "id": "ROOT"
           }
      ],
-     "mssql.connections": [{}, {}],
+     "mssql.connections": [
+          {
+               "groupId": "ROOT",
+               "id": "80bce768-2ff8-4625-97f7-32a85624db42"
+          },
+          {
+               "groupId": "ROOT",
+               "id": "d276dbd2-c2c8-4402-abba-481df5566fee"
+          }
+     ],
      "chat.commandCenter.enabled": false,
      "workbench.navigationControl.enabled": false,
      "workbench.startupEditor": "none",
@@ -304,7 +417,9 @@
                "isDefault": true
           }
      ],
-     "pgsql.connections": [{}],
+     "pgsql.connections": [
+          {}
+     ],
      "editor.foldingImportsByDefault": true,
      "latex-workshop.latex.tools": [
           {
@@ -322,7 +437,9 @@
      "latex-workshop.latex.recipes": [
           {
                "name": "tectonic",
-               "tools": ["tectonic"]
+               "tools": [
+                    "tectonic"
+               ]
           }
      ],
      "latex-workshop.latex.autoBuild.run": "onSave",
@@ -333,7 +450,9 @@
      "[latex]": {
           "editor.wordWrap": "on",
           "editor.tabSize": 2,
-          "editor.rulers": [80]
+          "editor.rulers": [
+               80
+          ]
      },
      "editor.inlineSuggest.suppressSuggestions": true,
      "github.copilot.enable": {

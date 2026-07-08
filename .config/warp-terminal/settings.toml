@@ -10,6 +10,9 @@ enabled = false
 notebook_font_size = 14.0
 font_size = 13.0
 
+[appearance.input]
+input_mode = "waterfall"
+
 [code]
 
 [code.editor]
@@ -38,3 +41,20 @@ vim_mode_enabled = true
 
 [terminal.input]
 alias_expansion_enabled = false
+input_box_type_setting = "universal"
+honor_ps1 = false
+
+[notifications]
+
+[notifications.preferences]
+is_agent_task_completed_enabled = true
+is_long_running_enabled = true
+is_needs_attention_enabled = true
+is_password_prompt_enabled = true
+long_running_threshold = 30
+mode = "enabled"
+play_notification_sound = true
+
+[privacy]
+telemetry_enabled = false
+crash_reporting_enabled = false
