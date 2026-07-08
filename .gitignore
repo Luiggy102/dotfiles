@@ -1,4 +1,6 @@
-/.scripts/launcher.sh
-/walls/
-/.config/ytfzf/subscriptions
-/.config/ytfzf/subscriptions-nofut
+.scripts/launcher.sh
+walls/
+.config/ytfzf/subscriptions
+.config/ytfzf/subscriptions-nofut
+.config/nvim/lua/snippets
+.config/nvim/lazy-lock.json

@@ -31,7 +31,7 @@ cd auto-cpufreq && sudo ./auto-cpufreq-installer
 cd .. && rm -rf auto-cpufreq
 sudo auto-cpufreq --install
 
-# ytfzf 
+# ytfzf
 git clone https://github.com/pystardust/ytfzf
 cd ytfzf
 sudo make install doc && cd .. && rm -rf ytfzf
@@ -90,7 +90,7 @@ rm -rf $HOME/.config/ytfzf
 rm -rf $HOME/.config/fuzzel
 rm -rf $HOME/.config/starship.toml
 rm -rf $HOME/.config/zathura
-rm -rf $HOME/.tmux.conf 
+rm -rf $HOME/.tmux.conf
 
 # copy the configs
 ln -s $HOME/dotfiles/.tmux.conf $HOME/

@@ -1,0 +1,86 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+     "icon_theme": {
+          "mode": "dark",
+          "light": "Zed (Default)",
+          "dark": "Zed (Default)",
+     },
+     "diagnostics": {
+          "inline": {
+               "enabled": false,
+          },
+     },
+     "vim": {
+          "toggle_relative_line_numbers": false,
+     },
+     "inlay_hints": {
+          "enabled": false,
+     },
+     "agent": {
+          "default_profile": "write",
+          "default_model": {
+               "effort": "minimal",
+               "provider": "google",
+               "model": "gemini-3.1-flash-lite",
+               "enable_thinking": true,
+          },
+          "favorite_models": [
+               {
+                    "provider": "google",
+                    "model": "gemini-3.1-flash-lite",
+                    "enable_thinking": true,
+                    "effort": "minimal",
+               },
+          ],
+          "model_parameters": [],
+     },
+     "edit_predictions": {
+          "mode": "subtle",
+          "allow_data_collection": "no",
+     },
+     "base_keymap": "VSCode",
+     "relative_line_numbers": "enabled",
+     "gutter": {
+          "line_numbers": true,
+     },
+     "minimap": {
+          "show": "never",
+     },
+     "scrollbar": {
+          "axes": {
+               "vertical": true,
+          },
+     },
+     "autosave": {
+          "after_delay": {
+               "milliseconds": 1000,
+          },
+     },
+     "linked_edits": true,
+     "tab_size": 5,
+     "telemetry": {
+          "diagnostics": false,
+          "metrics": false,
+          "anthropic_retention": false,
+     },
+     "session": {
+          "trust_all_worktrees": true,
+     },
+     "vim_mode": true,
+     "ui_font_size": 16,
+     "buffer_font_family": "Iosevka Nerd Font Mono",
+     "ui_font_family": "Iosevka Nerd Font Mono",
+     "buffer_font_size": 16,
+     "theme": {
+          "mode": "dark",
+          "light": "Ayu Light",
+          "dark": "Oxocarbon Dark (Variant II)",
+     },
+}

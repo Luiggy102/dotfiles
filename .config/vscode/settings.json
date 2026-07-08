@@ -1,0 +1,347 @@
+// ~/.config/Code/User/settings.json
+
+// Para las extensiones
+// Exportar
+// code --list-extensions > ~/.config/Code/User/extensions.list
+// Importar
+// xargs -a ~/.config/Code/User/extensions.list code --install-extension
+
+{
+     "workbench.colorTheme": "Aura Dark",
+     "workbench.iconTheme": "vscode-icons",
+     "workbench.editor.editorActionsLocation": "titleBar",
+     "editor.lineNumbers": "relative",
+     "color-highlight.markerType": "dot-before",
+     "vim.easymotion": true,
+     "vim.incsearch": true,
+     "vim.useSystemClipboard": true,
+     "vim.hlsearch": true,
+     "vim.insertModeKeyBindings": [
+          {
+               "before": ["j", "f"],
+               "after": ["<Esc>"]
+          },
+          {
+               "before": ["f", "j"],
+               "after": ["<Esc>"]
+          }
+     ],
+     "vim.normalModeKeyBindingsNonRecursive": [
+          {
+               "before": ["s"],
+               "after": ["<leader>", "<leader>", "s"]
+          },
+          {
+               "before": ["S"],
+               "after": ["<leader>", "<leader>", "F"]
+          },
+          {
+               "before": ["<leader>", ";"],
+               "after": [":norm", "A", ";", "<esc>"]
+          },
+          {
+               "before": ["K"],
+               "commands": [
+                    {
+                         "command": "editor.action.showHover"
+                    }
+               ],
+               "silent": true
+          },
+          {
+               "before": ["<leader>", "o"],
+               "commands": [
+                    {
+                         "command": "workbench.action.openRecent"
+                    }
+               ],
+               "silent": true
+          },
+          {
+               "before": ["<leader>", "t"],
+               "commands": [
+                    {
+                         "command": "workbench.action.selectTheme"
+                    }
+               ],
+               "silent": true
+          },
+          {
+               "before": ["<space>", "r", "n"],
+               "commands": [
+                    {
+                         "command": "editor.action.rename"
+                    }
+               ],
+               "silent": true
+          },
+          {
+               "before": ["<space>", "n", "d"],
+               "commands": [
+                    {
+                         "command": "editor.action.marker.next"
+                    }
+               ],
+               "silent": true
+          },
+          {
+               "before": ["<space>", "p", "d"],
+               "commands": [
+                    {
+                         "command": "editor.action.marker.prev"
+                    }
+               ],
+               "silent": true
+          },
+          {
+               "before": ["<space>", "n", "c"],
+               "commands": [
+                    "workbench.action.editor.nextChange",
+                    "editor.action.dirtydiff.next"
+               ],
+               "silent": true
+          },
+          {
+               "before": ["<space>", "p", "c"],
+               "commands": [
+                    "workbench.action.editor.previousChange",
+                    "editor.action.dirtydiff.next"
+               ],
+               "silent": true
+          },
+          {
+               "before": [";"],
+               "after": [":"]
+          },
+          {
+               "before": ["<C-s>"],
+               "after": [":w", "<cr>"]
+          },
+          {
+               "before": ["<C-w>"],
+               "after": [":q", "<cr>"]
+          },
+          {
+               "before": ["H"],
+               "commands": [
+                    {
+                         "command": "workbench.action.previousEditor"
+                    }
+               ],
+               "silent": true
+          },
+          {
+               "before": ["L"],
+               "commands": [
+                    {
+                         "command": "workbench.action.nextEditor"
+                    }
+               ],
+               "silent": true
+          },
+          {
+               "before": ["<C-h>"],
+               "commands": ["workbench.action.navigateLeft"],
+               "silent": true
+          },
+          {
+               "before": ["<C-l>"],
+               "commands": ["workbench.action.navigateRight"],
+               "silent": true
+          },
+          {
+               "before": ["<C-j>"],
+               "commands": ["workbench.action.navigateDown"],
+               "silent": true
+          },
+          {
+               "before": ["<C-k>"],
+               "commands": ["workbench.action.navigateUp"],
+               "silent": true
+          },
+          {
+               "before": ["<leader>", "f"],
+               "commands": [
+                    {
+                         "command": "workbench.action.quickOpen"
+                    }
+               ],
+               "silent": true
+          },
+          {
+               "before": ["<leader>", "b"],
+               "commands": [
+                    {
+                         "command": "workbench.action.showAllEditors"
+                    }
+               ],
+               "silent": true
+          },
+          {
+               "before": ["<leader>", "g"],
+               "commands": [
+                    {
+                         "command": "workbench.action.findInFiles"
+                    }
+               ],
+               "silent": true
+          },
+          {
+               "before": ["X"],
+               "after": [":b#", "<cr>"]
+          }
+     ],
+     "vim.leader": "<space>",
+     "vim.handleKeys": {
+          "<C-a>": false,
+          "<C-f>": false,
+          "<C-b>": false,
+          "<C-p>": true,
+          "<C-o>": false,
+          "<C-i>": false,
+          "<C-w>": false,
+          "<C-m>": true,
+          "<C-n>": true,
+          "<C-h>": true,
+          "<C-j>": true,
+          "<C-k>": true,
+          "<C-l>": true
+     },
+     "extensions.experimental.affinity": {
+          "vscodevim.vim": 1
+     },
+     "editor.linkedEditing": true,
+     "window.newWindowProfile": "Default",
+     "workbench.editor.empty.hint": "hidden",
+     "dotnet.inlayHints.enableInlayHintsForParameters": true,
+     "dotnet.inlayHints.enableInlayHintsForOtherParameters": true,
+     "dotnet.inlayHints.enableInlayHintsForObjectCreationParameters": true,
+     "dotnet.inlayHints.enableInlayHintsForLiteralParameters": true,
+     "dotnet.inlayHints.enableInlayHintsForIndexerParameters": true,
+     "csharp.inlayHints.enableInlayHintsForLambdaParameterTypes": true,
+     "files.autoSave": "afterDelay",
+     "editor.minimap.enabled": false,
+     "editor.scrollbar.vertical": "auto",
+     "editor.scrollbar.verticalScrollbarSize": 5,
+     "editor.overviewRulerBorder": false,
+     "editor.scrollbar.horizontalScrollbarSize": 5,
+     "editor.tabSize": 5,
+     "workbench.editor.tabSizingFixedMinWidth": 40,
+     "editor.inlayHints.fontSize": 12,
+     "window.title": "${rootName}",
+     "mssql.connectionGroups": [
+          {
+               "name": "ROOT",
+               "id": "ROOT"
+          }
+     ],
+     "mssql.connections": [{}, {}],
+     "chat.commandCenter.enabled": false,
+     "workbench.navigationControl.enabled": false,
+     "workbench.startupEditor": "none",
+     "yaml.schemas": {
+          "file:///home/work/.vscode/extensions/atlassian.atlascode-4.0.13/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+     },
+     "atlascode.jira.enabled": true,
+     "codesnap.realLineNumbers": true,
+     "workbench.activityBar.location": "top",
+     "redhat.telemetry.enabled": false,
+     "[dockercompose]": {
+          "editor.insertSpaces": true,
+          "editor.tabSize": 2,
+          "editor.autoIndent": "advanced",
+          "editor.defaultFormatter": "redhat.vscode-yaml"
+     },
+     "[github-actions-workflow]": {
+          "editor.defaultFormatter": "redhat.vscode-yaml"
+     },
+     "aws.telemetry": false,
+     "editor.formatOnSave": true,
+     "[html]": {
+          "editor.formatOnSave": false
+     },
+     "terminal.integrated.suggest.enabled": true,
+     "amazonQ.telemetry": false,
+     "git.confirmSync": false,
+     "aws.cloudformation.telemetry.enabled": false,
+     "csharpextensions.useFileScopedNamespace": true,
+     "editor.glyphMargin": true,
+     "dotnetAcquisitionExtension.enableTelemetry": false,
+     "telemetry.editStats.enabled": false,
+     "telemetry.feedback.enabled": false,
+     "extensions.ignoreRecommendations": true,
+     "files.watcherExclude": {
+          "**/node_modules/**": true,
+          "**/.git/**": true,
+          "**/dist/**": true,
+          "**/build/**": true
+     },
+     "search.exclude": {
+          "**/node_modules": true,
+          "**/dist": true,
+          "**/build": true
+     },
+     "editor.minimap.enabled": false,
+     "editor.codeLens": false,
+     "rest-client.enableTelemetry": false,
+     "rest-client.requestNameAsResponseTabTitle": true,
+     "diffEditor.codeLens": true,
+     "geminicodeassist.enableTelemetry": false,
+     "geminicodeassist.customCommands": {
+          "": ""
+     },
+     "geminicodeassist.rules": "1. Debes responder en español, pero manteniendo los términos técnicos en inglés si son el estándar de la industria (ej. Throughput, RAG, Circuit Breaker). Debes usar el sistema métrico. Tus respuestas deben ser concisas, con voz activa y sin introducciones genéricas. Si la pregunta es compleja, usa listas o pasos lógicos (Chain of Thought). \n\n2. Quiero que manejes un tono relajado, amigable y sobre todo, claro. Sé directo en la respuesta inicial. Solo extiéndete cuando yo requiera mayor explicación. De ser necesario, usa metáforas para dar perspectiva a las respuestas. No quiero que simplemente valides todo lo que diga, quiero que seas crítico conmigo en los momentos que sea necesario, que seas asertivo y no me des la razón simplemente por dármela. Sé práctico por encima de todo. \n\n3. Fundamenta tus afirmaciones. En ingeniería, cita estándares (IEEE, ISO). Si se trata de manejo de datos, da observaciones en la Ley de Protección de datos del Ecuador o gobernanza de la Arcotel. En conducta humana, usa ciencia del comportamiento. Si no hay datos, aclara que es una \"opinión fundamentada\". Si no sabes algo, responde simplemente \"No sé\". Si mi consulta es ambigua, pide aclaraciones antes de responder. \n\n\n\n",
+     "terminal.integrated.tabs.description": "${task}${separator}${local}${separator}",
+     "window.restoreWindows": "none",
+     "window.menuBarVisibility": "compact",
+     "window.commandCenter": false,
+     "workbench.layoutControl.enabled": false,
+     "geminicodeassist.inlineSuggestions.enableAuto": false,
+     "pgsql.serverGroups": [
+          {
+               "name": "Servers",
+               "id": "AC26CC77-DD4A-4C39-B047-A96440669597",
+               "isDefault": true
+          }
+     ],
+     "pgsql.connections": [{}],
+     "editor.foldingImportsByDefault": true,
+     "latex-workshop.latex.tools": [
+          {
+               "name": "tectonic",
+               "command": "tectonic",
+               "args": [
+                    "--outdir=build",
+                    "--synctex",
+                    "--keep-logs",
+                    "--keep-intermediates",
+                    "%DOC_EXT%"
+               ]
+          }
+     ],
+     "latex-workshop.latex.recipes": [
+          {
+               "name": "tectonic",
+               "tools": ["tectonic"]
+          }
+     ],
+     "latex-workshop.latex.autoBuild.run": "onSave",
+     "latex-workshop.view.pdf.viewer": "tab",
+     "latex-workshop.latex.outDir": "./build",
+     "latex-workshop.synctex.afterBuild.enabled": true,
+     "latex-workshop.formatting.latex": "latexindent",
+     "[latex]": {
+          "editor.wordWrap": "on",
+          "editor.tabSize": 2,
+          "editor.rulers": [80]
+     },
+     "editor.inlineSuggest.suppressSuggestions": true,
+     "github.copilot.enable": {
+          "*": false,
+          "plaintext": false,
+          "markdown": false,
+          "scminput": false,
+          "csharp": false
+     },
+     "github.copilot.nextEditSuggestions.enabled": false
+}

@@ -1,22 +1,21 @@
 -- first we need to configure our custom server
-local configs = require("lspconfig.configs")
+-- local configs = require("lspconfig.configs")
 local util = require("lspconfig.util")
 
-configs.protobuf_language_server = {
-	default_config = {
-		cmd = { "protobuf-language-server" },
-		filetypes = { "proto", "cpp" },
-		root_dir = util.root_pattern(".git"),
-		single_file_support = true,
-		settings = {},
-	},
-}
+-- configs.protobuf_language_server = {
+-- 	default_config = {
+-- 		cmd = { "protobuf-language-server" },
+-- 		filetypes = { "proto", "cpp" },
+-- 		root_dir = util.root_pattern(".git"),
+-- 		single_file_support = true,
+-- 		settings = {},
+-- 	},
+-- }
 
 -- then we can continue as we do with official servers
 local lspconfig = require("lspconfig")
-lspconfig.protobuf_language_server.setup({
-	-- your custom stuff
-})
+-- lspconfig.protobuf_language_server.setup({
+-- })
 
 local lspconfig = require("lspconfig")
 local mapsOpts = { noremap = true, silent = true }

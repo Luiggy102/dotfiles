@@ -20,7 +20,6 @@ plugins=(
 git
 vi-mode 
 sudo 
-fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -100,14 +99,6 @@ run_nvim() {
 zle -N run_nvim
 bindkey '^v' run_nvim
 
-run_dir_fzf() {
-	echo "cd"
-	cd $(find -type d | fzf)
-	zle reset-prompt
-	zle redisplay
-}
-zle -N run_dir_fzf
-bindkey '^j' run_dir_fzf
 
 fast_source() {
 	echo "source ~/.zshrc"
@@ -119,11 +110,11 @@ zle -N fast_source
 bindkey '^s' fast_source
 
 # extra alias
-if [ -f ~/.zsh_aliases ]; then
-    source ~/.zsh_aliases
-else
-    print "404: ~/.zsh_aliases not found."
-fi
+# if [ -f ~/.zsh_aliases ]; then
+#     source ~/.zsh_aliases
+# else
+#     print "404: ~/.zsh_aliases not found."
+# fi
 
 # What OS are we running?
 if [[ $(uname) == "Darwin" ]]; then
@@ -153,3 +144,12 @@ export PATH="$PATH:/opt/mssql-tools/bin"
 source <(ng completion script)
 export PATH="/home/ludwig/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/ludwig/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/ludwig/.local/bin:$PATH"
+export PATH="/home/ludwig/.local/bin:$PATH"

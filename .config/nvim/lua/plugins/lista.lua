@@ -45,7 +45,7 @@ return {
     {
         "nvimdev/lspsaga.nvim",
         dependencies = {
-            "nvim-treesitter/nvim-treesitter",
+            -- "nvim-treesitter/nvim-treesitter",
             "nvim-tree/nvim-web-devicons",
         },
     },
@@ -165,7 +165,7 @@ return {
     { "stevearc/dressing.nvim",          opts = {} },
     { "akinsho/toggleterm.nvim",         version = "*",      config = true },
     { "numToStr/Comment.nvim",           lazy = false,       opts = {} },
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    -- { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     -- { "https://github.com/dlvandenberg/tree-sitter-angular" },
     { "lewis6991/gitsigns.nvim",         opts = {} },
     {

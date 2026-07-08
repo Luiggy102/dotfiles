@@ -1,0 +1,284 @@
+// ~/.config/Code/User/keybindings.json
+
+// Para las extensiones
+// Exportar
+// code --list-extensions > ~/.config/Code/User/extensions.list
+// Importar
+// xargs -a ~/.config/Code/User/extensions.list code --install-extension
+
+// Place your key bindings in this file to override the defaults
+[
+     {
+          "key": "r",
+          "command": "renameFile",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+     },
+     {
+          "key": "n",
+          "command": "explorer.newFile",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+     },
+     {
+          "key": "c",
+          "command": "explorer.newFile",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+     },
+     {
+          "key": "d",
+          "command": "deleteFile",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+     },
+     {
+          "key": "y",
+          "command": "filesExplorer.copy",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+     },
+     {
+          "key": "p",
+          "command": "filesExplorer.paste",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+     },
+     {
+          "key": "s",
+          "command": "explorer.openToSide",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+     },
+     {
+          "key": "x",
+          "command": "workbench.action.splitEditorDown",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+     },
+     {
+          "key": "o",
+          "command": "list.select",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+     },
+     {
+          "key": "g",
+          "command": "angular-schematics.generate",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+     },
+     {
+          "key": "shift+g",
+          "command": "csharp.generateFile",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus && workspaceContains:**/*.csproj"
+     },
+     {
+          "key": "shift+h",
+          "command": "workbench.files.action.collapseExplorerFolders",
+          "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+     },
+     {
+          "key": "ctrl+m",
+          "command": "acceptSelectedSuggestion",
+          "when": "editorTextFocus && suggestWidgetVisible"
+     },
+     {
+          "key": "ctrl+m",
+          "command": "type",
+          "args": {
+               "text": "\n"
+          },
+          "when": "editorTextFocus && !suggestWidgetVisible"
+     },
+     {
+          "key": "ctrl+m",
+          "command": "-editor.action.toggleTabFocusMode"
+     },
+     {
+          "key": "ctrl+n",
+          "command": "-workbench.action.files.newUntitledFile"
+     },
+     {
+          "key": "ctrl+n",
+          "command": "workbench.action.quickOpenSelectNext",
+          "when": "inQuickOpen"
+     },
+     {
+          "key": "ctrl+p",
+          "command": "workbench.action.quickOpenSelectPrevious",
+          "when": "inQuickOpen"
+     },
+     {
+          "key": "ctrl+v",
+          "command": "workbench.action.alternativeAcceptSelectedQuickOpenItem",
+          "when": "inQuickOpen"
+     },
+     {
+          "key": "ctrl+x",
+          "command": "selectNextSuggestion",
+          "when": "inQuickOpen && suggestWidgetVisible"
+     },
+     {
+          "key": "ctrl+x",
+          "command": "workbench.action.splitEditorDown",
+          "when": "inQuickOpen"
+     },
+     {
+          "key": "ctrl+m",
+          "command": "workbench.action.acceptSelectedQuickOpenItem",
+          "when": "inQuickOpen"
+     },
+     {
+          "key": "r",
+          "command": "csdevkit.rename",
+          "when": "focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'File' || focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'Folder' || focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'Project'"
+     },
+     {
+          "key": "r",
+          "command": "csdevkit.renameSolutionFolder",
+          "when": "focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'SolutionFolder'"
+     },
+     {
+          "key": "ctrl+c",
+          "command": "csdevkit.addNewFile",
+          "when": "focusedView == 'solutionExplorer' && (selectedSolutionExplorerNodeType == 'File' || selectedSolutionExplorerNodeType == 'Folder' || selectedSolutionExplorerNodeType == 'Project')"
+     },
+     {
+          "key": "d",
+          "command": "csdevkit.deleteItem",
+          "when": "focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'File' || focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'Folder'"
+     },
+     {
+          "key": "ctrl+shift+h",
+          "command": "-workbench.action.replaceInFiles"
+     },
+     {
+          "key": "ctrl+h",
+          "command": "-editor.action.startFindReplaceAction",
+          "when": "editorFocus || editorIsOpen"
+     },
+     {
+          "key": "ctrl+h",
+          "command": "workbench.action.navigateLeft"
+     },
+     {
+          "key": "ctrl+l",
+          "command": "workbench.action.navigateRight"
+     },
+     {
+          "key": "ctrl+j",
+          "command": "-workbench.action.togglePanel"
+     },
+     {
+          "key": "ctrl+shift+h",
+          "command": "workbench.action.decreaseViewWidth"
+     },
+     // {
+     //      "key": "ctrl+shift+l",
+     //      "command": "workbench.action.increaseViewWidth"
+     // },
+     {
+          "key": "ctrl+shift+k",
+          "command": "workbench.action.decreaseViewHeight"
+     },
+     {
+          "key": "ctrl+shift+j",
+          "command": "workbench.action.increaseViewHeight"
+     },
+     {
+          "key": "alt+h",
+          "command": "workbench.action.moveEditorLeftInGroup"
+     },
+     {
+          "key": "alt+l",
+          "command": "workbench.action.moveEditorRightInGroup"
+     },
+     // =================
+     // Navegación terminal (tmux style)
+     // =================
+     {
+          "key": "ctrl+h",
+          "command": "workbench.action.terminal.focusPreviousPane",
+          "when": "terminalFocus"
+     },
+     {
+          "key": "ctrl+l",
+          "command": "workbench.action.terminal.focusNextPane",
+          "when": "terminalFocus"
+     },
+     {
+          "key": "ctrl+k",
+          "command": "workbench.action.terminal.focusPreviousPane",
+          "when": "terminalFocus"
+     },
+     {
+          "key": "ctrl+j",
+          "command": "workbench.action.terminal.focusNextPane",
+          "when": "terminalFocus"
+     },
+     // =================
+     // Crear terminal splits
+     // =================
+     // Horizontal (abajo)
+     {
+          "key": "ctrl+x",
+          "command": "workbench.action.terminal.split",
+          "when": "terminalFocus"
+     },
+     // Vertical (lado)
+     {
+          "key": "ctrl+v",
+          "command": "workbench.action.terminal.split",
+          "args": {
+               "location": "editor"
+          },
+          "when": "terminalFocus"
+     },
+     // =================
+     // Arreglar conflicto paste
+     // =================
+     {
+          "key": "ctrl+v",
+          "command": "-workbench.action.terminal.paste",
+          "when": "terminalFocus"
+     },
+     {
+          "key": "ctrl+shift+v",
+          "command": "workbench.action.terminal.paste",
+          "when": "terminalFocus"
+     },
+     // =================
+     // Resize panes TERMINAL (tmux style)
+     // =================
+     {
+          "key": "ctrl+shift+h",
+          "command": "workbench.action.terminal.resizePaneLeft",
+          "when": "terminalFocus"
+     },
+     {
+          "key": "ctrl+shift+l",
+          "command": "workbench.action.terminal.resizePaneRight",
+          "when": "terminalFocus"
+     },
+     {
+          "key": "ctrl+shift+k",
+          "command": "workbench.action.terminal.resizePaneUp",
+          "when": "terminalFocus"
+     },
+     {
+          "key": "ctrl+shift+j",
+          "command": "workbench.action.terminal.resizePaneDown",
+          "when": "terminalFocus"
+     },
+     {
+          "key": "ctrl+shift+e",
+          "command": "rest-client.request",
+          "when": "editorTextFocus && editorLangId == 'http'"
+     },
+     {
+          "key": "ctrl+alt+r",
+          "command": "-rest-client.request",
+          "when": "editorTextFocus && editorLangId == 'http'"
+     },
+     {
+          "key": "f2",
+          "command": "csdevkit.rename",
+          "when": "focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'File' || focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'Folder' || focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'Project'"
+     },
+     {
+          "key": "f2",
+          "command": "-csdevkit.rename",
+          "when": "focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'File' || focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'Folder' || focusedView == 'solutionExplorer' && selectedSolutionExplorerNodeType == 'Project'"
+     }
+]
