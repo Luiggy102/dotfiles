@@ -92,6 +92,11 @@ rm -rf $HOME/.config/starship.toml
 rm -rf $HOME/.config/zathura
 rm -rf $HOME/.tmux.conf
 
+rm -rf $HOME/.config/zed
+rm -rf $HOME/.config/Code/User/keybindings.json
+rm -rf $HOME/.config/Code/User/settings.json
+rm -rf $HOME/.config/warp-terminal
+
 # copy the configs
 ln -s $HOME/dotfiles/.tmux.conf $HOME/
 ln -s $HOME/dotfiles/.config/dunst $HOME/.config/
@@ -106,6 +111,16 @@ ln -s $HOME/dotfiles/.config/fastfetch $HOME/.config/
 ln -s $HOME/dotfiles/.config/waybar $HOME/.config/
 ln -s $HOME/dotfiles/.config/starship.toml $HOME/.config/
 ln -s $HOME/dotfiles/.config/zathura ~/.config
+
+ln -s $HOME/dotfiles/.config/zed $HOME/.config/
+ln -s $HOME/dotfiles/.config/vscode/keybindings.json $HOME/.config/Code/User/
+ln -s $HOME/dotfiles/.config/vscode/settings.json $HOME/.config/Code/User/
+ln -s $HOME/dotfiles/.config/warp-terminal $HOME/.config/
+
+# Exportar vscode
+code --list-extensions > ~/.config/Code/User/extensions.list
+# Importar vscode
+xargs -a ~/.config/Code/User/extensions.list code --install-extension
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
