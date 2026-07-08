@@ -1,0 +1,40 @@
+[appearance]
+
+[appearance.themes]
+system_theme = true
+
+[appearance.vertical_tabs]
+enabled = false
+
+[appearance.text]
+notebook_font_size = 14.0
+font_size = 13.0
+
+[code]
+
+[code.editor]
+show_code_review_button = false
+show_project_explorer = false
+show_global_search = false
+
+[warp_drive]
+enabled = false
+
+[agents]
+
+[agents.third_party]
+should_render_cli_agent_toolbar = true
+
+[agents.warp_agent]
+is_any_ai_enabled = false
+
+[agents.warp_agent.other]
+show_agent_notifications = false
+
+[text_editing]
+vim_mode_enabled = true
+
+[terminal]
+
+[terminal.input]
+alias_expansion_enabled = false
