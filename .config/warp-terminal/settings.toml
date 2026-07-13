@@ -2,47 +2,81 @@
 
 [appearance.themes]
 system_theme = true
+selected_system_themes = { dark = "dark", light = "light" }
 
 [appearance.vertical_tabs]
-enabled = false
+enabled = true
+view_mode = "compact"
+primary_info = "working_directory"
+compact_subtitle = "branch"
 
 [appearance.text]
 notebook_font_size = 14.0
-font_size = 13.0
+font_size = 14.0
+font_name = "Iosevka Nerd Font Mono"
+ai_font_name = "Iosevka Nerd Font Mono"
+match_ai_font = true
 
 [appearance.input]
 input_mode = "waterfall"
 
+[appearance.window]
+zoom_level = 125
+
+[appearance.tabs]
+header_toolbar_chip_selection= "default"
+
 [code]
 
 [code.editor]
-show_code_review_button = false
-show_project_explorer = false
+show_code_review_button = true
+show_project_explorer = true
 show_global_search = false
+open_file_editor = { external_editor = "zed" }
+open_code_panels_file_editor = { external_editor = "zed" }
 
 [warp_drive]
 enabled = false
 
 [agents]
+cloud_conversation_storage_enabled = false
 
 [agents.third_party]
 should_render_cli_agent_toolbar = true
 
 [agents.warp_agent]
-is_any_ai_enabled = false
+is_any_ai_enabled = true
 
 [agents.warp_agent.other]
 show_agent_notifications = false
+agent_attribution_enabled = false
+should_show_oz_updates_in_zero_state = false
+should_render_use_agent_toolbar_for_user_commands = false
+show_conversation_history = false
+
+[agents.warp_agent.input]
+nld_in_terminal_enabled = false
+ai_auto_detection_enabled = false
+show_agent_tips = false
+
+[agents.warp_agent.active_ai]
+enabled = false
+
+[agents.voice]
+voice_input_toggle_key = "alt_right"
 
 [text_editing]
 vim_mode_enabled = true
 
 [terminal]
+show_terminal_zero_state_block = false
+osc52_clipboard_access = "write_only"
 
 [terminal.input]
 alias_expansion_enabled = false
 input_box_type_setting = "universal"
 honor_ps1 = false
+show_hint_text = false
 
 [notifications]
 
@@ -58,3 +92,6 @@ play_notification_sound = true
 [privacy]
 telemetry_enabled = false
 crash_reporting_enabled = false
+
+[account]
+is_settings_sync_enabled = true
