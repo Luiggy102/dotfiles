@@ -9,6 +9,8 @@ enabled = true
 view_mode = "compact"
 primary_info = "working_directory"
 compact_subtitle = "branch"
+hide_title_bar_search_bar = true
+use_latest_prompt_as_title = false
 
 [appearance.text]
 notebook_font_size = 14.0
@@ -25,6 +27,7 @@ zoom_level = 125
 
 [appearance.tabs]
 header_toolbar_chip_selection= "default"
+preserve_active_tab_color = false
 
 [code]
 
