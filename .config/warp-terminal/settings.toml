@@ -35,8 +35,9 @@ preserve_active_tab_color = false
 show_code_review_button = true
 show_project_explorer = true
 show_global_search = false
-open_file_editor = { external_editor = "zed" }
-open_code_panels_file_editor = { external_editor = "zed" }
+open_file_editor = "warp"
+open_code_panels_file_editor = "warp"
+open_file_layout = "new_tab"
 
 [warp_drive]
 enabled = false
