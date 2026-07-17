@@ -98,12 +98,12 @@ return {
 
         vim.lsp.config("ts_ls", {
             settings = {
-                typescript = {
-                    format = { indentSize = 5, tabSize = 5, convertTabsToSpaces = true },
-                },
-                javascript = {
-                    format = { indentSize = 5, tabSize = 5, convertTabsToSpaces = true },
-                },
+                -- typescript = {
+                --     format = { indentSize = 5, tabSize = 5, convertTabsToSpaces = true },
+                -- },
+                -- javascript = {
+                --     format = { indentSize = 5, tabSize = 5, convertTabsToSpaces = true },
+                -- },
             },
         })
 
