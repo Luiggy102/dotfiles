@@ -1,4 +1,25 @@
 -- interfaz gráfica para dadbod (conexiones y consultas a bd)
+local saved_width = 40
+
+vim.api.nvim_create_autocmd("WinResized", {
+    callback = function()
+        for _, win in ipairs(vim.v.event.windows or {}) do
+            local buf = vim.api.nvim_win_get_buf(win)
+            local ft = vim.bo[buf].filetype
+            if ft:match("^dbui") or ft == "dbout" then
+                saved_width = vim.api.nvim_win_get_width(win)
+            end
+        end
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "dbui",
+    callback = function()
+        vim.api.nvim_win_set_width(0, saved_width)
+    end,
+})
+
 return {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
@@ -14,6 +35,6 @@ return {
     init = function()
         vim.g.db_ui_use_nerd_fonts = 1
         vim.g.db_ui_win_position = "right"
-        vim.g.db_ui_winwidth = 25
+        vim.g.db_ui_winwidth = 40
     end,
 }
