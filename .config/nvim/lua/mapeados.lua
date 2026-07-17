@@ -19,7 +19,8 @@ mapeado("n", "<leader>;", "$a;<esc>", optsBar)
 -- buffers
 mapeado("n", "H", "<Cmd>bprevious<CR>", optsBar)
 mapeado("n", "L", "<Cmd>bnext<CR>", optsBar)
-mapeado("n", "<C-w>", "<Cmd>bdelete<CR>")
+mapeado("n", "<C-w>", "<Cmd>Bdelete<CR>")
+mapeado("n", "<C-q>", "<Cmd>qa<CR>")
 mapeado("n", "X", "<Cmd>b#<CR>", optsBar)
 
 -- bufferline (tabs)false
