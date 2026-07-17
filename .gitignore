@@ -4,3 +4,4 @@ walls/
 .config/ytfzf/subscriptions-nofut
 .config/nvim/lua/snippets
 .config/nvim/lazy-lock.json
+.config/warp-terminal/user_preferences.json

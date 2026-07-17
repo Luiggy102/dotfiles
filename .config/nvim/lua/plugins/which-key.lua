@@ -56,7 +56,7 @@ return {
             { "<leader>il", ":G pull origin main<cr>", desc = "pull (origin/main)" },
             { "<leader>io", ":G log<cr>", desc = "log" },
             { "<leader>ip", ":G push origin main<cr>", desc = "push (origin/main)" },
-            { "<leader>is", ":G status<cr>", desc = "status" },
+            { "<leader>is", ":Git <cr>", desc = "Panel" },
             { "<leader>n", group = "siguiente" },
             { "<leader>nc", ":Gitsigns next_hunk<cr>", desc = "cambio" },
             { "<leader>nd", ":Lspsaga diagnostic_jump_next<cr>", desc = "diagnostico" },

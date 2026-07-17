@@ -54,3 +54,9 @@ mapeado("n", "<leader>ds", ":Telescope lsp_document_symbols<cr>", optsBar)
 
 -- IconPicker
 mapeado("i", "II", "<CMD>IconPickerInsert emoji nerd_font<cr>", optsBar)
+
+-- estilo vscode/zed
+-- ctrl+shift+m -> errores/warnings (trouble)
+mapeado("n", "<C-S-m>", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", optsBar)
+-- panel de archivos cambiados en git (fugitive)
+-- ctrl+g / ctrl+shift+g no llegan distintos a la terminal, se usa <leader>is (ver which-key.lua)
