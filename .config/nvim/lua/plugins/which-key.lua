@@ -60,7 +60,7 @@ return {
             { "<leader>n", group = "siguiente" },
             { "<leader>nc", ":Gitsigns next_hunk<cr>", desc = "cambio" },
             { "<leader>nd", ":Lspsaga diagnostic_jump_next<cr>", desc = "diagnostico" },
-            { "<leader>o", ":Lspsaga outline<cr>", desc = "outline" },
+            { "<leader>o", ":Telescope lsp_document_symbols<cr>", desc = "outline (symbols)" },
             { "<leader>p", group = "anterior" },
             { "<leader>pc", ":Gitsigns prev_hunk<cr>", desc = "cambio" },
             { "<leader>pd", ":Lspsaga diagnostic_jump_prev<cr>", desc = "diagnostico" },

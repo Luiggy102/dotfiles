@@ -14,12 +14,12 @@ return {
                 file_ignore_patterns = {
                     "node_modules",
                 },
-                border = false,
-                -- sorting_strategy = "ascending",
-                sorting_strategy = "descending",
+                border = true,
+                sorting_strategy = "ascending",
+                -- sorting_strategy = "descending",
                 layout_config = {
-                    -- prompt_position = "top",
-                    prompt_position = "bottom",
+                    prompt_position = "top",
+                    -- prompt_position = "bottom",
                 },
                 -- hidden = true,
                 mappings = {
