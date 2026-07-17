@@ -96,7 +96,16 @@ return {
 
         vim.lsp.config("cssls", {})
 
-        vim.lsp.config("ts_ls", {})
+        vim.lsp.config("ts_ls", {
+            settings = {
+                typescript = {
+                    format = { indentSize = 5, tabSize = 5, convertTabsToSpaces = true },
+                },
+                javascript = {
+                    format = { indentSize = 5, tabSize = 5, convertTabsToSpaces = true },
+                },
+            },
+        })
 
         vim.lsp.config("clangd", {
             filetypes = { "c", "cpp" },

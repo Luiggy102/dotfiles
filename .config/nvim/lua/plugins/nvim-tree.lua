@@ -41,7 +41,6 @@ return {
         view = {
             side = "right",
             width = 30,
-            resize_grip = true,
         },
         diagnostics = {
             enable = true,
