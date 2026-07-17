@@ -9,9 +9,6 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
-                -- golang
-                "gopls",
-                "golangci_lint_ls",
                 -- bash
                 "bashls",
                 -- jsonls
@@ -19,16 +16,11 @@ return {
                 -- lua
                 "lua_ls",
                 -- "stylua",
-                -- cpp
-                "clangd",
                 -- latex
                 "ltex",
                 "texlab",
-                -- php
-                "intelephense",
                 -- web
                 "html",
-                "tsserver",
                 "angularls",
                 "cssls",
                 -- docker
@@ -37,10 +29,7 @@ return {
                 "yamlls",
                 -- sql
                 "sqlls",
-                -- protobuf
-                "bufls",
                 -- c#
-                "csharp_ls",
                 "omnisharp",
                 -- emmet
                 "emmet_ls",

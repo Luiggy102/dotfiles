@@ -7,46 +7,27 @@ return {
         { "antosha417/nvim-lsp-file-operations", config = true },
     },
     config = function()
-        -- first we need to configure our custom server
-        -- local configs = require("lspconfig.configs")
-        local util = require("lspconfig.util")
-
-        -- configs.protobuf_language_server = {
-        -- 	default_config = {
-        -- 		cmd = { "protobuf-language-server" },
-        -- 		filetypes = { "proto", "cpp" },
-        -- 		root_dir = util.root_pattern(".git"),
-        -- 		single_file_support = true,
-        -- 		settings = {},
-        -- 	},
-        -- }
-
-        -- then we can continue as we do with official servers
-        local lspconfig = require("lspconfig")
-        -- lspconfig.protobuf_language_server.setup({
-        -- })
-
-        local lspconfig = require("lspconfig")
         local mapsOpts = { noremap = true, silent = true }
 
-        local on_attach = function(_, _)
-            ------------ atajos por defecto nvim -----------------------
-            -- vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action)
-            -- vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action)
-            -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-            -- vim.keymap.set('n', 'K', vim.lsp.buf.hover)
-            -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename)
-            vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
-            vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
-            vim.keymap.set("n", "gr", vim.lsp.buf.references)
-            vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition)
+        vim.api.nvim_create_autocmd("LspAttach", {
+            callback = function(args)
+                local bufnr = args.buf
+                local opts = function(desc)
+                    return { buffer = bufnr, noremap = true, silent = true, desc = desc }
+                end
+                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts("gD"))
+                vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts("gi"))
+                vim.keymap.set("n", "gr", vim.lsp.buf.references, opts("gr"))
+                vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts("<space>D"))
 
-            ------------ reemplazos de lsp saga -----------------------
-            vim.keymap.set("n", "<C-<kPoint>>", ":Lspsaga code_action<cr>")
-            vim.keymap.set("n", "gd", ":Lspsaga goto_definition<cr>", mapsOpts)
-            vim.keymap.set("n", "K", ":Lspsaga hover_doc<cr>", mapsOpts)
-            vim.keymap.set("n", "<space>rn", ":Lspsaga rename<cr>", mapsOpts)
-        end
+                ------------ reemplazos de lsp saga -----------------------
+                vim.keymap.set("n", "<C-<kPoint>>", ":Lspsaga code_action<cr>")
+                vim.keymap.set("n", "gd", ":Lspsaga goto_definition<cr>", mapsOpts)
+                vim.keymap.set("n", "K", ":Lspsaga hover_doc<cr>", mapsOpts)
+                vim.keymap.set("n", "<space>rn", ":Lspsaga rename<cr>", mapsOpts)
+            end,
+        })
+
         ----------- nuevo para suprimir las advertencias virtual tex
         vim.diagnostic.config({
             virtual_text = true,
@@ -61,14 +42,11 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
-        lspconfig["omnisharp"].setup({
+        vim.lsp.config("*", {
             capabilities = capabilities,
-            on_attach = on_attach,
         })
 
-        lspconfig["emmet_ls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+        vim.lsp.config("emmet_ls", {
             filetypes = {
                 "css",
                 "eruby",
@@ -92,112 +70,43 @@ return {
             },
         })
 
-        lspconfig["intelephense"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        vim.lsp.config("angularls", {})
 
-        lspconfig["angularls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            -- filetypes = { "typescript", "html", "typescriptreact", "typescript.tsx", "htmlangular" },
-        })
-
-        lspconfig["bufls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+        vim.lsp.config("buf_ls", {
             filetypes = { "proto" },
         })
 
-        lspconfig["sqlls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        vim.lsp.config("sqlls", {})
 
-        lspconfig["bashls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        vim.lsp.config("bashls", {})
 
-        lspconfig["docker_compose_language_service"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+        vim.lsp.config("docker_compose_language_service", {
             filetypes = { "yaml" },
         })
 
-        lspconfig["yamlls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+        vim.lsp.config("yamlls", {
             filetypes = { "yaml" },
         })
 
-        lspconfig["dockerls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        vim.lsp.config("dockerls", {})
 
-        lspconfig["html"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+        vim.lsp.config("html", {
             filetypes = { "html" },
         })
 
-        lspconfig["cssls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        vim.lsp.config("cssls", {})
 
-        lspconfig["tsserver"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            -- init_options = {
-            -- 	hostInfo = "neovim",
-            -- },
-            -- on_new_config = function(new_config, new_root_dir)
-            -- 	local local_ts = new_root_dir .. "/node_modules/typescript/lib"
-            -- 	if vim.fn.filereadable(local_ts .. "/tsserverlibrary.js") == 1 then
-            -- 		new_config.init_options.tsserver = {
-            -- 			path = local_ts,
-            -- 		}
-            -- 	end
-            -- end,
-        })
+        vim.lsp.config("ts_ls", {})
 
-        lspconfig["clangd"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+        vim.lsp.config("clangd", {
             filetypes = { "c", "cpp" },
         })
 
-        lspconfig["jsonls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        vim.lsp.config("jsonls", {})
 
-        lspconfig["gopls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            cmd = { "gopls" },
-            filetypes = { "go", "gomod", "gowork", "gotml" },
-            settings = {
-                gopls = {
-                    completeUnimported = true,
-                    usePlaceholders = true,
-                    analyses = {
-                        unusedparams = true,
-                    },
-                },
-            },
-        })
+        vim.lsp.config("texlab", {})
 
-        lspconfig["texlab"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
-        lspconfig["lua_ls"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+        vim.lsp.config("lua_ls", {
             settings = {
                 Lua = {
                     diagnostics = {
@@ -213,9 +122,7 @@ return {
             },
         })
 
-        lspconfig["ltex"].setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+        vim.lsp.config("ltex", {
             filetypes = { "latex", "tex" },
             settings = {
                 ["ltex"] = {
@@ -223,6 +130,25 @@ return {
                     language = "es",
                 },
             },
+        })
+
+        vim.lsp.enable({
+            "emmet_ls",
+            "angularls",
+            "buf_ls",
+            "sqlls",
+            "bashls",
+            "docker_compose_language_service",
+            "yamlls",
+            "dockerls",
+            "html",
+            "cssls",
+            "ts_ls",
+            "clangd",
+            "jsonls",
+            "texlab",
+            "lua_ls",
+            "ltex",
         })
     end,
 }

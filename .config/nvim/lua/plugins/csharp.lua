@@ -7,6 +7,12 @@ return {
         "Tastyep/structlog.nvim", -- Optional, but highly recommended for debugging
     },
     config = function()
-        require("csharp").setup()
+        require("csharp").setup({
+            lsp = {
+                omnisharp = {
+                    cmd_path = vim.fn.stdpath("data") .. "/mason/packages/omnisharp/OmniSharp",
+                },
+            },
+        })
     end,
 }
