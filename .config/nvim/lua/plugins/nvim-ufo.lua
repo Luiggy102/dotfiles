@@ -8,5 +8,13 @@ return {
         provider_selector = function(bufnr, filetype, buftype)
             return { "treesitter", "indent" }
         end,
+        close_fold_kinds_for_ft = {
+            default = {},
+            cs = { "using_directive" },
+            typescript = { "import_statement" },
+            typescriptreact = { "import_statement" },
+            javascript = { "import_statement" },
+            javascriptreact = { "import_statement" },
+        },
     },
 }
