@@ -1,7 +1,7 @@
 ---
 "terminal:scroll_up_one_line": shift-up
-"terminal:scroll_down_one_line": shift-down
-"workspace:toggle_keybindings_page": none
-"terminal:expand_block_selection_above": none
 "terminal:expand_block_selection_below": none
 "workspace:toggle_agent_management_view": none
+"terminal:scroll_down_one_line": shift-down
+"terminal:expand_block_selection_above": none
+"workspace:toggle_keybindings_page": none
