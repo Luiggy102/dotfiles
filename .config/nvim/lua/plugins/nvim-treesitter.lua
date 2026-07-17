@@ -1,3 +1,4 @@
+-- resaltado de sintaxis e indentación basados en treesitter
 return {
     "nvim-treesitter/nvim-treesitter",
     branch = "master",

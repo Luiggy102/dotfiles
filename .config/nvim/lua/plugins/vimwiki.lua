@@ -1,3 +1,4 @@
+-- wiki personal / notas enlazadas dentro de nvim
 return {
     "vimwiki/vimwiki",
     dependencies = {

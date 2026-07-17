@@ -1,3 +1,4 @@
+-- ui mejorada para lsp (acciones, hover, definiciones, outline)
 return {
     "nvimdev/lspsaga.nvim",
     dependencies = {

@@ -1,3 +1,4 @@
+-- plegado (folding) de código mejorado
 return {
     "kevinhwang91/nvim-ufo",
     dependencies = {

@@ -1,3 +1,4 @@
+-- terminal integrada dentro de nvim
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0 }
     vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)

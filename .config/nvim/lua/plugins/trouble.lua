@@ -1,3 +1,4 @@
+-- lista bonita de diagnósticos, referencias y quickfix
 return {
     "folke/trouble.nvim",
     opts = {},

@@ -1,3 +1,4 @@
+-- definición de atajos <leader> mostrados en which-key
 local wk = require("which-key")
 return {
 	wk.register({

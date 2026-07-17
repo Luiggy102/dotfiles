@@ -1,3 +1,4 @@
+-- configuración de servidores lsp (go, web, c#, sql, latex, etc) y sus atajos
 return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },

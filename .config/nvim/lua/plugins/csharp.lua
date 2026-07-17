@@ -1,3 +1,4 @@
+-- soporte y debugging para C# (con omnisharp)
 return {
     "iabdelkareem/csharp.nvim",
     dependencies = {

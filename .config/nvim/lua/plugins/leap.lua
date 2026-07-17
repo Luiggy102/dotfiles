@@ -1,3 +1,4 @@
+-- navegación rápida en el buffer tipo salto (leap)
 return {
     -- "ggandor/leap.nvim",
     "https://codeberg.org/andyg/leap.nvim",

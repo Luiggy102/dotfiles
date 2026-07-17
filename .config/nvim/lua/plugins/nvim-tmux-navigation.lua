@@ -1,3 +1,4 @@
+-- navegación entre paneles de tmux y ventanas de nvim
 return {
     "alexghergh/nvim-tmux-navigation",
     opts = {

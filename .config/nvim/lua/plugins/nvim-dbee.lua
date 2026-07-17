@@ -1,3 +1,4 @@
+-- cliente de bases de datos dentro de nvim
 return {
     "kndndrj/nvim-dbee",
     dependencies = {

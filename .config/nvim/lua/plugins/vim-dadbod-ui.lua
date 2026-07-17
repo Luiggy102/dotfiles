@@ -1,3 +1,4 @@
+-- interfaz gráfica para dadbod (conexiones y consultas a bd)
 return {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {

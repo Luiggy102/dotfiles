@@ -1,3 +1,4 @@
+-- tema de colores tokyonight
 return {
     "folke/tokyonight.nvim",
     lazy = false,

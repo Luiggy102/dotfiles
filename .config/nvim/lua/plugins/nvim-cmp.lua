@@ -1,3 +1,4 @@
+-- motor de autocompletado (lsp, snippets, buffer, path, sql, etc)
 return {
     "hrsh7th/nvim-cmp",
     dependencies = {

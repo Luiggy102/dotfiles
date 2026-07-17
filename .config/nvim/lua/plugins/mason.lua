@@ -1,3 +1,4 @@
+-- gestor de instalación de lsp servers/herramientas
 return {
     "williamboman/mason.nvim",
     dependencies = {

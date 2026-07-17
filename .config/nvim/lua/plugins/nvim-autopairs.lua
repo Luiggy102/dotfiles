@@ -1,3 +1,4 @@
+-- autocierre de paréntesis, comillas, etc
 return {
     "windwp/nvim-autopairs",
     opts = {

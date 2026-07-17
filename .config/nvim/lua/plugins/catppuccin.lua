@@ -1,3 +1,4 @@
+-- tema de colores catppuccin
 return {
     "catppuccin/nvim",
     name = "catppuccin",

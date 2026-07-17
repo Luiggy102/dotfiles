@@ -1,3 +1,4 @@
+-- formateador de código automático al guardar
 return {
     "stevearc/conform.nvim",
     event = {

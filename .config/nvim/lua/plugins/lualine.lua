@@ -1,3 +1,4 @@
+-- barra de estado inferior
 return {
     "nvim-lualine/lualine.nvim",
     opts = {

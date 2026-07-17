@@ -1,3 +1,4 @@
+-- muestra la firma de la función mientras se escribe
 return {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy",

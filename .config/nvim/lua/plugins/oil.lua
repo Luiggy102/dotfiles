@@ -1,3 +1,4 @@
+-- explorador de archivos editable como un buffer
 return {
     "stevearc/oil.nvim",
     opts = {

@@ -1,3 +1,4 @@
+-- explorador de archivos en árbol lateral
 return {
     "nvim-tree/nvim-tree.lua",
     opts = {

@@ -1,3 +1,4 @@
+-- muestra popup con atajos de teclado disponibles
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",

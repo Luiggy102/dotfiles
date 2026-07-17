@@ -1,3 +1,4 @@
+-- soporte para compilar y ver documentos latex
 return {
     "lervag/vimtex",
     lazy = false, -- we don't want to lazy load VimTeX
