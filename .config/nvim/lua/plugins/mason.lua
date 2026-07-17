@@ -33,6 +33,8 @@ return {
                 "omnisharp",
                 -- emmet
                 "emmet_ls",
+                -- typescript/angular
+                "ts_ls",
             },
         })
     end,
