@@ -3,7 +3,7 @@ return {
     "nvim-lualine/lualine.nvim",
     opts = {
         options = {
-            icons_enabled = false,
+            icons_enabled = true,
             hide_filename_extension = false,
             -- los por defecto
             -- component_separators = { left = "", right = "" },
@@ -47,8 +47,8 @@ return {
 
             -- minimalista
             lualine_a = { "mode" },
-            lualine_b = {},
-            lualine_c = { { "buffers" } },
+            lualine_b = { 'branch', 'diff', 'diagnostics' },
+            lualine_c = { 'filename' },
             lualine_x = { { "filetype" } },
             lualine_y = {},
             lualine_z = {},

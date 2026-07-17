@@ -22,6 +22,10 @@ mapeado("n", "L", "<Cmd>bnext<CR>", optsBar)
 mapeado("n", "<C-w>", "<Cmd>bdelete<CR>")
 mapeado("n", "X", "<Cmd>b#<CR>", optsBar)
 
+-- bufferline (tabs)false
+mapeado("n", "<leader>bp", "<Cmd>BufferLinePick<CR>", optsBar)
+mapeado("n", "<leader>bc", "<Cmd>BufferLinePickClose<CR>", optsBar)
+
 -- plugins
 -- easy motion
 -- vim.cmd([[let g:EasyMotion_do_mapping = 0]])
