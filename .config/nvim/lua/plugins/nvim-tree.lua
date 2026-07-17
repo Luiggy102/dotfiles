@@ -1,5 +1,5 @@
 -- explorador de archivos en árbol lateral
-local saved_width = 30
+local saved_width = 45
 
 vim.api.nvim_create_autocmd("WinResized", {
     callback = function()
@@ -40,14 +40,17 @@ return {
         },
         view = {
             side = "right",
-            width = 30,
+            width = 45,
         },
         diagnostics = {
             enable = true,
         },
+        update_focused_file = {
+            enable = true,
+        },
         actions = {
             open_file = {
-                quit_on_open = true,
+                quit_on_open = false,
             },
         },
     },

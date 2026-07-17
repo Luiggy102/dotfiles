@@ -1,5 +1,5 @@
 -- interfaz gráfica para dadbod (conexiones y consultas a bd)
-local saved_width = 40
+local saved_width = 50
 
 vim.api.nvim_create_autocmd("WinResized", {
     callback = function()
@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("FileType", {
 return {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
-        { "tpope/vim-dadbod", lazy = true },
+        { "tpope/vim-dadbod",                     lazy = true },
         { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
     },
     cmd = {
@@ -33,8 +33,13 @@ return {
         "DBUIFindBuffer",
     },
     init = function()
+        vim.g.dbs = {
+            { name = 'BDGUIA',    url = vim.env.DBUI_URL_DB1 },
+            { name = 'BDFACTURA', url = vim.env.DBUI_URL_DB2 },
+        }
         vim.g.db_ui_use_nerd_fonts = 1
         vim.g.db_ui_win_position = "right"
-        vim.g.db_ui_winwidth = 40
+        vim.g.db_ui_winwidth = 50
+        vim.g.db_adapter_mssql = "sqlserver"
     end,
 }
