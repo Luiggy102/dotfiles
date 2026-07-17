@@ -1,5 +1,6 @@
 return {
-    require('nvim-tmux-navigation').setup{
+    "alexghergh/nvim-tmux-navigation",
+    opts = {
         keybindings = {
             left = "<C-h>",
             down = "<C-j>",
@@ -7,6 +8,6 @@ return {
             right = "<C-l>",
             -- last_active = "<C-\\>",
             next = "<C-Space>",
-        }
-    }
+        },
+    },
 }

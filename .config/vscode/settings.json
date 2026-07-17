@@ -5,7 +5,7 @@
 // Importar
 // xargs -a ~/.config/Code/User/extensions.list code --install-extension
 {
-     "workbench.colorTheme": "Aura Dark",
+     "workbench.colorTheme": "Quiet Light",
      "workbench.iconTheme": "vscode-icons",
      "workbench.editor.editorActionsLocation": "titleBar",
      "editor.lineNumbers": "relative",

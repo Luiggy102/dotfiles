@@ -12,11 +12,13 @@ end
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 return {
-    require("toggleterm").setup({
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
         open_mapping = [[<c-`>]],
         -- direction = "float",
         direction = "horizontal",
         -- direction = 'vertical',
         size = 5,
-    }),
+    },
 }
