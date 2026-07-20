@@ -3,13 +3,13 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
         -- lsp
-        "hrsh7th/cmp-nvim-lsp", -- para lsp
+        "hrsh7th/cmp-nvim-lsp",                                    -- para lsp
         -- otros
-        "saadparwaiz1/cmp_luasnip", -- para snippets
-        "hrsh7th/cmp-buffer", -- para los bufers
-        "hrsh7th/cmp-path", -- para rutas
-        "hrsh7th/cmp-cmdline", -- para los comandos
-        "kdheepak/cmp-latex-symbols", -- simbolos latex
+        "saadparwaiz1/cmp_luasnip",                                -- para snippets
+        "hrsh7th/cmp-buffer",                                      -- para los bufers
+        "hrsh7th/cmp-path",                                        -- para rutas
+        "hrsh7th/cmp-cmdline",                                     -- para los comandos
+        "kdheepak/cmp-latex-symbols",                              -- simbolos latex
         "https://github.com/kristijanhusak/vim-dadbod-completion", --db
     },
     config = function()
@@ -129,7 +129,7 @@ return {
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
                 { name = "path" },
-                { name = "buffer", keyword_lenght = 3 },
+                { name = "buffer",  keyword_lenght = 3 },
             }),
             formatting = {
                 fields = { "kind", "abbr", "menu" },

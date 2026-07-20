@@ -7,13 +7,14 @@ return {
     },
     opts = {
         formatters_by_ft = {
-            go = { "gofmt" },
             lua = { "stylua" },
-            cpp = { "clang-format " },
+            cpp = { "clang-format" },
         },
-        format_on_save = {
-            lsp_format = "fallback",
-            timeout_ms = 500,
-        },
+        format_on_save = function(bufnr)
+            if vim.bo[bufnr].filetype == "cs" then
+                return
+            end
+            return { lsp_format = "fallback", timeout_ms = 500 }
+        end,
     },
 }

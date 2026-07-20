@@ -9,6 +9,10 @@ mapeado("n", "<C-b>", ":DBUIToggle<cr>", optsBar)
 
 mapeado("i", "LL", "<Right>")
 
+-- ctrl+backspace: borrar palabra atrás (como en otros editores/terminales)
+mapeado("i", "<C-BS>", "<C-w>", optsBar)
+mapeado("i", "<C-h>", "<C-w>", optsBar)
+
 -- esc alternativo
 mapeado("i", "fj", "<esc>")
 mapeado("i", "jf", "<esc>")

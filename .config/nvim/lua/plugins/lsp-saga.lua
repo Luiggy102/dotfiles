@@ -10,7 +10,7 @@ return {
         lightbulb = { enable = false, sign = false },
         -- barra de simbolos
         symbol_in_winbar = {
-            enable = false,
+            enable = true,
             sign = true,
             virtual_text = true,
             priority = 100,
