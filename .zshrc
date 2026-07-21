@@ -116,6 +116,12 @@ bindkey '^s' fast_source
 #     print "404: ~/.zsh_aliases not found."
 # fi
 
+# Cargar variables de entorno
+if [ -f "$HOME/.zsh_env" ]; then
+  . "$HOME/.zsh_env"
+fi
+
+
 # What OS are we running?
 if [[ $(uname) == "Darwin" ]]; then
     source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
