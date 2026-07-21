@@ -5,9 +5,9 @@ require("mapeados")
 -- manejador de paquetes
 require("lazy_nvim")
 -- esquema de color
-vim.cmd("colorscheme catppuccin")
+-- vim.cmd("colorscheme catppuccin")
 -- vim.cmd("colorscheme oxocarbon")
--- vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme tokyonight")
 
 -- para sintaxis angular
 vim.cmd([[

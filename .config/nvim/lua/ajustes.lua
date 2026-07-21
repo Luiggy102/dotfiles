@@ -13,6 +13,16 @@ vim.cmd([[autocmd BufRead,BufNewFile *.txt setlocal spell]])
 
 vim.cmd([[autocmd BufRead,BufNewFile *.dbout setlocal nonumber norelativenumber]])
 
+-- fix: en quickfix/loclist (ej. "grr" referencias lsp), <C-w> debe cerrar
+-- el split completo en vez de solo borrar el buffer (dejaba el pane
+-- vacío/duplicado abajo), mismo bug que el de vim-fugitive
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "qf",
+    callback = function(args)
+        vim.keymap.set("n", "<C-w>", "<Cmd>close<CR>", { buffer = args.buf, silent = true })
+    end,
+})
+
 -- vim.cmd([[nnoremap <LeftMouse> <LeftMouse>i]]) -- inset en el click del mouse
 
 -- generar diario VimWiki
