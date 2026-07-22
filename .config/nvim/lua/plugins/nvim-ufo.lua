@@ -15,6 +15,7 @@ return {
             typescriptreact = { "import_statement" },
             javascript = { "import_statement" },
             javascriptreact = { "import_statement" },
+            go = { "import_declaration" },
         },
     },
 }

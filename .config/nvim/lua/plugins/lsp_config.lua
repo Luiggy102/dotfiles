@@ -107,7 +107,9 @@ return {
             },
         })
 
-
+        vim.lsp.config("gopls", {
+            cmd = { "/usr/bin/gopls" }, -- `which gopls` -- `sudo dnf install gopls`
+        })
 
         vim.lsp.config("clangd", {
             filetypes = { "c", "cpp" },
@@ -160,6 +162,7 @@ return {
             "texlab",
             "lua_ls",
             "ltex",
+            "gopls"
         })
     end,
 }
