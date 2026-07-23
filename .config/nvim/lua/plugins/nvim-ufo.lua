@@ -11,7 +11,7 @@ return {
         close_fold_kinds_for_ft = {
             default = {},
             cs = { "using_directive" },
-            typescript = { "import_statement" },
+            typescript = { "import_statement","array" },
             typescriptreact = { "import_statement" },
             javascript = { "import_statement" },
             javascriptreact = { "import_statement" },

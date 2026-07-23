@@ -9,7 +9,14 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
             cpp = { "clang-format" },
+            markdown = { "prettier" }, -- sudo npm i -g prettier
         },
+        format_on_save = function(bufnr)
+            if vim.bo[bufnr].filetype ~= "markdown" then
+                return
+            end
+            return { timeout_ms = 3000, lsp_format = "fallback" }
+        end,
         -- format_on_save = function(bufnr)
         --     if vim.bo[bufnr].filetype == "cs" then
         --         return
