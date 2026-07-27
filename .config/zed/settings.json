@@ -55,7 +55,7 @@
           "toolbar": {
                "breadcrumbs": false
           },
-          "dock": "right",
+          "dock": "bottom",
           "button": false
      },
      "status_bar": {

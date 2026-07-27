@@ -39,7 +39,7 @@ return {
             },
         },
         view = {
-            side = "right",
+            side = "left",
             width = 45,
         },
         diagnostics = {
