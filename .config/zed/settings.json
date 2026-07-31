@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+     "disable_ai": false,
      "format_on_save": "on",
      "agent_servers": {
           "claude-acp": {
@@ -171,6 +172,6 @@
      "theme": {
           "mode": "dark",
           "light": "Ayu Light",
-          "dark": "Oxocarbon Dark (Variant I)",
+          "dark": "Catppuccin Frappé",
      },
 }

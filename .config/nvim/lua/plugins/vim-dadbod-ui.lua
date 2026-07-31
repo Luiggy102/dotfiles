@@ -1,5 +1,5 @@
 -- interfaz gráfica para dadbod (conexiones y consultas a bd)
-local saved_width = 50
+local saved_width = 45
 
 vim.api.nvim_create_autocmd("WinResized", {
     callback = function()
@@ -39,7 +39,7 @@ return {
         }
         vim.g.db_ui_use_nerd_fonts = 1
         vim.g.db_ui_win_position = "left"
-        vim.g.db_ui_winwidth = 50
+        vim.g.db_ui_winwidth = 45
         vim.g.db_adapter_mssql = "sqlserver"
     end,
 }
