@@ -65,6 +65,7 @@ return {
             { "<leader>pc", ":Gitsigns prev_hunk<cr>", desc = "cambio" },
             { "<leader>pd", ":Lspsaga diagnostic_jump_prev<cr>", desc = "diagnostico" },
             { "<leader>r", group = "ejecutar código  " },
+            { "<leader>re", ":lua require('kulala').set_selected_env()<cr>", desc = "kulala: seleccionar entorno" },
             { "<leader>ro", ":w<cr>:!go run %<cr>", desc = "golang" },
             { "<leader>s", ":Telescope lsp_document_symbols<cr>", desc = "lsp symbols  " },
             { "<leader>t", ":Telescope colorscheme<cr>", desc = "color  " },

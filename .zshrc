@@ -142,7 +142,7 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 autoload -U compinit; compinit
 # fastfetch
-# export PATH="$PATH:/opt/mssql-tools18/bin"
+export PATH="$PATH:/opt/mssql-tools18/bin"
 export PATH="$PATH:/opt/mssql-tools/bin"
 
 

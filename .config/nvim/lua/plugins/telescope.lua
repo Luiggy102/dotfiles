@@ -16,6 +16,7 @@ return {
                 },
                 border = true,
                 sorting_strategy = "ascending",
+                -- previewer = false,
                 -- sorting_strategy = "descending",
                 layout_config = {
                     prompt_position = "top",
@@ -32,6 +33,10 @@ return {
             },
             pickers = {
                 -- find_files = { theme = "dropdown" },
+            find_files = {
+            -- theme = "dropdown",
+                    -- previewer = false,
+                },
                 -- oldfiles = { theme = "ivy", }
             },
             extensions = {
