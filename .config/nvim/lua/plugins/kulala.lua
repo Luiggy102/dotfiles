@@ -9,5 +9,9 @@ return {
     },
     opts = {
         global_keymaps = true,
+        ui = {
+            -- "split", "float"
+            display_mode = "float",
+        },
     },
 }
