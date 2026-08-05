@@ -42,13 +42,15 @@ return {
             extensions = {
                 file_browser = {
                     theme = "ivy",
-                    hidden = true,
+                      hidden = { file_browser = true, folder_browser = true },
+                      respect_gitignore = vim.fn.executable "fd" == 0,
                     -- disables netrw and use telescope-file-browser in its place
                     -- hijack_netrw = true,
                     mappings = {
                         ["i"] = {
                             -- your custom insert mode mappings
                             ["<esc>"] = false,
+                              ["<C-i>"] = fb_actions.toggle_hidden,
                         },
                         ["n"] = {
                             ["a"] = fb_actions.create,
