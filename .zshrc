@@ -159,3 +159,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # Added by Antigravity CLI installer
 export PATH="/home/ludwig/.local/bin:$PATH"
 export PATH="/home/ludwig/.local/bin:$PATH"
+
+# pipx 
+export PATH="$HOME/.local/bin:$PATH"
