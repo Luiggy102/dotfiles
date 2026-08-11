@@ -11,11 +11,12 @@ return {
         close_fold_kinds_for_ft = {
             default = {},
             cs = { "using_directive" },
-            typescript = { "import_statement","array" },
+            typescript = { "import_statement", "array" },
             typescriptreact = { "import_statement" },
             javascript = { "import_statement" },
             javascriptreact = { "import_statement" },
-            go = { "import_declaration"},
+            go = { "import_declaration" },
+            markdown = { "fenced_code_block" },
         },
     },
 }

@@ -88,6 +88,10 @@ return {
             filetypes = { "yaml" },
         })
 
+        vim.lsp.config("marksman", {
+            filetypes = { "markdown" },
+        })
+
         vim.lsp.config("dockerls", {})
 
         vim.lsp.config("html", {

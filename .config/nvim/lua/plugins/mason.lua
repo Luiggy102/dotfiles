@@ -35,6 +35,8 @@ return {
                 "emmet_ls",
                 -- typescript/angular
                 "ts_ls",
+                -- Markdown
+                "marksman"
             },
         })
     end,

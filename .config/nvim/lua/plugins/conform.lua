@@ -12,7 +12,7 @@ return {
             markdown = { "prettier" }, -- sudo npm i -g prettier
         },
         format_on_save = function(bufnr)
-            if vim.bo[bufnr].filetype ~= "markdown" then
+            if vim.bo[bufnr].filetype == "cs" then
                 return
             end
             return { timeout_ms = 3000, lsp_format = "fallback" }
