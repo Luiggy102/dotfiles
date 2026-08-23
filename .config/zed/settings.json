@@ -170,8 +170,8 @@
      "ui_font_family": "Iosevka Nerd Font Mono",
      "buffer_font_size": 16,
      "theme": {
-          "mode": "dark",
-          "light": "Ayu Light",
+          "mode": "light",
+          "light": "One Light",
           "dark": "Catppuccin Mocha",
      },
 }

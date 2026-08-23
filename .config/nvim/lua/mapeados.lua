@@ -39,6 +39,10 @@ mapeado("n", "<leader>bc", "<Cmd>BufferLinePickClose<CR>", optsBar)
 -- oil nvim
 mapeado("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
+-- leap
+mapeado({ 'n', 'x', 'o' }, 's', '<Plug>(leap)')
+mapeado('n', 'S', '<Plug>(leap-from-window)')
+
 -- nvim telescrope filebrowser
 mapeado("n", "<C-f>", ":Telescope file_browser path=%:p:h select_buffer=true<cr>", optsBar)
 -- mapeado("n", "<C-n>", ":Telescope file_browser path=%:p:h select_buffer=true<cr>", optsBar)

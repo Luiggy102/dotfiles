@@ -36,6 +36,7 @@ return {
         vim.g.dbs = {
             { name = 'BDGUIA',    url = vim.env.DBUI_URL_DB1 },
             { name = 'BDFACTURA', url = vim.env.DBUI_URL_DB2 },
+            { name = 'BDRRHH',    url = vim.env.DBUI_URL_DB3 },
         }
         vim.g.db_ui_use_nerd_fonts = 1
         vim.g.db_ui_win_position = "left"

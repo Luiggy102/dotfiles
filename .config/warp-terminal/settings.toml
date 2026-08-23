@@ -2,7 +2,10 @@
 
 [appearance.themes]
 system_theme = true
-selected_system_themes = { dark = "dark", light = "light" }
+selected_system_themes = {
+  dark = { custom = { name = "Tokyo Night", path = "warp-tokyo-night/tokyo_night.yml" } },
+  light = "light",
+}
 
 [appearance.vertical_tabs]
 enabled = false
