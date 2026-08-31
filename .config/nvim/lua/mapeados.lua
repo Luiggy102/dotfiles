@@ -17,6 +17,19 @@ mapeado("i", "<C-h>", "<C-w>", optsBar)
 mapeado("i", "fj", "<esc>")
 mapeado("i", "jf", "<esc>")
 
+-- PHP: ->
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "php",
+    callback = function(ev)
+        vim.keymap.set("i", "--", function()
+            vim.api.nvim_put({ "->" }, "c", false, true) -- inserta ->
+            vim.schedule(function()
+                require("cmp").complete()
+            end)
+        end, { buffer = ev.buf, silent = true })
+    end,
+})
+
 -- pundo y coma rápido
 mapeado("n", "<leader>;", "$a;<esc>", optsBar)
 
