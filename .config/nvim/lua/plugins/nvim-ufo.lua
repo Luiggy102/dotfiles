@@ -19,6 +19,7 @@ return {
             javascript = { "import_statement" },
             javascriptreact = { "import_statement" },
             go = { "import_declaration" },
+            php = { "namespace_use_declaration" },
             markdown = { "fenced_code_block" },
         },
     },
