@@ -30,6 +30,25 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- checkbox
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'markdown',
+    callback = function(args)
+        vim.keymap.set('n', '<CR>', function()
+            local line = vim.api.nvim_get_current_line()
+            if line:match('%[ %]') then
+                vim.api.nvim_set_current_line((line:gsub('%[ %]', '[x]', 1)))
+            elseif line:match('%[[xX]%]') then
+                vim.api.nvim_set_current_line((line:gsub('%[[xX]%]', '[ ]', 1)))
+            else
+                -- comportamiento normal de <CR>: baja a la primera columna no blanca de la siguiente línea
+                vim.cmd('normal! +')
+            end
+        end, { buffer = args.buf, desc = 'Toggle checkbox / default <CR>' })
+    end,
+})
+
+
 -- pundo y coma rápido
 mapeado("n", "<leader>;", "$a;<esc>", optsBar)
 
